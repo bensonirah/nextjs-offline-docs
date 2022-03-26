@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Next.js Blog]]></title>
+        <description><![CDATA[Next.js Blog]]></description>
+        <link>https://nextjs.org</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Sat, 26 Mar 2022 01:33:11 GMT</lastBuildDate>
+        <atom:link href="https://nextjs.org/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Next.js 12.1]]></title>
+            <description><![CDATA[Next.js 12.1 introduces on-demand ISR, support for styled-components and Relay, zero-config Jest support, and more!]]></description>
+            <link>https://nextjs.org/blog/next-12-1</link>
+            <guid isPermaLink="false">/blog/next-12-1</guid>
+            <pubDate>Thu, 17 Feb 2022 16:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Tobias Koppers</name>
+            </author>
+            <author>
+                <name>DongYoon Kang</name>
+            </author>
+            <author>
+                <name>Maia Teegarden</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+            <author>
+                <name>Steven</name>
+            </author>
+            <author>
+                <name>Jiachi Liu</name>
+            </author>
+            <author>
+                <name>Javi Velasco</name>
+            </author>
+            <author>
+                <name>Kara Erickson</name>
+            </author>
+            <author>
+                <name>Gerald Monaco</name>
+            </author>
+            <author>
+                <name>Balázs Orbán</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Announcing the Improved Next.js Discord Community]]></title>
+            <description><![CDATA[Including brand new member onboarding, new channels to find jobs, additional resources, a custom Discord bot, and more!]]></description>
+            <link>https://nextjs.org/blog/discord</link>
+            <guid isPermaLink="false">/blog/discord</guid>
+            <pubDate>Tue, 30 Nov 2021 19:00:00 GMT</pubDate>
+            <author>
+                <name>Lee Robinson</name>
+            </author>
+            <author>
+                <name>Hassan El Mghari</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 12]]></title>
+            <description><![CDATA[Next.js 12 introduces a brand-new Rust compiler, Middleware (beta), React 18 Support, Native ESM Support, URL Imports, React Server Components (alpha), and more!]]></description>
+            <link>https://nextjs.org/blog/next-12</link>
+            <guid isPermaLink="false">/blog/next-12</guid>
+            <pubDate>Tue, 26 Oct 2021 16:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Tobias Koppers</name>
+            </author>
+            <author>
+                <name>DongYoon Kang</name>
+            </author>
+            <author>
+                <name>Maia Teegarden</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+            <author>
+                <name>Steven</name>
+            </author>
+            <author>
+                <name>Jiachi Liu</name>
+            </author>
+            <author>
+                <name>Javi Velasco</name>
+            </author>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>Kara Erickson</name>
+            </author>
+            <author>
+                <name>Gerald Monaco</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 11.1]]></title>
+            <description><![CDATA[Next.js 11.1 introduces an important security patch, ES Modules support, performance improvements, Rust-based tooling, 2x faster data fetching when pre-rendering, and more!]]></description>
+            <link>https://nextjs.org/blog/next-11-1</link>
+            <guid isPermaLink="false">/blog/next-11-1</guid>
+            <pubDate>Wed, 11 Aug 2021 16:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Tobias Koppers</name>
+            </author>
+            <author>
+                <name>DongYoon Kang</name>
+            </author>
+            <author>
+                <name>Maia Teegarden</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+            <author>
+                <name>Steven</name>
+            </author>
+            <author>
+                <name>Jiachi Liu</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 11]]></title>
+            <description><![CDATA[Next.js 11 continues our mission to create the best developer experience with a new conformance system and performance improvements.]]></description>
+            <link>https://nextjs.org/blog/next-11</link>
+            <guid isPermaLink="false">/blog/next-11</guid>
+            <pubDate>Tue, 15 Jun 2021 16:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Tobias Koppers</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+            <author>
+                <name>Dale Bustad</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 10.2]]></title>
+            <description><![CDATA[Next.js 10.2 introduces performance improvements (faster builds, refresh, and startup), improved accessibility, Automatic Webfont Optimization, and more!]]></description>
+            <link>https://nextjs.org/blog/next-10-2</link>
+            <guid isPermaLink="false">/blog/next-10-2</guid>
+            <pubDate>Wed, 28 Apr 2021 14:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Tobias Koppers</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+            <author>
+                <name>Dale Bustad</name>
+            </author>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 10.1]]></title>
+            <description><![CDATA[Next.js 10.1 introduces 3x faster refresh, 58% smaller install size, 56% less dependencies, WebAssembly Image Optimization, improved next/image support, and more!]]></description>
+            <link>https://nextjs.org/blog/next-10-1</link>
+            <guid isPermaLink="false">/blog/next-10-1</guid>
+            <pubDate>Mon, 29 Mar 2021 14:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Belén Curcio</name>
+            </author>
+            <author>
+                <name>Steven</name>
+            </author>
+            <author>
+                <name>Lee Robinson</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+            <author>
+                <name>Dale Bustad</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Building Forms with Next.js]]></title>
+            <description><![CDATA[Learn how to build a performant, accessible form with Next.js while teaching best practices for HTML & React forms along the way.]]></description>
+            <link>https://nextjs.org/blog/forms</link>
+            <guid isPermaLink="false">/blog/forms</guid>
+            <pubDate>Wed, 03 Feb 2021 19:00:00 GMT</pubDate>
+            <author>
+                <name>Lee Robinson</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Incrementally Adopting Next.js]]></title>
+            <description><![CDATA[Learn different strategies for incrementally adopting Next.js into your development workflow.]]></description>
+            <link>https://nextjs.org/blog/incremental-adoption</link>
+            <guid isPermaLink="false">/blog/incremental-adoption</guid>
+            <pubDate>Wed, 18 Nov 2020 14:00:00 GMT</pubDate>
+            <author>
+                <name>Lee Robinson</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Markdown/MDX with Next.js]]></title>
+            <description><![CDATA[This guide will explain different ways to use Markdown and MDX with Next.js.]]></description>
+            <link>https://nextjs.org/blog/markdown</link>
+            <guid isPermaLink="false">/blog/markdown</guid>
+            <pubDate>Tue, 17 Nov 2020 18:00:00 GMT</pubDate>
+            <author>
+                <name>Lee Robinson</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 10]]></title>
+            <description><![CDATA[Next.js 10 introduces Built-in Image Optimization, Internationalized Routing, Next.js Analytics, React 17 Support, and more!]]></description>
+            <link>https://nextjs.org/blog/next-10</link>
+            <guid isPermaLink="false">/blog/next-10</guid>
+            <pubDate>Tue, 27 Oct 2020 14:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Shu Uesugi</name>
+            </author>
+            <author>
+                <name>Belén Curcio</name>
+            </author>
+            <author>
+                <name>Steven</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.5]]></title>
+            <description><![CDATA[Next.js 9.5 introduces Stable Incremental Static Regeneration, Custom Base Path, Redirects and Rewrites, Webpack 5 Beta, and more!]]></description>
+            <link>https://nextjs.org/blog/next-9-5</link>
+            <guid isPermaLink="false">/blog/next-9-5</guid>
+            <pubDate>Mon, 27 Jul 2020 16:23:33 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Shu Uesugi</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.4]]></title>
+            <description><![CDATA[Next.js 9.4 introduces React Fast Refresh, Incremental Static Regeneration, New Environment Support, Built-in Fetch, and more!]]></description>
+            <link>https://nextjs.org/blog/next-9-4</link>
+            <guid isPermaLink="false">/blog/next-9-4</guid>
+            <pubDate>Mon, 11 May 2020 15:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Shu Uesugi</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.3]]></title>
+            <description><![CDATA[Next.js 9.3 introduces new static-site generation improvements, native support for SCSS, reduced bundle sizes, static 404 pages, and more!]]></description>
+            <link>https://nextjs.org/blog/next-9-3</link>
+            <guid isPermaLink="false">/blog/next-9-3</guid>
+            <pubDate>Mon, 09 Mar 2020 18:50:27 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Shu Uesugi</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.2]]></title>
+            <description><![CDATA[Next.js 9.2 introduces native support for CSS, aggressive code-splitting, catch-all dynamic routes, and more!]]></description>
+            <link>https://nextjs.org/blog/next-9-2</link>
+            <guid isPermaLink="false">/blog/next-9-2</guid>
+            <pubDate>Wed, 15 Jan 2020 19:37:43 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[New Next.js Documentation]]></title>
+            <description><![CDATA[We're excited to announce the new Next.js documentation, with new content, search, API reference and more.]]></description>
+            <link>https://nextjs.org/blog/new-documentation</link>
+            <guid isPermaLink="false">/blog/new-documentation</guid>
+            <pubDate>Thu, 09 Jan 2020 13:45:38 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.1.7]]></title>
+            <description><![CDATA[Next.js 9.1.7 improves upon a solid foundation, improving the enterprise-ready 9.1 release-channel. Upgrade for smaller client-side JavaScript bundles, redesigned CLI output, faster FCP/TTI, and more!]]></description>
+            <link>https://nextjs.org/blog/next-9-1-7</link>
+            <guid isPermaLink="false">/blog/next-9-1-7</guid>
+            <pubDate>Mon, 06 Jan 2020 15:45:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Introducing Create Next App]]></title>
+            <description><![CDATA[We're delighted today to introduce the new Create Next App. Create Next App sets up a modern React application powered by Next.js in one command.]]></description>
+            <link>https://nextjs.org/blog/create-next-app</link>
+            <guid isPermaLink="false">/blog/create-next-app</guid>
+            <pubDate>Wed, 09 Oct 2019 15:02:30 GMT</pubDate>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.1]]></title>
+            <description><![CDATA[Next.js 9.1 leverages convention to support more project structures by default. Additionally, we're previewing new feature support such as CSS imports, advanced bundling, and static error pages.]]></description>
+            <link>https://nextjs.org/blog/next-9-1</link>
+            <guid isPermaLink="false">/blog/next-9-1</guid>
+            <pubDate>Mon, 07 Oct 2019 18:59:19 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9.0.7]]></title>
+            <description><![CDATA[Next.js 9.0 was released approximately two months ago. Since then, we’ve been busy with 7 smaller but quite important releases. Let’s dive into what these releases have brought to your websites and applications, with absolutely no breaking changes.]]></description>
+            <link>https://nextjs.org/blog/next-9-0-7</link>
+            <guid isPermaLink="false">/blog/next-9-0-7</guid>
+            <pubDate>Mon, 30 Sep 2019 14:47:09 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Lukáš Huvar</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 9]]></title>
+            <description><![CDATA[Next.js 9 includes TypeScript support, Dynamic Routing, API Routes, Automatic Static Optimization, and more!]]></description>
+            <link>https://nextjs.org/blog/next-9</link>
+            <guid isPermaLink="false">/blog/next-9</guid>
+            <pubDate>Mon, 08 Jul 2019 07:00:00 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Lukáš Huvar</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 8.1]]></title>
+            <description><![CDATA[Next.js 8.1 introduces AMP support on a per-page basis, allowing incremental adoption of AMP.]]></description>
+            <link>https://nextjs.org/blog/next-8-1</link>
+            <guid isPermaLink="false">/blog/next-8-1</guid>
+            <pubDate>Tue, 16 Apr 2019 21:41:57 GMT</pubDate>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 8.0.4]]></title>
+            <description><![CDATA[Next.js 8.0.4 introduces build performance improvements, smaller bundles, stonger defaults, and more]]></description>
+            <link>https://nextjs.org/blog/next-8-0-4</link>
+            <guid isPermaLink="false">/blog/next-8-0-4</guid>
+            <pubDate>Tue, 02 Apr 2019 01:35:45 GMT</pubDate>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>JJ Kasper</name>
+            </author>
+            <author>
+                <name>Joe Haddad</name>
+            </author>
+            <author>
+                <name>Luis Alvarez</name>
+            </author>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Styling Next.js with Styled JSX]]></title>
+            <description><![CDATA[Styled JSX is a CSS-in-JS library that allows you to write encapsulated and scoped CSS to style your components. This blog post will help you get started with using Styled JSX in Next.js.]]></description>
+            <link>https://nextjs.org/blog/styling-next-with-styled-jsx</link>
+            <guid isPermaLink="false">/blog/styling-next-with-styled-jsx</guid>
+            <pubDate>Thu, 28 Mar 2019 12:50:30 GMT</pubDate>
+            <author>
+                <name>Kristian Heruc</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 8 Webpack Memory Improvements]]></title>
+            <description><![CDATA[Recently Next.js 8 was introduced. The release included a massive build-time memory usage reduction. This blog post will explore how we have helped optimize webpack for the community.]]></description>
+            <link>https://nextjs.org/blog/webpack-memory</link>
+            <guid isPermaLink="false">/blog/webpack-memory</guid>
+            <pubDate>Tue, 19 Feb 2019 14:00:00 GMT</pubDate>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 8]]></title>
+            <description><![CDATA[Next.js 8 introduces Serverless Mode, smaller bundles, performance improvements, and more]]></description>
+            <link>https://nextjs.org/blog/next-8</link>
+            <guid isPermaLink="false">/blog/next-8</guid>
+            <pubDate>Mon, 11 Feb 2019 08:00:35 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Connor Davis</name>
+            </author>
+            <author>
+                <name>Shu Ding</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 7]]></title>
+            <description><![CDATA[After 26 canary releases and 3.4 million downloads, we are proud to introduce the production-ready Next.js 7]]></description>
+            <link>https://nextjs.org/blog/next-7</link>
+            <guid isPermaLink="false">/blog/next-7</guid>
+            <pubDate>Wed, 19 Sep 2018 12:16:59 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 6.1]]></title>
+            <description><![CDATA[Next.js 6.1 features improved reliability and consistency in development]]></description>
+            <link>https://nextjs.org/blog/next-6-1</link>
+            <guid isPermaLink="false">/blog/next-6-1</guid>
+            <pubDate>Wed, 27 Jun 2018 19:50:15 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 6 and Nextjs.org]]></title>
+            <description><![CDATA[Next.js 6 features zero-configuration static exports, App Component, Babel 7 and more]]></description>
+            <link>https://nextjs.org/blog/next-6</link>
+            <guid isPermaLink="false">/blog/next-6</guid>
+            <pubDate>Wed, 16 May 2018 21:04:04 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Arunoda Susiripala</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 5.1: Faster Page Resolution, Environment Config & More]]></title>
+            <description><![CDATA[Next.js 5.1 features support for environment configuration, phases, source maps, and new Next.js plugins.]]></description>
+            <link>https://nextjs.org/blog/next-5-1</link>
+            <guid isPermaLink="false">/blog/next-5-1</guid>
+            <pubDate>Mon, 26 Mar 2018 17:29:45 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Arunoda Susiripala</name>
+            </author>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 5: Universal Webpack, CSS Imports, Plugins and Zones]]></title>
+            <description><![CDATA[Next.js 5 focuses on greater extensibility, composability for large applications and performance]]></description>
+            <link>https://nextjs.org/blog/next-5</link>
+            <guid isPermaLink="false">/blog/next-5</guid>
+            <pubDate>Mon, 05 Feb 2018 19:10:43 GMT</pubDate>
+            <author>
+                <name>Tim Neutkens</name>
+            </author>
+            <author>
+                <name>Arunoda Susiripala</name>
+            </author>
+        </item>
+    </channel>
+</rss>

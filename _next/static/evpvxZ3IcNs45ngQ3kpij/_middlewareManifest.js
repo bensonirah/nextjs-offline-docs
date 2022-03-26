@@ -1,0 +1,1 @@
+self.__MIDDLEWARE_MANIFEST=[["\u002Fconf\u002Fadmin",false]];self.__MIDDLEWARE_MANIFEST_CB&&self.__MIDDLEWARE_MANIFEST_CB()

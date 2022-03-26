@@ -1,0 +1,1570 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from nextjs.org/case-studies/hulu by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Mar 2022 13:06:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><script>
+var doc = document.documentElement;
+function calcVh() { doc.style.setProperty('--100vh', window.innerHeight + 'px'); }
+window.addEventListener('resize', calcVh);
+calcVh();
+    </script><title>Case Study - Hulu | Next.js</title><meta name="twitter:site" content="@vercel"/><meta name="twitter:card" content="summary_large_image"/><meta property="og:title" content="Case Study - Hulu | Next.js"/><meta property="og:url" content="https://nextjs.org/case-studies/hulu"/><meta name="description" content="Find out how Hulu migrated to Next.js by Vercel and modernized their frontend stack to ship code faster."/><meta property="og:description" content="Find out how Hulu migrated to Next.js by Vercel and modernized their frontend stack to ship code faster."/><meta property="og:image" content="https://nextjs.org/static/twitter-cards/hulu.png"/><meta name="keywords" content="React, Migrate to Next.js, web applications, migration"/><meta name="next-head-count" content="12"/><link rel="preload" href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png"/><link rel="manifest" href="../static/favicon/site.webmanifest"/><link rel="mask-icon" href="../static/favicon/safari-pinned-tab.svg" color="#000000"/><link rel="shortcut icon" href="../static/favicon/favicon.ico"/><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-config" content="/static/favicon/browserconfig.xml"/><meta name="theme-color" content="#fff"/><link rel="alternate" type="application/rss+xml" href="../feed.xml"/><link rel="preload" href="../_next/static/css/af31987a593817a5.css" as="style"/><link rel="stylesheet" href="../_next/static/css/af31987a593817a5.css" data-n-g=""/><link rel="preload" href="../_next/static/css/278320549fb84000.css" as="style"/><link rel="stylesheet" href="../_next/static/css/278320549fb84000.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="../_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="../_next/static/chunks/webpack-8bce99992a21d9e0.js" defer=""></script><script src="../_next/static/chunks/framework-66ccde3ce5a43e6d.js" defer=""></script><script src="../_next/static/chunks/main-6c1d5db8bb134c43.js" defer=""></script><script src="../_next/static/chunks/pages/_app-7b3174c092beca51.js" defer=""></script><script src="../_next/static/chunks/7582-e9862f068443dc4a.js" defer=""></script><script src="../_next/static/chunks/8579-ab202e9c706405cf.js" defer=""></script><script src="../_next/static/chunks/642-bdbb65ca609414d7.js" defer=""></script><script src="../_next/static/chunks/pages/case-studies/hulu-2d62b0f30e12772a.js" defer=""></script><script src="../_next/static/evpvxZ3IcNs45ngQ3kpij/_buildManifest.js" defer=""></script><script src="../_next/static/evpvxZ3IcNs45ngQ3kpij/_ssgManifest.js" defer=""></script><script src="../_next/static/evpvxZ3IcNs45ngQ3kpij/_middlewareManifest.js" defer=""></script><style id="__jsx-3a64d1ae4f0f7fab">.banner.jsx-3a64d1ae4f0f7fab{width:100%;
+background:#000;
+color:#fff;
+height:50px;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.inner.jsx-3a64d1ae4f0f7fab{width:100%;
+max-width:1024px;
+margin:0 auto;
+padding:0 1rem;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between}
+a.jsx-3a64d1ae4f0f7fab{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex}
+p.jsx-3a64d1ae4f0f7fab{color:#fff;
+margin:0;
+-webkit-transition:color 0.15s ease;
+transition:color 0.15s ease}
+@media (max-width:640px) {p.jsx-3a64d1ae4f0f7fab{font-size:14px}}</style><style id="__jsx-1325105755">div.jsx-1325105755{width:100%;
+margin:0 auto;
+padding:0 1rem;
+max-width: 1024px;
+            
+        text-align: center;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          }
+div.jsx-1325105755:after{content:'';
+display:table;
+clear:both}
+@media screen and (max-width:960px) {div.jsx-1325105755{padding:0 2rem;
+
+            }}
+@media screen and (max-width:640px) {div.jsx-1325105755{padding:0 1rem;
+
+            }}</style><style id="__jsx-b662909c11ef51ed">.btn.jsx-b662909c11ef51ed{position:relative;
+display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+cursor:pointer;
+-webkit-text-decoration:none;
+text-decoration:none;
+padding:0.25rem 0.5rem;
+margin:-0.25rem -0.5rem;
+border-radius:7px;
+color:#0070f3;
+background-color:transparent;
+border:none;
+font-size:inherit;
+line-height:inherit;
+-webkit-transition:background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+transition:background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+outline:none}
+.btn.jsx-b662909c11ef51ed:hover{color:#0070f3;
+background:rgba(0, 118, 255, 0.1)}
+.btn.invert.jsx-b662909c11ef51ed{margin:0;
+padding:0 3.5rem;
+height:2.81rem;
+line-height:2.8rem;
+border-radius:7px;
+background-color:#0070f3;
+box-shadow:0 4px 14px 0 rgba(0, 118, 255, 0.39);
+color:white}
+.btn.invert.jsx-b662909c11ef51ed:hover{background:rgba(0, 118, 255, 0.9);
+box-shadow:0 6px 20px rgba(0, 118, 255, 0.23)}
+.btn.invert.jsx-b662909c11ef51ed:active{background:#006ae6}
+.btn.invert.outline.jsx-b662909c11ef51ed{background:#fff;
+color:#696969;
+box-shadow:0 4px 14px 0 rgba(0, 0, 0, 0.1)}
+.btn.invert.outline.jsx-b662909c11ef51ed:hover{background:rgba(255, 255, 255, 0.9);
+box-shadow:0 6px 20px rgba(93, 93, 93, 0.23)}
+.btn.small.jsx-b662909c11ef51ed{font-size:0.875rem;
+height:1.5rem;
+padding:0 0.75rem;
+line-height:inherit;
+border-radius:5px}
+.btn.loading.jsx-b662909c11ef51ed{background:#fafafa;
+color:#888888;
+border:1px solid #000;
+border-color:#eaeaea;
+box-shadow:none;
+cursor:default;
+pointer-events:none}
+.btn.loading.jsx-b662909c11ef51ed>.text.jsx-b662909c11ef51ed{visibility:hidden}
+.btn.jsx-b662909c11ef51ed>.loading-dots.jsx-b662909c11ef51ed{position:absolute}</style><style id="__jsx-2562017125">svg.jsx-2562017125{width:22px;
+height:22px}</style><style id="__jsx-ec2f6914d5ee8fa4">nav.jsx-ec2f6914d5ee8fa4{position:relative;
+-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+height:80px;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.links.jsx-ec2f6914d5ee8fa4{width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+z-index:1}
+.links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4{-webkit-text-decoration:none;
+text-decoration:none;
+-webkit-transition:color 0.2s ease;
+transition:color 0.2s ease;
+margin-left:1rem}
+.links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4:hover{color:#000}
+.links.jsx-ec2f6914d5ee8fa4 a.selected.jsx-ec2f6914d5ee8fa4{color:#0070f3;
+text-shadow:0px 0px 1px #0070f3}
+.links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4:first-child{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+margin:0}
+a.icon.jsx-ec2f6914d5ee8fa4, a.icon.jsx-ec2f6914d5ee8fa4>div.container{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+-webkit-justify-content:center;
+justify-content:center}
+a.icon.jsx-ec2f6914d5ee8fa4>div.container{overflow:visible}
+.mobile-logo.jsx-ec2f6914d5ee8fa4, .mobile-top.jsx-ec2f6914d5ee8fa4{display:none}
+.header-feedback.jsx-ec2f6914d5ee8fa4{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex}
+.no-feedback.jsx-ec2f6914d5ee8fa4{visibility:hidden;
+min-width:1em}
+a.icon.icon.jsx-ec2f6914d5ee8fa4{margin-left:0}
+.learn.jsx-ec2f6914d5ee8fa4 a{background-color:rgba(0, 118, 255, 0.9);
+border:1px solid rgba(0, 118, 255, 0.9);
+color:#fff;
+padding:0.25rem 1rem;
+margin:0;
+font-weight:500}
+.learn.jsx-ec2f6914d5ee8fa4 a:focus, .learn.jsx-ec2f6914d5ee8fa4 a:hover{background-color:transparent;
+color:rgba(0, 118, 255, 0.9)}
+.menu-button.jsx-ec2f6914d5ee8fa4{margin-left:10px;
+display:none;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+cursor:pointer;
+-webkit-text-decoration:none;
+text-decoration:none;
+height:36px;
+width:36px;
+margin:0 -5px 0 5px;
+border-radius:7px;
+background-color:transparent;
+border:none;
+font-size:inherit;
+line-height:inherit;
+-webkit-tap-highlight-color:transparent;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+-webkit-touch-callout:none}
+@media (max-width:640px) {.mobile-top.jsx-ec2f6914d5ee8fa4{margin-bottom:0}
+.links.jsx-ec2f6914d5ee8fa4{display:none}
+.menu-button.jsx-ec2f6914d5ee8fa4{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}}
+@media (max-width:890px) {.mobile-logo.jsx-ec2f6914d5ee8fa4{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+nav.jsx-ec2f6914d5ee8fa4{height:unset;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:flex-start;
+-webkit-box-align:flex-start;
+-ms-flex-align:flex-start;
+align-items:flex-start;
+-webkit-box-pack:start;
+-ms-flex-pack:start;
+-webkit-justify-content:flex-start;
+justify-content:flex-start;
+padding:1rem 0}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 .logo.jsx-ec2f6914d5ee8fa4, nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 .learn.jsx-ec2f6914d5ee8fa4{display:none}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4{overflow-x:auto}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4{font-size:14px}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 a.icon.jsx-ec2f6914d5ee8fa4{margin-left:10px}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4:nth-child(2){margin:0}
+.mobile-top.jsx-ec2f6914d5ee8fa4{width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+margin-bottom:0.5rem}
+.mobile-top-right.jsx-ec2f6914d5ee8fa4{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.learn.jsx-ec2f6914d5ee8fa4{margin-right:0.5rem}}
+@media (max-width:1020px) {.header-feedback.jsx-ec2f6914d5ee8fa4{display:none}}</style><style id="__jsx-1931733896">header.jsx-1931733896{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-justify-content:space-around;
+justify-content:space-around;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+width:100%;
+background:white;
+z-index:1000;
+border-bottom: 1px solid #eaeaea;
+        }
+header.sticky.jsx-1931733896{position:-webkit-sticky;
+position:sticky;
+top:0}
+.mobile-menu-wrapper.jsx-1931733896{position:-webkit-sticky;
+position:sticky;
+top:80px;
+z-index:2000}</style><style id="__jsx-1bdda52191e68cd5">header.jsx-1bdda52191e68cd5{z-index:2;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+max-width:64rem;
+width:100%;
+padding:0 2rem;
+margin:2rem 0 0 0}
+a.jsx-1bdda52191e68cd5{color:#fff;
+-webkit-text-decoration:none;
+text-decoration:none;
+font-size:16px;
+text-shadow:0px 1px 4px rgba(0, 0, 0, 0.25);
+-webkit-transition:200ms ease-in-out;
+transition:200ms ease-in-out}
+a.jsx-1bdda52191e68cd5:not(:last-child){margin:0 1.5rem 0 0}
+a.jsx-1bdda52191e68cd5:hover{-webkit-text-decoration:none;
+text-decoration:none;
+opacity:0.7}
+@media screen and (max-width:640px) {nav.jsx-1bdda52191e68cd5{display:none}
+header.jsx-1bdda52191e68cd5{-webkit-justify-content:center;
+justify-content:center;
+padding:0 2rem}}
+@media screen and (max-width:1200px) {a.jsx-1bdda52191e68cd5{font-size:1.125rem}}</style><style id="__jsx-23e0167cf4a862f6">a.jsx-23e0167cf4a862f6, a.jsx-23e0167cf4a862f6:active, a.visited.jsx-23e0167cf4a862f6{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+outline:none}
+div.jsx-23e0167cf4a862f6{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+opacity:0.5;
+margin-bottom:1rem}
+.home.jsx-23e0167cf4a862f6>svg{-webkit-transform:scale(1.8);
+-moz-transform:scale(1.8);
+-ms-transform:scale(1.8);
+transform:scale(1.8)}
+.hulu.jsx-23e0167cf4a862f6>svg{height:25px}
+span.jsx-23e0167cf4a862f6{margin:0 1rem 0.3rem;
+opacity:0.5}</style><style id="__jsx-2c9897fddecfbe2">h1.jsx-2c9897fddecfbe2{line-height:1.2;
+font-size:5.5rem;
+margin:0}
+h2.jsx-2c9897fddecfbe2{line-height:1.2;
+margin:2rem 0}
+h4.jsx-2c9897fddecfbe2{margin:0 0 1.6rem}
+section.jsx-2c9897fddecfbe2{position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+color:#fff;
+overflow:hidden}
+section.jsx-2c9897fddecfbe2::before{z-index:1;
+content:'';
+bottom:0;
+width:100%;
+height:100%;
+position:absolute;
+background: linear-gradient(135deg, transparent 50%, #000 50%)}
+a.jsx-2c9897fddecfbe2{color:#fff;
+text-decoration:underline}
+.container.jsx-2c9897fddecfbe2{z-index:2;
+position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+width:100%}
+.img-hero.jsx-2c9897fddecfbe2{z-index:0;
+position:absolute;
+width:100%;
+height:100%;
+background: linear-gradient(
+              180deg,
+              rgba(51, 110, 107, 0.7) 0%,
+              rgba(44, 56, 94, 0.7) 51.79%,
+              rgba(35, 20, 55, 0.7) 100%
+            )}
+.title.jsx-2c9897fddecfbe2{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+margin:7rem 0 0}
+.title.jsx-2c9897fddecfbe2 span.jsx-2c9897fddecfbe2{display:block;
+font-size:1.5rem}
+.macbook.jsx-2c9897fddecfbe2{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+max-width:75%;
+margin:6rem 0}
+.macbook.jsx-2c9897fddecfbe2 img{border-radius:4px;
+box-shadow:0 30px 60px -12px rgba(0, 0, 0, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025)}
+.about.jsx-2c9897fddecfbe2{margin:0 0 12rem 32rem;
+padding:0 4rem 0 0}
+.about.jsx-2c9897fddecfbe2 p.jsx-2c9897fddecfbe2{max-width:30rem}
+@media screen and (max-width:1400px) {section.jsx-2c9897fddecfbe2::before{height:115%}}
+@media screen and (max-width:1080px) {section.jsx-2c9897fddecfbe2::before{height:120%}
+.macbook.jsx-2c9897fddecfbe2{margin:4rem 0}
+.about.jsx-2c9897fddecfbe2{margin:0 0 12rem 16rem}}
+@media screen and (max-width:640px) {h1.jsx-2c9897fddecfbe2{font-size:4rem}
+section.jsx-2c9897fddecfbe2::before{height:125%;
+background: linear-gradient(160deg, transparent 50%, #000 50%)}
+br.jsx-2c9897fddecfbe2{display:none}
+.title.jsx-2c9897fddecfbe2{margin:3rem 0 0}
+.about.jsx-2c9897fddecfbe2{padding:0 2rem;
+margin:0 0 4.5rem 0}
+.macbook.jsx-2c9897fddecfbe2{width:100%;
+margin:4rem 0 4rem;
+max-width:unset}}
+@media screen and (max-width:480px) {section.jsx-2c9897fddecfbe2::before{height:130%}}
+@media screen and (max-width:380px) {section.jsx-2c9897fddecfbe2::before{height:135%}}
+@media screen and (max-width:340px) {section.jsx-2c9897fddecfbe2::before{height:140%}}
+@media screen and (min-width:1800px) {.title.jsx-2c9897fddecfbe2{margin:12rem 0 0}
+.macbook.jsx-2c9897fddecfbe2{margin:20rem 0 12rem 0}
+section.jsx-2c9897fddecfbe2::before{height:100%;
+background: linear-gradient(155deg, transparent 50%, #000 50%)}}</style><style id="__jsx-3e9967b83bf75710">amp-img.jsx-3e9967b83bf75710{height:100%;
+width:100%}
+.container.jsx-3e9967b83bf75710{z-index:2;
+position:relative;
+margin:0 auto;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+max-width:1440px}
+.svg-container.jsx-3e9967b83bf75710{position:absolute;
+top:-13rem;
+width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center}
+.svg-container.jsx-3e9967b83bf75710>div{-webkit-flex-shrink:0;
+-ms-flex-negative:0;
+flex-shrink:0;
+width:100%;
+margin-right:38rem!important}
+@media screen and (max-width:760px) {.svg-container.jsx-3e9967b83bf75710 amp-img.jsx-3e9967b83bf75710{margin-right:28rem}}
+@media screen and (max-width:640px) {.svg-container.jsx-3e9967b83bf75710{display:none}}
+@media screen and (min-width:1440px) {.container.jsx-3e9967b83bf75710>amp-img.jsx-3e9967b83bf75710{border-radius:8px}}</style><style id="__jsx-412342275">div.jsx-412342275{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+width:80px;
+height:80px;
+background-color:#fff;
+border-radius:50%;
+box-shadow:0px 1px 5px rgba(0, 0, 0, 0.24)}</style><style id="__jsx-d933f9d817755aab">section.jsx-d933f9d817755aab{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+position:relative;
+background:#fff}
+section.jsx-d933f9d817755aab::before{z-index:1;
+content:'';
+top:0rem;
+width:100%;
+height:100%;
+position:absolute;
+background: linear-gradient(135deg, #000 50%, transparent 50%)}
+section.jsx-d933f9d817755aab p.jsx-d933f9d817755aab{margin:2rem 0}
+section.jsx-d933f9d817755aab .icon{margin-bottom:3rem}
+a.jsx-d933f9d817755aab{display:inline-block;
+-webkit-text-decoration:none;
+text-decoration:none;
+color:#fff}
+p.jsx-d933f9d817755aab a.jsx-d933f9d817755aab{text-decoration:underline}
+.container.jsx-d933f9d817755aab{position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+width:100%}
+.content.getting-started.jsx-d933f9d817755aab{max-width:34rem;
+margin:10rem 20rem 0 0;
+z-index:2}
+#read-more.jsx-d933f9d817755aab{color:#000;
+margin-bottom:3rem}
+.img-container.jsx-d933f9d817755aab{position:relative;
+z-index:3;
+max-width:64rem;
+width:100%;
+padding:0 4rem;
+margin:10rem 0 14rem}
+.zack.jsx-d933f9d817755aab{width:100%;
+box-shadow:0 30px 60px -12px rgba(0, 0, 0, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+border-radius:8px}
+.lightning-container.jsx-d933f9d817755aab{top:-250px;
+right:-72px;
+position:absolute;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+pointer-events:none}
+.button.jsx-d933f9d817755aab{display:block;
+margin-top:1rem}
+.corner-gradient.jsx-d933f9d817755aab{position:absolute;
+z-index:0;
+top:38rem;
+left:0;
+width:100%;
+height:30%;
+background: linear-gradient(
+                180deg,
+                #ffffff 0%,
+                rgba(255, 255, 255, 0) 164.16%
+              ),
+              #333333;
+-webkit-transform:rotate(180deg);
+-moz-transform:rotate(180deg);
+-ms-transform:rotate(180deg);
+transform:rotate(180deg)}
+@media screen and (max-width:1080px) {.lightning-container.jsx-d933f9d817755aab{width:50%}}
+@media screen and (max-width:960px) {.content.getting-started.jsx-d933f9d817755aab{margin:10rem 10rem 0 0}}
+@media screen and (max-width:640px) {section.jsx-d933f9d817755aab{-webkit-align-items:flex-start;
+-webkit-box-align:flex-start;
+-ms-flex-align:flex-start;
+align-items:flex-start}
+section.jsx-d933f9d817755aab::before{top:-6%;
+background: linear-gradient(160deg, #000 50%, transparent 50%)}
+.container.jsx-d933f9d817755aab .content.jsx-d933f9d817755aab, .container.jsx-d933f9d817755aab .content.getting-started.jsx-d933f9d817755aab{margin:6rem 0 0 0}
+.corner-gradient.jsx-d933f9d817755aab{display:none}
+.img-container.jsx-d933f9d817755aab{max-width:unset;
+padding:0 2rem;
+margin:6rem 0 7.5rem;
+width:100%}
+.lightning-container.jsx-d933f9d817755aab{top:-180px;
+width:80%}
+.next-container.jsx-d933f9d817755aab{display:none}
+.img-container.jsx-d933f9d817755aab>amp-img.jsx-d933f9d817755aab{position:relative;
+z-index:2}
+.lightning-container.jsx-d933f9d817755aab .icon{display:none}}
+@media screen and (max-width:380px) {section.jsx-d933f9d817755aab::before{top:-8%}}
+@media screen and (min-width:1100px) {.corner-gradient.jsx-d933f9d817755aab{top:34rem}}
+@media screen and (min-width:1400px) {.corner-gradient.jsx-d933f9d817755aab{top:28rem}}
+@media screen and (min-width:1600px) {.corner-gradient.jsx-d933f9d817755aab{top:20rem}}
+@media screen and (min-width:1800px) {.corner-gradient.jsx-d933f9d817755aab{top:10rem}}
+@media screen and (min-width:2000px) {.corner-gradient.jsx-d933f9d817755aab{top:0rem}}</style><style id="__jsx-e9ceca5e3615f4f9">section.jsx-e9ceca5e3615f4f9{background:#fff;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+overflow-x:hidden;
+padding:5rem 0 7rem}
+.wrapper.jsx-e9ceca5e3615f4f9{position:relative;
+z-index:1}
+.rings.jsx-e9ceca5e3615f4f9{position:absolute;
+z-index:-1;
+top:-8%;
+left:27%}
+@media screen and (max-width:860px) {section.jsx-e9ceca5e3615f4f9{overflow:hidden}
+.devices.jsx-e9ceca5e3615f4f9{position:relative;
+left:50%;
+-webkit-transform:translateX(-50%);
+-moz-transform:translateX(-50%);
+-ms-transform:translateX(-50%);
+transform:translateX(-50%)}
+.rings.jsx-e9ceca5e3615f4f9{display:none}}
+@media screen and (max-width:640px) {section.jsx-e9ceca5e3615f4f9{padding:3rem 0 5rem 0}}</style><style id="__jsx-d0f3a5c3b6a3e1e8">section.jsx-d0f3a5c3b6a3e1e8{position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+padding:5rem 2rem;
+background: linear-gradient(
+                180deg,
+                rgba(130, 130, 130, 0.18) 0%,
+                rgba(255, 255, 255, 0) 100%
+              ),
+              #ededed;
+border-top:1px solid rgba(0, 0, 0, 0.1);
+border-bottom:1px solid rgba(0, 0, 0, 0.1)}
+.container.jsx-d0f3a5c3b6a3e1e8{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-justify-content:center;
+justify-content:center;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+padding:4rem 3rem;
+background-color:#ffffff;
+border-radius:8px;
+box-shadow:0px 30px 60px rgba(0, 0, 0, 0.12)}
+.container.jsx-d0f3a5c3b6a3e1e8 p.jsx-d0f3a5c3b6a3e1e8{text-align:center;
+line-height:1.5;
+font-size:1.4rem;
+font-weight:500;
+margin:0 0 1.5rem 0;
+max-width:38rem}
+span.jsx-d0f3a5c3b6a3e1e8{text-align:center;
+font-size:0.75rem;
+font-weight:600;
+color:rgba(0, 0, 0, 0.4);
+letter-spacing:1.6px;
+text-transform:uppercase}
+p.jsx-d0f3a5c3b6a3e1e8:last-child{margin:3rem 0 0 0;
+text-align:center;
+max-width:32rem}
+@media screen and (max-width:640px) {.container.jsx-d0f3a5c3b6a3e1e8{padding:3.5rem 1.5rem}
+.container.jsx-d0f3a5c3b6a3e1e8 p.jsx-d0f3a5c3b6a3e1e8{max-width:unset;
+font-size:18px}
+p.jsx-d0f3a5c3b6a3e1e8:last-child{text-align:left;
+-webkit-align-self:flex-start;
+-ms-flex-item-align:flex-start;
+align-self:flex-start}}</style><style id="__jsx-6dcea2975e438932">section.jsx-6dcea2975e438932{position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+background-color:#fff;
+overflow:hidden}
+section.jsx-6dcea2975e438932::before{content:'';
+top:36rem;
+width:100%;
+height:100%;
+position:absolute;
+background: linear-gradient(135deg, transparent 50%, #1c1c1c 50%);
+z-index:1}
+h4.jsx-6dcea2975e438932{color:#aaa}
+p.jsx-6dcea2975e438932{max-width:35rem;
+margin:1rem 0}
+a.jsx-6dcea2975e438932{color:#000;
+text-decoration:underline}
+.ipad.jsx-6dcea2975e438932{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+max-width:1440px;
+width:70%;
+margin:0;
+padding:10rem 0}
+.img-engineers.jsx-6dcea2975e438932{position:relative;
+z-index:2;
+width:100%;
+max-width:56rem;
+margin:0 auto;
+border-radius:8px;
+box-shadow:0 30px 60px -12px rgba(0, 0, 0, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025)}
+.img-container.jsx-6dcea2975e438932{position:relative;
+padding:0 2rem;
+margin:7.5rem 0}
+.rings-container.jsx-6dcea2975e438932{position:absolute;
+z-index:1;
+top:-10rem;
+right:-11rem}
+.rings-container.jsx-6dcea2975e438932>svg{position:relative;
+z-index:0;
+width:100%}
+.content.top.jsx-6dcea2975e438932{padding:0rem 2rem;
+color:#000}
+.content.jsx-6dcea2975e438932{z-index:1}
+.quote.jsx-6dcea2975e438932{margin:4rem 0}
+.quote.jsx-6dcea2975e438932 p.jsx-6dcea2975e438932{font-size:1.4rem;
+font-weight:600;
+line-height:2rem;
+font-style:italic;
+margin:0 0 1.5rem 0}
+.quote.jsx-6dcea2975e438932 span.jsx-6dcea2975e438932{font-size:0.75rem;
+font-weight:600;
+color:rgba(0, 0, 0, 0.4);
+letter-spacing:1.6px;
+text-transform:uppercase}
+.corner-gradient.jsx-6dcea2975e438932{position:absolute;
+z-index:0;
+top:106rem;
+left:0;
+width:100%;
+height:30%;
+background: linear-gradient(
+                180deg,
+                #ffffff 0%,
+                rgba(255, 255, 255, 0) 164.16%
+              ),
+              #333333}
+@media screen and (max-width:1080px) {.rings-container.jsx-6dcea2975e438932{-webkit-transform:scale(0.8);
+-moz-transform:scale(0.8);
+-ms-transform:scale(0.8);
+transform:scale(0.8)}}
+@media screen and (max-width:760px) {section.jsx-6dcea2975e438932::before{top:32rem}}
+@media screen and (max-width:640px) {section.jsx-6dcea2975e438932::before{top:34rem;
+background: linear-gradient(160deg, transparent 50%, #1c1c1c 50%)}
+section.jsx-6dcea2975e438932{-webkit-align-items:flex-start;
+-webkit-box-align:flex-start;
+-ms-flex-align:flex-start;
+align-items:flex-start}
+.ipad.jsx-6dcea2975e438932{width:90%;
+max-width:unset;
+margin:0 auto;
+padding:6rem 0}
+.quote.jsx-6dcea2975e438932{margin:3.5rem 0}
+.img-container.jsx-6dcea2975e438932{padding:0;
+margin:7.5rem auto}
+.rings-container.jsx-6dcea2975e438932{width:100vw;
+top:-14rem;
+right:-8rem}
+.rings-container.jsx-6dcea2975e438932>svg{-webkit-transform:scale(1);
+-moz-transform:scale(1);
+-ms-transform:scale(1);
+transform:scale(1)}
+.content.top.jsx-6dcea2975e438932{padding:0rem 2rem;
+color:#000}
+.corner-gradient.jsx-6dcea2975e438932{display:none}}
+@media screen and (max-width:360px) {section.jsx-6dcea2975e438932::before{top:36.5rem}}
+@media screen and (min-width:1100px) {.content.top.jsx-6dcea2975e438932{padding:0rem 2rem}
+.corner-gradient.jsx-6dcea2975e438932{top:112rem}}
+@media screen and (min-width:1400px) {.corner-gradient.jsx-6dcea2975e438932{top:120rem}}
+@media screen and (min-width:1600px) {.corner-gradient.jsx-6dcea2975e438932{top:128rem}}
+@media screen and (min-width:1800px) {section.jsx-6dcea2975e438932::before{top:52rem;
+background: linear-gradient(155deg, transparent 50%, #1c1c1c 50%)}}</style><style id="__jsx-a506cd3c10710d9d">svg.jsx-a506cd3c10710d9d:last-child{display:none}
+@media screen and (max-width:640px) {svg.jsx-a506cd3c10710d9d:first-child{display:none}
+svg.jsx-a506cd3c10710d9d:last-child{display:block}}
+@media screen and (min-width:1440px) {svg.jsx-a506cd3c10710d9d:first-child{width:auto;
+height:auto}}</style><style id="__jsx-8e575ced356c30c8">.container.jsx-8e575ced356c30c8{position:relative;
+width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+padding:12rem 0 8rem;
+background:#1c1c1c}
+.images.jsx-8e575ced356c30c8{max-width:1440px;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+.lines-container.jsx-8e575ced356c30c8{top:0.5rem;
+left:0;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+position:absolute;
+height:100%;
+width:100%;
+-webkit-justify-content:center;
+justify-content:center;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.lines-container.jsx-8e575ced356c30c8>svg{width:100%}
+.images.jsx-8e575ced356c30c8>div.jsx-8e575ced356c30c8{-webkit-flex:1;
+-ms-flex:1;
+flex:1}
+.images.jsx-8e575ced356c30c8>div.jsx-8e575ced356c30c8:not(:last-child){margin-right:16px}
+amp-img.jsx-8e575ced356c30c8, img.jsx-8e575ced356c30c8{width:100%;
+box-shadow:0px 30px 60px rgba(0, 0, 0, 0.12);
+border-radius:6px}
+.images.jsx-8e575ced356c30c8>div.jsx-8e575ced356c30c8:nth-of-type(2n){-webkit-transform:translateY(-36px);
+-moz-transform:translateY(-36px);
+-ms-transform:translateY(-36px);
+transform:translateY(-36px)}
+.images.jsx-8e575ced356c30c8>div.jsx-8e575ced356c30c8:nth-of-type(2n-1){z-index:2}
+@media screen and (max-width:640px) {.container.jsx-8e575ced356c30c8{padding:10rem 0 6rem}
+.images.jsx-8e575ced356c30c8{max-width:unset;
+min-width:107%}
+.lines-container.jsx-8e575ced356c30c8{top:2rem}
+.images.jsx-8e575ced356c30c8>div.jsx-8e575ced356c30c8:nth-of-type(2n){-webkit-transform:translateY(-12px);
+-moz-transform:translateY(-12px);
+-ms-transform:translateY(-12px);
+transform:translateY(-12px)}
+.images.jsx-8e575ced356c30c8>div.jsx-8e575ced356c30c8:not(:last-child){margin-right:6px}}</style><style id="__jsx-bb301783bd8eb0b2">section.jsx-bb301783bd8eb0b2{z-index:1;
+width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+padding:0 0 8rem;
+background:#1c1c1c}
+@media screen and (max-width:640px) {section.jsx-bb301783bd8eb0b2{padding-bottom:5rem}}
+a.jsx-bb301783bd8eb0b2{text-decoration:underline;
+color:#fff}</style><style id="__jsx-bf5440c53571510a">.container.jsx-bf5440c53571510a{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center;
+background-color:#1c1c1c;
+border-bottom:2px solid #333333}
+.container.jsx-bf5440c53571510a>div.jsx-bf5440c53571510a{color:#fff;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+max-width:64rem;
+width:100%;
+padding:5rem 2rem;
+border-top:1px solid #000}
+a.jsx-bf5440c53571510a{height:unset;
+width:unset;
+margin-left:4rem}
+h2.jsx-bf5440c53571510a{line-height:1.4;
+margin:0}
+@media screen and (max-width:640px) {.container.jsx-bf5440c53571510a h2.jsx-bf5440c53571510a{text-align:center;
+margin-bottom:3.125rem}
+.container.jsx-bf5440c53571510a>div.jsx-bf5440c53571510a{-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column}
+a.jsx-bf5440c53571510a{margin:0}}</style><style id="__jsx-1302020333">div.jsx-1302020333{width:100%;
+margin:0 auto;
+padding:0 0;
+
+            
+        
+        
+        
+        background-color: #fafafa;
+        border-top: 1px solid #eaeaea;
+        border-bottom: 1px solid #eaeaea;
+        overflow: hidden;
+        
+        
+        
+        
+          }
+div.jsx-1302020333:after{content:'';
+display:table;
+clear:both}
+@media screen and (max-width:960px) {div.jsx-1302020333{padding:0 0;
+
+            }}
+@media screen and (max-width:640px) {div.jsx-1302020333{padding:0 0;
+
+            }}</style><style id="__jsx-1871562156">div.jsx-1871562156{width:100%;
+margin:0 auto;
+padding:0 1rem;
+max-width: 1024px;
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          }
+div.jsx-1871562156:after{content:'';
+display:table;
+clear:both}
+@media screen and (max-width:960px) {div.jsx-1871562156{padding:0 2rem;
+
+            }}
+@media screen and (max-width:640px) {div.jsx-1871562156{padding:0 1rem;
+
+            }}</style><style id="__jsx-63203892f3ce9b9e">.grid.jsx-63203892f3ce9b9e{display:grid;
+grid-template-columns:1fr 1fr 1fr 1fr;
+grid-row-gap:2rem}
+footer.jsx-63203892f3ce9b9e{padding:2rem 0 4rem;
+min-height:400px}
+a.jsx-63203892f3ce9b9e, p.jsx-63203892f3ce9b9e, .copyright.jsx-63203892f3ce9b9e{color:#8c8c8c}
+h4.jsx-63203892f3ce9b9e a.jsx-63203892f3ce9b9e{color:inherit}
+a.jsx-63203892f3ce9b9e:hover{color:#111}
+.copyright.jsx-63203892f3ce9b9e{margin-top:3rem}
+.copyright.jsx-63203892f3ce9b9e div.jsx-63203892f3ce9b9e{margin-top:0.5rem}
+h4.jsx-63203892f3ce9b9e{margin-bottom:0.75rem}
+p.jsx-63203892f3ce9b9e{margin-top:0;
+margin-bottom:0.25rem}
+@media screen and (max-width:800px) {.grid.jsx-63203892f3ce9b9e{grid-template-columns:1fr 1fr}
+h4.jsx-63203892f3ce9b9e, p.jsx-63203892f3ce9b9e{margin:0}
+a.jsx-63203892f3ce9b9e{display:block;
+padding-top:15px;
+padding-bottom:15px}}</style><style id="__jsx-8722d2b2d0f0be7a">html{scroll-behavior:smooth;
+font-size:18px;
+background:#000}
+body{background:#000}
+::selection{background:#1ce783;
+color:#fff}
+.container h2{font-size:2.25rem;
+margin:1.75rem 0 2rem;
+line-height:1.2}
+.container h3{font-size:1.8rem;
+font-weight:400;
+margin:0 0 2.5rem 0}
+.container h4{margin:0 0 1rem;
+color:#666666;
+font-size:0.8rem;
+font-weight:600;
+letter-spacing:1.6px;
+text-transform:uppercase}
+.container p{padding:0;
+font-size:1rem;
+line-height:1.5rem;
+font-weight:400}
+.container button{-webkit-appearance:none;
+-moz-appearance:none;
+-ms-appearance:none;
+appearance:none;
+position:relative;
+display:inline-block;
+text-transform:uppercase;
+text-align:center;
+-webkit-text-decoration:none;
+text-decoration:none;
+line-height:0;
+white-space:nowrap;
+width:200px;
+height:40px;
+padding:0 25px 0 25px;
+font-weight:500;
+border-radius:5px;
+font-size:12px;
+color:#000;
+background-color:#fff;
+border:1px solid #fff;
+-webkit-transition:all 0.2s ease;
+transition:all 0.2s ease;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+cursor:pointer;
+overflow:hidden;
+outline:none}
+.container button:hover{color:#fff;
+border:1px solid #fff;
+background:#000}
+.container .content{padding:0 2rem;
+max-width:38rem;
+color:#fff}
+@media screen and (max-width:640px) {.container .content{max-width:unset;
+width:100%}}
+@media screen and (max-width:1200px) {html{font-size:16px}}
+@media screen and (min-width:1800px) {html{font-size:18px}}
+@media screen and (min-width:2800px) {html{font-size:20px}}
+@media screen and (min-width:3800px) {html{font-size:24px}}</style><style id="__jsx-1189687301">html{line-height:1.15;
+-webkit-text-size-adjust:100%;
+height:100%;
+box-sizing:border-box;
+touch-action:manipulation;
+font-feature-settings:'rlig' 1, 'calt' 0;
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale}
+*, *:before, *:after{box-sizing:inherit}
+body{position:relative;
+min-height:100%;
+height:100%;
+margin:0;
+line-height:1.65;
+font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+font-size:16px;
+font-weight:400;
+min-width:320px;
+direction:ltr;
+font-feature-settings:'kern';
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+scroll-behavior:smooth}
+html, body{background-color:#fff;
+color:#111}
+::selection{background-color:#0070f3;
+color:#fff}
+[role='grid']:focus{outline:none}
+svg{text-rendering:optimizeLegibility}
+h1, h2, h3{margin:0}
+a{color:#0074de;
+-webkit-text-decoration:none;
+text-decoration:none;
+-webkit-transition:color 0.2s ease;
+transition:color 0.2s ease}
+a:hover{color:#68b5fb}
+code{font-size:0.9em;
+font-family:Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif}
+code:before, code:after{content:'`'}
+pre code:before, pre code:after{content:none}
+.demo-footer .note code{background:rgba(0, 0, 0, 0.2);
+padding:0.2rem;
+margin:0 0.1rem;
+border-radius:2px}
+iframe{width:100%;
+height:100%;
+border:none}
+label{cursor:unset}
+.f-reset{font-size:1rem}
+.f0{font-size:1.802032470703125em}
+.f1{font-size:1.601806640625em}
+.f2{font-size:1.423828125em}
+.f3{font-size:1.265625em}
+.f4{font-size:1.125em}
+.f5{font-size:0.8888888888888888em}
+.f6{font-size:0.7901234567901234em}
+.fw1{font-weight:100}
+.fw2{font-weight:200}
+.fw3{font-weight:300}
+.fw4{font-weight:400}
+.fw5{font-weight:500}
+.fw6{font-weight:600}
+.fw7{font-weight:700}
+.fw8{font-weight:800}
+.fw9{font-weight:900}
+.subtitle{color:#696969}
+.mute{color:#696969}
+.tc{text-align:center}
+.row{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+margin:0 -1.5rem}
+.column{-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+padding:0 1.5rem}
+.display-none{display:none}
+.display-mobile{display:none}
+.display-tablet{display:none}
+@media screen and (max-width:640px) {.display-mobile{display:unset}
+.hide-mobile{display:none}}
+@media screen and (max-width:960px) {.display-tablet{display:unset}
+.hide-tablet{display:none}}
+a[role='button']{-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-khtml-user-select:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none}
+.no-tap-highlight, a{-webkit-touch-callout:none;
+-ms-touch-action:pan-y;
+touch-action:pan-y;
+-webkit-tap-highlight-color:transparent}
+.no-tap-callout{-webkit-touch-callout:none}
+.no-drag{user-drag:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+-moz-user-select:none;
+-webkit-user-drag:none;
+-webkit-user-select:none;
+-ms-user-select:none}
+.visually-hidden{clip:rect(0 0 0 0);
+height:1px;
+width:1px;
+margin:-1px;
+padding:0;
+border:0;
+overflow:hidden;
+position:absolute}
+code[class*='language-'], pre[class*='language-']{color:#f8f8f2;
+text-shadow:0 1px rgba(0, 0, 0, 0.3);
+direction:ltr;
+text-align:left;
+white-space:pre;
+word-spacing:normal;
+word-break:normal;
+line-height:1.5;
+tab-size:4;
+hyphens:none}
+.token.comment, .token.prolog, .token.doctype, .token.cdata{color:#999}
+.token.punctuation{color:#c5c8c6}
+.namespace{opacity:0.7}
+.token.property, .token.keyword, .token.tag{color:#96cbfe}
+.token.class-name{color:#ffffb6}
+.token.boolean, .token.constant{color:#99cc99}
+.token.symbol, .token.deleted{color:#f92672}
+.token.number{color:#ff73fd}
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted{color:#a8ff60}
+.token.variable{color:#c6c5fe}
+.token.operator{color:#ededed}
+.token.entity{color:#ffffb6;
+cursor:help}
+.token.url{color:#96cbfe}
+.language-css .token.string, .style .token.string{color:#87c38a}
+.token.atrule, .token.attr-value{color:#f9ee98}
+.token.function{color:#dad085}
+.token.regex{color:#e9c062}
+.token.important{color:#fd971f}
+.token.important, .token.bold{font-weight:bold}
+.token.italic{font-style:italic}
+svg{shape-rendering:crispEdges}
+svg path, svg circle{shape-rendering:geometricprecision}
+[data-reach-skip-link]{border:0;
+clip:rect(0 0 0 0);
+height:1px;
+width:1px;
+margin:-1px;
+padding:0;
+overflow:hidden;
+position:absolute}
+[data-reach-skip-link]:focus{padding:1rem;
+position:fixed;
+top:10px;
+left:10px;
+background:white;
+z-index:1;
+width:auto;
+height:auto;
+clip:auto}
+kbd{box-sizing:border-box;
+color:#666;
+background:#fafafa;
+border:1px solid #eaeaea;
+display:inline-block;
+font-family:-apple-system, system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+line-height:2em;
+text-align:center;
+padding:0 4px;
+font-size:0.9em;
+border-radius:5px}</style><style id="__jsx-2784187670">#nprogress{pointer-events:none}
+#nprogress .bar{background:#0070f3;
+position:fixed;
+z-index:1031;
+top:0;
+left:0;
+width:100%;
+height:2px;
+
+        }
+@keyframes gradient-rotation {0% {background-position:0 0}100% {background-position:100vw 0}}</style><style id="__jsx-75f42868059f4c31">:root{--geist-space: 4px;
+--geist-space-2x: 8px;
+--geist-space-4x: 16px;
+--geist-space-8x: 32px;
+--geist-space-16x: 64px;
+--geist-space-32x: 128px;
+--geist-space-small: 32px;
+--geist-space-medium: 40px;
+--geist-space-large: 48px;
+--geist-space-gap: 24px;
+--geist-space-gap-half: 12px;
+--geist-space-gap-quarter: var(--geist-space-2x);
+--geist-gap: var(--geist-space-gap);
+--geist-gap-half: var(--geist-space-gap-half);
+--geist-gap-quarter: var(--geist-space-gap-quarter);
+--geist-gap-double: var(--geist-space-large);
+--geist-space-negative: -4px;
+--geist-space-2x-negative: -8px;
+--geist-space-4x-negative: -16px;
+--geist-space-8x-negative: -32px;
+--geist-space-16x-negative: -64px;
+--geist-space-32x-negative: -128px;
+--geist-space-small-negative: -32px;
+--geist-space-medium-negative: -40px;
+--geist-space-large-negative: -48px;
+--geist-space-gap-negative: -24px;
+--geist-space-gap-half-negative: -12px;
+--geist-space-gap-quarter-negative: var(--geist-space-2x-negative);
+--geist-gap-negative: var(--geist-space-gap-negative);
+--geist-gap-half-negative: var(--geist-space-gap-half-negative);
+--geist-gap-quarter-negative: var(--geist-space-gap-quarter-negative);
+--geist-gap-double-negative: var(--geist-space-large-negative);
+--geist-page-margin: var(--geist-space-gap);
+--geist-page-width: 1000px;
+--geist-page-width-with-margin: 1048px;
+--geist-radius: 5px;
+--geist-marketing-radius: 8px;
+--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+--font-mono: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+--header-height: 64px;
+--header-border-bottom: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+--header-background: rgba(255, 255, 255, 0.8);
+--geist-form-large-font: 1rem;
+--geist-form-large-line-height: 1.5rem;
+--geist-form-large-height: var(--geist-space-large);
+--geist-form-small-font: 0.875rem;
+--geist-form-small-line-height: 0.875rem;
+--geist-form-small-height: var(--geist-space-small);
+--geist-form-font: 0.875rem;
+--geist-form-line-height: 1.25rem;
+--geist-form-height: var(--geist-space-medium)}
+:root{--geist-success-lighter: #d3e5ff;
+--geist-success-light: #3291ff;
+--geist-success: #0070f3;
+--geist-success-dark: #0761d1;
+--geist-error-lighter: #f7d4d6;
+--geist-error-light: #ff1a1a;
+--geist-error: #ee0000;
+--geist-error-dark: #c50000;
+--geist-warning-lighter: #ffefcf;
+--geist-warning-light: #f7b955;
+--geist-warning: #f5a623;
+--geist-warning-dark: #ab570a;
+--geist-violet-lighter: #e3d7fc;
+--geist-violet-light: #8a63d2;
+--geist-violet: #7928ca;
+--geist-violet-dark: #4c2889;
+--geist-cyan-lighter: #aaffec;
+--geist-cyan-light: #79ffe1;
+--geist-cyan: #50e3c2;
+--geist-cyan-dark: #29bc9b;
+--geist-highlight-purple: #f81ce5;
+--geist-highlight-magenta: #eb367f;
+--geist-highlight-pink: #ff0080;
+--geist-foreground: #000;
+--geist-background: #fff;
+--geist-selection: var(--geist-cyan-light);
+--accents-1: #fafafa;
+--accents-2: #eaeaea;
+--accents-3: #999999;
+--accents-4: #888888;
+--accents-5: #666666;
+--accents-6: #444444;
+--accents-7: #333333;
+--accents-8: #111111;
+--geist-link-color: var(--geist-success);
+--geist-marketing-gray: #fafbfc;
+--geist-code: var(--geist-highlight-purple);
+--geist-secondary-lighter: var(--accents-2);
+--geist-secondary-light: var(--accents-3);
+--geist-secondary: var(--accents-5);
+--geist-secondary-dark: var(--accents-7);
+--dropdown-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.02);
+--dropdown-triangle-stroke: #fff;
+--scroller-start: rgba(255, 255, 255, 1);
+--scroller-end: rgba(255, 255, 255, 0);
+--shadow-smallest: 0px 2px 4px rgba(0, 0, 0, 0.1);
+--shadow-extra-small: 0px 4px 8px rgba(0, 0, 0, 0.12);
+--shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+--shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+--shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+--shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+--shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, 0.12);
+--portal-opacity: 0.25}</style></head><body><script async="">(function applyRedirects() {
+    const match = location.pathname + location.hash;
+    const docsPrefix = '../docs/index.html';
+    const redirects = [
+        // image redirects
+        [
+            'api-reference/next/image#usage',
+            'basic-features/image-optimization#using-the-image-component', 
+        ],
+        [
+            'api-reference/next/image#styling',
+            'basic-features/image-optimization#styling', 
+        ],
+        [
+            'basic-features/image-optimization#image-component',
+            'basic-features/image-optimization#using-the-image-component', 
+        ],
+        [
+            'basic-features/image-optimization#image-imports',
+            'basic-features/image-optimization#local-images', 
+        ],
+        [
+            'basic-features/image-optimization#loader',
+            'basic-features/image-optimization#loaders', 
+        ],
+        [
+            'basic-features/image-optimization#caching',
+            'api-reference/next/image#caching-behavior', 
+        ],
+        [
+            'basic-features/image-optimization#advanced',
+            'api-reference/next/image#advanced', 
+        ],
+        [
+            'basic-features/image-optimization#device-sizes',
+            'api-reference/next/image#device-sizes', 
+        ],
+        [
+            'basic-features/image-optimization#image-sizes',
+            'api-reference/next/image#image-sizes', 
+        ],
+        [
+            'basic-features/image-optimization#minimum-cache-ttl',
+            'api-reference/next/image#caching-behavior', 
+        ],
+        [
+            'basic-features/image-optimization#disable-static-imports',
+            'api-reference/next/image#disable-static-imports', 
+        ],
+        // data fetching redirects
+        [
+            '/docs/basic-features/data-fetching.md',
+            '/docs/basic-features/data-fetching/index.md', 
+        ],
+        [
+            '/docs/basic-features/data-fetching#swr',
+            '/docs/basic-features/data-fetching/client-side#client-side-data-fetching-with-swr', 
+        ],
+        [
+            '/docs/basic-features/data-fetching#incremental-static-regeneration',
+            '/docs/basic-features/data-fetching/incremental-static-regeneration#incremental-static-regeneration', 
+        ],
+        // getStaticProps
+        [
+            'basic-features/data-fetching#getstaticprops-static-generation',
+            'basic-features/data-fetching/get-static-props#getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#example',
+            'basic-features/data-fetching/get-static-props#using-getstaticprops-to-fetch-data-from-a-cms', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getstaticprops',
+            'basic-features/data-fetching/get-static-props#when-should-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getstaticprops',
+            'api-reference/data-fetching/get-static-props#getstaticprops-with-typescript', 
+        ],
+        [
+            'basic-features/data-fetching#reading-files-use-processcwd',
+            'api-reference/data-fetching/get-static-props#reading-files-use-processcwd', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details',
+            'basic-features/data-fetching/get-static-props#getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-at-build-time',
+            'basic-features/data-fetching/get-static-props#when-should-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#write-server-side-code-directly',
+            'basic-features/data-fetching/get-static-props#write-server-side-code-directly', 
+        ],
+        [
+            'basic-features/data-fetching#statically-generates-both-html-and-json',
+            'basic-features/data-fetching/get-static-props#statically-generates-both-html-and-json', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page',
+            'basic-features/data-fetching/get-static-props#where-can-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#runs-on-every-request-in-development',
+            'basic-features/data-fetching/get-static-props#runs-on-every-request-in-development', 
+        ],
+        [
+            'basic-features/data-fetching#preview-mode',
+            'basic-features/data-fetching/get-static-props#preview-mode', 
+        ],
+        // getStaticPaths
+        [
+            'basic-features/data-fetching#getstaticpaths-static-generation',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#the-paths-key-required',
+            'api-reference/data-fetching/get-static-paths#paths', 
+        ],
+        [
+            'basic-features/data-fetching#the-fallback-key-required',
+            'api-reference/data-fetching/get-static-paths#fallback-false', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-false',
+            'api-reference/data-fetching/get-static-paths#fallback-false', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-true',
+            'api-reference/data-fetching/get-static-paths#fallback-true', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-pages',
+            'api-reference/data-fetching/get-static-paths#fallback-pages', 
+        ],
+        [
+            'basic-features/data-fetching#when-is-fallback-true-useful',
+            'api-reference/data-fetching/get-static-paths#when-is-fallback-true-useful', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-blocking',
+            'api-reference/data-fetching/get-static-paths#fallback-blocking', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getstaticpaths',
+            'basic-features/data-fetching/get-static-paths#when-should-i-use-getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#use-together-with-getstaticprops',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details-1',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-at-build-time-on-server-side',
+            'basic-features/data-fetching/get-static-paths#when-does-getStaticPaths-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page-1',
+            'basic-features/data-fetching/get-static-paths#where-can-i-use-getStaticPaths', 
+        ],
+        [
+            'basic-features/data-fetching#runs-on-every-request-in-development-1',
+            'basic-features/data-fetching/get-static-paths#runs-on-every-request-in-development', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getstaticpaths',
+            'api-reference/data-fetching/get-static-paths#getstaticpaths-with-typescript', 
+        ],
+        // getServerSideProps
+        [
+            'basic-features/data-fetching#getserversideprops-server-side-rendering',
+            'basic-features/data-fetching/get-server-side-props#getserversideprops', 
+        ],
+        [
+            'basic-features/data-fetching#provided-req-middleware-in-getserversideprops',
+            'basic-features/data-fetching/get-server-side-props#using-getserversideprops-to-fetch-data-at-request-time', 
+        ],
+        [
+            'basic-features/data-fetching#example-1',
+            'basic-features/data-fetching/get-server-side-props#using-getserversideprops-to-fetch-data-at-request-time', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getserversideprops',
+            'basic-features/data-fetching/get-server-side-props#when-should-i-use-getserversideprops', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getserversideprops',
+            'api-reference/data-fetching/get-server-side-props#getserversideprops-with-typescript', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details-2',
+            'basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-on-server-side',
+            'basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page-2',
+            'basic-features/data-fetching/get-server-side-props#only-allowed-in-a-page', 
+        ],
+        [
+            'basic-features/data-fetching#fetching-data-on-the-client-side',
+            'basic-features/data-fetching/get-server-side-props#fetching-data-on-the-client-side', 
+        ],
+        [
+            'deployment#vercel-recommended',
+            'deployment#managed-nextjs-with-vercel'
+        ],
+        [
+            'deployment#getting-started',
+            'deployment#managed-nextjs-with-vercel'
+        ],
+        [
+            'deployment#dps-develop-preview-ship',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#optimized-for-nextjs',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#custom-domains-environment-variables-automatic-https-and-more',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#other-hosting-options',
+            'deployment#self-hosting'
+        ], 
+    ];
+    for(let index = 0; index < redirects.length; ++index){
+        const item = redirects[index];
+        if (`${docsPrefix}${item[0]}` === match) {
+            document.location = `${docsPrefix}${item[1]}`;
+            return;
+        }
+    }
+})()</script><div id="__next"><div data-overlay-container="true"><div class="page-container"><div class="jsx-3a64d1ae4f0f7fab banner"><div class="jsx-3a64d1ae4f0f7fab inner"><a href="https://vercel.com/home?utm_source=next-site&amp;utm_medium=banner&amp;utm_campaign=next-website" target="_blank" rel="noopener noreferrer" title="Go to the Vercel website" class="jsx-3a64d1ae4f0f7fab"><svg height="20" viewBox="0 0 283 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M141.04 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.46 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM248.72 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.45 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM200.24 34c0 6 3.92 10 10 10 4.12 0 7.21-1.87 8.8-4.92l7.68 4.43c-3.18 5.3-9.14 8.49-16.48 8.49-11.05 0-19-7.2-19-18s7.96-18 19-18c7.34 0 13.29 3.19 16.48 8.49l-7.68 4.43c-1.59-3.05-4.68-4.92-8.8-4.92-6.07 0-10 4-10 10zm82.48-29v46h-9V5h9zM36.95 0L73.9 64H0L36.95 0zm92.38 5l-27.71 48L73.91 5H84.3l17.32 30 17.32-30h10.39zm58.91 12v9.69c-1-.29-2.06-.49-3.2-.49-5.81 0-10 4-10 10V51h-9V17h9v9.2c0-5.08 5.91-9.2 13.2-9.2z" fill="#fff"></path></svg></a><a href="https://vercel.com/solutions/nextjs?utm_source=next-site&amp;utm_medium=banner&amp;utm_campaign=next-website" target="_blank" rel="noopener noreferrer" class="jsx-3a64d1ae4f0f7fab"><p class="jsx-3a64d1ae4f0f7fab">Deploy <b class="jsx-3a64d1ae4f0f7fab">Next.js</b> in seconds →</p></a></div></div><header class="jsx-1931733896 sticky"><div class="jsx-1325105755 "><a tabindex="0" href="#reach-skip-nav" data-reach-skip-link="true">Skip to content</a><h1 aria-hidden="true" class="jsx-ec2f6914d5ee8fa4 visually-hidden">Next.js</h1><nav class="jsx-ec2f6914d5ee8fa4 f-reset"><div class="jsx-ec2f6914d5ee8fa4 mobile-top"><a title="Go to the homepage" class="jsx-ec2f6914d5ee8fa4 mobile-logo" href="../index.html"><svg width="82" height="40" viewBox="0 0 148 90" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform:translateX(4%);shape-rendering:auto"><path d="M34.992 23.495h27.855v2.219H37.546v16.699h23.792v2.219H37.546v18.334h25.591v2.219H34.992v-41.69zm30.35 0h2.96l13.115 18.334 13.405-18.334L113.055.207 83.1 43.756l15.436 21.429H95.46L81.417 45.683 67.316 65.185h-3.018L79.85 43.756 65.343 23.495zm34.297 2.219v-2.219h31.742v2.219h-14.623v39.47h-2.554v-39.47H99.64zM.145 23.495h3.192l44.011 66.003L29.16 65.185 2.814 26.648l-.116 38.537H.145v-41.69zm130.98 38.801c-.523 0-.914-.405-.914-.928 0-.524.391-.929.913-.929.528 0 .913.405.913.929 0 .523-.385.928-.913.928zm2.508-2.443H135c.019.742.56 1.24 1.354 1.24.888 0 1.391-.535 1.391-1.539v-6.356h1.391v6.362c0 1.808-1.043 2.849-2.77 2.849-1.62 0-2.732-1.01-2.732-2.556zm7.322-.08h1.379c.118.853.95 1.395 2.149 1.395 1.117 0 1.937-.58 1.937-1.377 0-.685-.521-1.097-1.708-1.377l-1.155-.28c-1.62-.38-2.36-1.166-2.36-2.487 0-1.602 1.304-2.668 3.26-2.668 1.82 0 3.15 1.066 3.23 2.58h-1.354c-.13-.828-.85-1.346-1.894-1.346-1.1 0-1.832.53-1.832 1.34 0 .642.472 1.01 1.64 1.284l.987.243c1.838.43 2.596 1.178 2.596 2.53 0 1.72-1.33 2.799-3.453 2.799-1.987 0-3.323-1.029-3.422-2.637z" fill="black" fill-rule="nonzero"></path></svg></a><div class="jsx-ec2f6914d5ee8fa4 mobile-top-right"><div class="jsx-ec2f6914d5ee8fa4 learn"><a href="../learn/foundations/about-nextjs607b?utm_source=next-site&amp;utm_medium=homepage-cta&amp;utm_campaign=next-website" class="jsx-b662909c11ef51ed btn fw4 no-drag">Learn</a></div><button type="button" class="jsx-ec2f6914d5ee8fa4 menu-button"><div class="menu-toggle_wrap__oT7No " aria-label="open menu"></div></button></div></div><div class="jsx-ec2f6914d5ee8fa4 links"><a title="Go to the homepage" class="jsx-ec2f6914d5ee8fa4 logo" href="../index.html"><svg width="82" height="40" viewBox="0 0 148 90" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform:translateX(4%);shape-rendering:auto"><path d="M34.992 23.495h27.855v2.219H37.546v16.699h23.792v2.219H37.546v18.334h25.591v2.219H34.992v-41.69zm30.35 0h2.96l13.115 18.334 13.405-18.334L113.055.207 83.1 43.756l15.436 21.429H95.46L81.417 45.683 67.316 65.185h-3.018L79.85 43.756 65.343 23.495zm34.297 2.219v-2.219h31.742v2.219h-14.623v39.47h-2.554v-39.47H99.64zM.145 23.495h3.192l44.011 66.003L29.16 65.185 2.814 26.648l-.116 38.537H.145v-41.69zm130.98 38.801c-.523 0-.914-.405-.914-.928 0-.524.391-.929.913-.929.528 0 .913.405.913.929 0 .523-.385.928-.913.928zm2.508-2.443H135c.019.742.56 1.24 1.354 1.24.888 0 1.391-.535 1.391-1.539v-6.356h1.391v6.362c0 1.808-1.043 2.849-2.77 2.849-1.62 0-2.732-1.01-2.732-2.556zm7.322-.08h1.379c.118.853.95 1.395 2.149 1.395 1.117 0 1.937-.58 1.937-1.377 0-.685-.521-1.097-1.708-1.377l-1.155-.28c-1.62-.38-2.36-1.166-2.36-2.487 0-1.602 1.304-2.668 3.26-2.668 1.82 0 3.15 1.066 3.23 2.58h-1.354c-.13-.828-.85-1.346-1.894-1.346-1.1 0-1.832.53-1.832 1.34 0 .642.472 1.01 1.64 1.284l.987.243c1.838.43 2.596 1.178 2.596 2.53 0 1.72-1.33 2.799-3.453 2.799-1.987 0-3.323-1.029-3.422-2.637z" fill="black" fill-rule="nonzero"></path></svg></a><a title="Showcase" class="jsx-ec2f6914d5ee8fa4 mute" href="../showcase.html">Showcase</a><a title="Documentation" class="jsx-ec2f6914d5ee8fa4 mute" href="../docs/getting-started.html">Docs</a><a class="jsx-ec2f6914d5ee8fa4 mute" href="../blog">Blog</a><a class="jsx-ec2f6914d5ee8fa4 mute" href="../insights">Analytics</a><a class="jsx-ec2f6914d5ee8fa4 mute" href="../examples.html">Examples</a><a href="https://vercel.com/contact/sales?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=next-website" target="_blank" rel="noopener noreferrer" class="jsx-ec2f6914d5ee8fa4 mute">Enterprise</a><div class="jsx-ec2f6914d5ee8fa4 no-feedback"></div><div class="jsx-ec2f6914d5ee8fa4 learn"><a href="../learn/foundations/about-nextjse499?utm_source=next-site&amp;utm_medium=nav-cta&amp;utm_campaign=next-website" class="jsx-b662909c11ef51ed btn fw4 no-drag">Learn</a></div><a href="https://github.com/vercel/next.js" aria-label="Next.js on GitHub" rel="noopener noreferrer" target="_blank" class="jsx-ec2f6914d5ee8fa4 icon mute"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none" class="jsx-2562017125"><g clip-path="url(githublogo)" class="jsx-2562017125"><path fill="currentColor" fill-rule="evenodd" d="M8.18391.249268C3.82241.249268.253906 3.81777.253906 8.17927c0 3.46933 2.279874 6.44313 5.451874 7.53353.3965.0991.49563-.1983.49563-.3965v-1.3878c-2.18075.4956-2.67638-.9912-2.67638-.9912-.3965-.8922-.89212-1.1895-.89212-1.1895-.69388-.4957.09912-.4957.09912-.4957.793.0992 1.1895.793 1.1895.793.69388 1.2887 1.88338.8922 2.27988.6939.09912-.4956.29737-.8921.49562-1.0904-1.78425-.1982-3.5685-.8921-3.5685-3.96496 0-.89212.29738-1.586.793-2.08162-.09912-.19825-.3965-.99125.09913-2.08163 0 0 .69387-.19825 2.18075.793.59475-.19825 1.28862-.29737 1.9825-.29737.69387 0 1.38775.09912 1.98249.29737 1.4869-.99125 2.1808-.793 2.1808-.793.3965 1.09038.1982 1.88338.0991 2.08163.4956.59475.793 1.28862.793 2.08162 0 3.07286-1.8834 3.66766-3.66764 3.86586.29737.3965.59474.8921.59474 1.586v2.1808c0 .1982.0991.4956.5948.3965 3.172-1.0904 5.4518-4.0642 5.4518-7.53353-.0991-4.3615-3.6676-7.930002-8.02909-7.930002z" clip-rule="evenodd" class="jsx-2562017125"></path></g><defs class="jsx-2562017125"><clipPath id="githublogo" class="jsx-2562017125"><path fill="transparent" d="M0 0h15.86v15.86H0z" transform="translate(.253906 .0493164)" class="jsx-2562017125"></path></clipPath></defs></svg></a></div></nav></div></header><div class="jsx-8722d2b2d0f0be7a container"><section class="jsx-2c9897fddecfbe2"><div class="jsx-2c9897fddecfbe2 gradient"></div><header class="jsx-1bdda52191e68cd5"><svg width="82" height="50" viewBox="0 0 148 90" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M34.992 23.495h27.855v2.219H37.546v16.699h23.792v2.219H37.546v18.334h25.591v2.219H34.992v-41.69zm30.35 0h2.96l13.115 18.334 13.405-18.334L113.055.207 83.1 43.756l15.436 21.429H95.46L81.417 45.683 67.316 65.185h-3.018L79.85 43.756 65.343 23.495zm34.297 2.219v-2.219h31.742v2.219h-14.623v39.47h-2.554v-39.47H99.64zM.145 23.495h3.192l44.011 66.003L29.16 65.185 2.814 26.648l-.116 38.537H.145v-41.69zm130.98 38.801c-.523 0-.914-.405-.914-.928 0-.524.391-.929.913-.929.528 0 .913.405.913.929 0 .523-.385.928-.913.928zm2.508-2.443H135c.019.742.56 1.24 1.354 1.24.888 0 1.391-.535 1.391-1.539v-6.356h1.391v6.362c0 1.808-1.043 2.849-2.77 2.849-1.62 0-2.732-1.01-2.732-2.556zm7.322-.08h1.379c.118.853.95 1.395 2.149 1.395 1.117 0 1.937-.58 1.937-1.377 0-.685-.521-1.097-1.708-1.377l-1.155-.28c-1.62-.38-2.36-1.166-2.36-2.487 0-1.602 1.304-2.668 3.26-2.668 1.82 0 3.15 1.066 3.23 2.58h-1.354c-.13-.828-.85-1.346-1.894-1.346-1.1 0-1.832.53-1.832 1.34 0 .642.472 1.01 1.64 1.284l.987.243c1.838.43 2.596 1.178 2.596 2.53 0 1.72-1.33 2.799-3.453 2.799-1.987 0-3.323-1.029-3.422-2.637z" fill="#fff" fill-rule="nonzero"></path></svg><nav class="jsx-1bdda52191e68cd5"><a href="#about" class="jsx-1bdda52191e68cd5">About</a><a href="#the-process" class="jsx-1bdda52191e68cd5">Process</a><a href="#improvements" class="jsx-1bdda52191e68cd5">Technology</a><a href="#conclusion" class="jsx-1bdda52191e68cd5">Conclusion</a></nav></header><div class="jsx-2c9897fddecfbe2 img-hero"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:118.19444444444444%"></span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="responsive" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(20px);background-size:cover;background-image:url(_data_image/jpeg%3bbase64%2c/9j/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCI/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs/wAARCAAIAAcDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAA/2Q%3d%3d_.108.delaye);background-position:0% 0%"/><noscript><img sizes="100vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=640&amp;q=75 640w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=750&amp;q=75 750w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=828&amp;q=75 828w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=3840&amp;q=75 3840w" src="../_next/hero2197.jpg?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c6761211.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="responsive" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div class="jsx-2c9897fddecfbe2 container"><div class="jsx-2c9897fddecfbe2 title"><span class="jsx-2c9897fddecfbe2">Case Study</span><h1 class="jsx-2c9897fddecfbe2">Hulu</h1></div><div class="jsx-2c9897fddecfbe2 macbook"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%272187%27%20height=%271257%27/%3e"/></span><img alt="Hulu landing page on desktop computer" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu landing page on desktop computer" sizes="(max-width: 480px) 423px, (max-width: 860px) 683px, 76vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmacbook.a8764307.jpg&amp;w=3840&amp;q=75 1x" src="../_next/macbook37f7.jpg?url=%2F_next%2Fstatic%2Fmedia%2Fmacbook.a8764307.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div id="about" class="jsx-2c9897fddecfbe2 about"><div class="jsx-23e0167cf4a862f6"><a title="Go to the Vercel website" class="jsx-23e0167cf4a862f6 home" href="https://vercel.com/home?utm_source=next-site&amp;utm_medium=logo&amp;utm_campaign=case-studies"><svg width="18" height="17" fill="#FFF" stroke="#000" stroke-width="1.5"><path d="M9 2.03L1.282 15.75h15.436L9 2.03z"></path></svg></a><span class="jsx-23e0167cf4a862f6">+</span><a href="https://hulu.com/" target="_blank" rel="noopener noreferrer" class="jsx-23e0167cf4a862f6 hulu"><svg viewBox="0 0 400 136.76" height="36"><g transform="matrix(6.4378 0 0 6.4378 4 4)"><g><g><path fill="#fff" d="m9.57 6.24h-3.1a3.73 3.73 0 0 0-1.63 0.29v-6.53h-4.84v20h4.83v-8.07a1.29 1.29 0 0 1 1.3-1.29h2.81a1.29 1.29 0 0 1 1.3 1.29v8.07h4.84v-8.7c0-3.66-2.44-5.06-5.5-5.06zm46.48 0v8.07a1.29 1.29 0 0 1-1.29 1.29h-2.82a1.29 1.29 0 0 1-1.3-1.29v-8.07h-4.83v8.47c0 3.47 2.19 5.29 5.51 5.29h4.73c3 0 4.84-2.15 4.84-5.26v-8.5zm-27.28 8.07a1.29 1.29 0 0 1-1.3 1.29h-2.81a1.29 1.29 0 0 1-1.3-1.29v-8.07h-4.83v8.47c0 3.47 2.22 5.29 5.47 5.29h4.73c3 0 4.84-2.15 4.84-5.26v-8.5h-4.8zm8.52 5.69h4.84v-20h-4.84z"></path></g></g></g></svg></a></div><h2 class="jsx-2c9897fddecfbe2">Powering the Next Generation <br class="jsx-2c9897fddecfbe2"/> of Entertainment</h2><p class="jsx-2c9897fddecfbe2"><a href="https://hulu.tv/" class="jsx-2c9897fddecfbe2">Hulu</a> makes TV and movies easily accessible online — a feat which would be impossible without powerful engineering practices and tools. While the team at Hulu has been using Next.js since it&#x27;s initial release, they recently made a push to spread the framework deeply throughout their organization. Next.js gave Hulu the confidence to migrate to a modern frontend environment, all while reducing their code surface area and shipping faster in the process.</p></div></div></section><div class="jsx-3e9967b83bf75710 container"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%272884%27%20height=%27854%27/%3e"/></span><img alt="Hulu logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(20px);background-size:cover;background-image:url(_data_image/jpeg%3bbase64%2c/9j/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCI/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs/wAARCAACAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAZ/9k%3d_.10b.delaye);background-position:0% 0%"/><noscript><img alt="Hulu logo" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhulu.fc8e2210.jpg&amp;w=3840&amp;q=75 1x" src="../_next/hulu125d.jpg?url=%2F_next%2Fstatic%2Fmedia%2Fhulu.fc8e2210.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><div class="jsx-3e9967b83bf75710 svg-container"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27432%27%20height=%27432%27/%3e"/></span><img alt="Next.js logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Next.js logo" srcSet="/static/images/case-studies/hulu/next.js.svg 1x, /static/images/case-studies/hulu/next.js.svg 2x" src="../static/images/case-studies/hulu/next.js.svg" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div></div><section id="the-process" class="jsx-d933f9d817755aab"><div class="jsx-d933f9d817755aab corner-gradient"></div><div class="jsx-d933f9d817755aab container"><div class="jsx-d933f9d817755aab content getting-started"><h4 class="jsx-d933f9d817755aab">Getting Started</h4><h2 class="jsx-d933f9d817755aab">Upgrading the Developer Experience</h2><p class="jsx-d933f9d817755aab">At the beginning of 2018, senior software engineer Zack Tanner and team began leading the migration of the Hulu Account app off of a legacy tech-stack, with the goal of unifying the developer organization and modernizing their code in an effort to prevent bugs and increase velocity.</p><p class="jsx-d933f9d817755aab">Hulu had already been using Next.js for greenfield applications, so it was an obvious option when it came to choosing which framework to move to. This time, however, the team needed to migrate an existing production app—a challenge that comes with new difficulties of its own.</p><a href="#read-more" class="jsx-d933f9d817755aab button"><button type="button" class="jsx-d933f9d817755aab">Read More</button></a></div></div><div class="jsx-d933f9d817755aab img-container"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;padding-top:66.66666666666666%"></span><img alt="Zack Tanner" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="responsive" class="zack" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(20px);background-size:cover;background-image:url(_data_image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAMA/404);background-position:0% 0%"/><noscript><img alt="Zack Tanner" sizes="100vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=640&amp;q=75 640w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=750&amp;q=75 750w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=828&amp;q=75 828w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=1080&amp;q=75 1080w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=1200&amp;q=75 1200w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=1920&amp;q=75 1920w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=2048&amp;q=75 2048w, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=3840&amp;q=75 3840w" src="../_next/zackb68e.png?url=%2F_next%2Fstatic%2Fmedia%2Fzack.95a672db.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="responsive" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="zack" loading="lazy"/></noscript></span><div class="jsx-d933f9d817755aab lightning-container"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27482%27%20height=%27482%27/%3e"/></span><img alt="Lightening logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Lightening logo" srcSet="/static/images/case-studies/hulu/lightning.svg 1x, /static/images/case-studies/hulu/lightning.svg 2x" src="../static/images/case-studies/hulu/lightning.svg" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div></div><div id="read-more" class="jsx-d933f9d817755aab content"><div class="jsx-412342275 icon"><svg width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.0562 0H19.5063C18.9875 0 18.5625 0.4125 18.5625 0.925C18.5625 1.4375 18.9875 1.85 19.5063 1.85H24.7375L16.1125 10.7375L10.7437 5.48125C10.5625 5.30625 10.3313 5.2125 10.075 5.2125C9.825 5.2125 9.5875 5.30625 9.40625 5.48125L0.2625 14.425C0.14375 14.5437 0 14.75 0 15.0938C0 15.35 0.0875001 15.5625 0.2625 15.7313C0.44375 15.9063 0.675 16 0.93125 16C1.18125 16 1.41875 15.9063 1.6 15.7313L10.075 7.4375L15.4438 12.6938C15.625 12.8688 15.8562 12.9625 16.1125 12.9625C16.3625 12.9625 16.6 12.8688 16.7812 12.6938L26.1187 3.2V8.30625C26.1187 8.8125 26.5438 9.23125 27.0625 9.23125C27.5812 9.23125 28.0063 8.81875 28.0063 8.30625V0.925C28 0.4125 27.575 0 27.0562 0Z" fill="black"></path></svg></div><h4 class="jsx-d933f9d817755aab">Process Improvements</h4><h2 class="jsx-d933f9d817755aab">Migration Made Easy</h2><p class="jsx-d933f9d817755aab">One of the most common challenges teams face when executing an incremental migration is handling the transition between the new and old systems. Fortunately, with Next.js there was never an issue with running both versions at once. With out-of-the-box support for prefetching new pages while jumping into the legacy app when needed, Zack and the team were able to easily migrate pages one-by-one. And since the intermediary hybrid-site was intelligently routed by Next.js, there was no need to maintain the overhead of explicitly tracking the migration&#x27;s progress in the code itself.</p><p class="jsx-d933f9d817755aab">In fact, throughout the migration, the ability of Next.js to make the extraction of common issues and patterns as easy as possible was a recurring theme. With each new version of Next.js, Zack and the team found they were constantly deleting internal code in favor of framework integrated tooling. Whenever the team needed to incorporate a new technology, Next.js had either first-class support or an endorsed example for them to follow.</p></div></section><section class="jsx-e9ceca5e3615f4f9"><div class="jsx-e9ceca5e3615f4f9 wrapper"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27860%27%20height=%27492%27/%3e"/></span><img alt="Hulu displayed on all your devices" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" class="devices" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(20px);background-size:cover;background-image:url(_data_image/jpeg%3bbase64%2c/9j/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCI/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs/wAARCAAEAAgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAfEA/Z_.111.delaye);background-position:0% 0%"/><noscript><img alt="Hulu displayed on all your devices" sizes="(max-width: 1080px) 90vw, 60vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdevices.05459264.jpg&amp;w=1080&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdevices.05459264.jpg&amp;w=1920&amp;q=75 2x" src="../_next/devicesbb60.jpg?url=%2F_next%2Fstatic%2Fmedia%2Fdevices.05459264.jpg&amp;w=1920&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="devices" loading="lazy"/></noscript></span></div></section><section class="jsx-d0f3a5c3b6a3e1e8"><div class="jsx-d0f3a5c3b6a3e1e8 container"><p class="jsx-d0f3a5c3b6a3e1e8">“Productivity has skyrocketed. We’re able to focus on feature development and improving our product, while Next.js handles the more difficult tooling for us.”</p><span class="jsx-d0f3a5c3b6a3e1e8">Zack Tanner, Hulu Senior Software Engineer</span></div><p class="jsx-d0f3a5c3b6a3e1e8">Zack also found that Next.js helps developers avoid common pitfalls. By having a single abstraction for handling difficult UI tasks, Next.js prevents developers from introducing problems incidentally—for example from over-fetching deep in the component tree. If a developer needed to fetch new data, they knew exactly where to look. Nobody needed to learn any of the cumbersome underlying APIs and the team could trust Next.js to handle the hard parts.</p></section><section class="jsx-6dcea2975e438932"><div class="jsx-6dcea2975e438932 ipad"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271645%27%20height=%271264%27/%3e"/></span><img alt="Hulu on iPad Pro" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;filter:blur(20px);background-size:cover;background-image:url(_data_image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAMA/JAAAAXVBMVEUfM0UvSmNRLCY2a3goWJEuW18kRFtGRE0mPk/v7/vz%2bMO/gCAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADlJREFUCJkFwQ/n0kCK%2bAPj3Q/BsFsFgAAAABJRU5ErkJggg%3d);background-position:0% 0%"/><noscript><img alt="Hulu on iPad Pro" sizes="(max-width: 480px) 300px, 57vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fipad-pro.81a307e8.png&amp;w=1920&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fipad-pro.81a307e8.png&amp;w=3840&amp;q=75 2x" src="../_next/ipad-pro343a.png?url=%2F_next%2Fstatic%2Fmedia%2Fipad-pro.81a307e8.png&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div id="improvements" class="jsx-6dcea2975e438932 top content"><h4 class="jsx-6dcea2975e438932">Technical Improvements</h4><h2 class="jsx-6dcea2975e438932">Supercharged Applications</h2><p class="jsx-6dcea2975e438932">A critical requirement for Hulu was server-side rendering. With data coming from many sources and a fundamental need for SEO, server-side rendering was a must. With other frameworks, server-rendering pages with complex data dependencies is difficult and error prone, if not impossible. Next.js however made the process straightforward.</p><div class="jsx-6dcea2975e438932 quote"><p class="jsx-6dcea2975e438932">“[Server rendering] was as easy as moving data fetching from one spot to another. Next.js dealt with the underlying client hydration, while giving us a single abstraction to handle our data fetching logic.”</p><span class="jsx-6dcea2975e438932">— Zack Tanner</span></div><p class="jsx-6dcea2975e438932">Even when issues arose, Zack found that error tracing with server-rendered pages was far superior compared to any other solution he&#x27;d tried. By acting as a unified tool for managing both client and server-side rendering, Next.js makes it easy for developers to tap into the rich benefits of server-side rendering, while still working in familiar territory of writing client side code.</p><p class="jsx-6dcea2975e438932">Finally, by using the CSS-in-JS solution that Next.js provides by default, Zack and team were able to implement optimized styles that were code-split automatically. This meant each page would load only the CSS it needed, keeping page-size small without compromising on functionality. The Hulu teams also extended these defaults using sanctioned <code class="jsx-6dcea2975e438932">next-plugins</code>, enhancing their setup to support existing global Sass files with minimal overhead.</p></div><div class="jsx-6dcea2975e438932 img-container"><div class="jsx-6dcea2975e438932 rings-container"><svg width="703" height="703" viewBox="0 0 703 703" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="351.5" cy="351.5" r="155.722" stroke="white" stroke-dasharray="3 3"></circle><circle opacity="0.6" cx="351.5" cy="351.5" r="220.815" stroke="white" stroke-dasharray="3 3"></circle><circle opacity="0.5" cx="351.5" cy="351.5" r="285.907" stroke="white" stroke-dasharray="3 3"></circle><circle opacity="0.3" cx="351.5" cy="351.5" r="351" stroke="white" stroke-dasharray="3 3"></circle></svg></div><div class="jsx-6dcea2975e438932 img-engineers"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%273640%27%20height=%272482%27/%3e"/></span><img alt="Hulu engineers working together" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu engineers working together" sizes="(max-width: 1080px) 90vw, 65vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fengineers.288a564f.jpg&amp;w=3840&amp;q=75 1x" src="../_next/engineers9c26.jpg?url=%2F_next%2Fstatic%2Fmedia%2Fengineers.288a564f.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div></div><div class="jsx-6dcea2975e438932 bottom content"><h4 class="jsx-6dcea2975e438932">Organizational Improvements</h4><h2 class="jsx-6dcea2975e438932">One Framework for Everyone</h2><p class="jsx-6dcea2975e438932">Adopting Next.js early on in its history required writing lots of custom code to deal with the team&#x27;s specific use cases. However, as the ecosystem evolved, they were able to chip away at old abstractions and let Next.js handle them directly.</p><p class="jsx-6dcea2975e438932">As the migration progressed, a large amount of technical debt tapered, but another powerful benefit arose. The frontend teams at Hulu were unified around a single platform, reducing the time it would take developers to be productive in a new codebase. Zack confirms, &quot;devs would come and go and switch teams, but everyone understands Next. Everyone is on the same page.&quot; The number of operational wins Hulu earned were on par with the technical ones.</p></div><div class="jsx-6dcea2975e438932 corner-gradient"></div></section><div class="jsx-8e575ced356c30c8 container"><div class="jsx-8e575ced356c30c8 images"><div class="jsx-8e575ced356c30c8"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271423%27%20height=%27800%27/%3e"/></span><img alt="Hulu lifestyle" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu lifestyle" sizes="(min-width: 1440px) 282px, 18.5vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-0.64d6a1dd.jpg&amp;w=1920&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-0.64d6a1dd.jpg&amp;w=3840&amp;q=75 2x" src="../_next/lines-05bd5.jpg?url=%2F_next%2Fstatic%2Fmedia%2Flines-0.64d6a1dd.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div class="jsx-8e575ced356c30c8"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271432%27%20height=%27953%27/%3e"/></span><img alt="Hulu lifestyle" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu lifestyle" sizes="(min-width: 1440px) 282px, 18.5vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-1.bff56bfe.jpg&amp;w=1920&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-1.bff56bfe.jpg&amp;w=3840&amp;q=75 2x" src="../_next/lines-1cbbc.jpg?url=%2F_next%2Fstatic%2Fmedia%2Flines-1.bff56bfe.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div class="jsx-8e575ced356c30c8"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271362%27%20height=%27800%27/%3e"/></span><img alt="Hulu lifestyle" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu lifestyle" sizes="(min-width: 1440px) 282px, 18.5vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-2.1d0bfd28.jpg&amp;w=1920&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-2.1d0bfd28.jpg&amp;w=3840&amp;q=75 2x" src="../_next/lines-2737d.jpg?url=%2F_next%2Fstatic%2Fmedia%2Flines-2.1d0bfd28.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div class="jsx-8e575ced356c30c8"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271423%27%20height=%27800%27/%3e"/></span><img alt="Hulu lifestyle" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu lifestyle" sizes="(min-width: 1440px) 282px, 18.5vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-3.1220dcc6.jpg&amp;w=1920&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-3.1220dcc6.jpg&amp;w=3840&amp;q=75 2x" src="../_next/lines-31d26.jpg?url=%2F_next%2Fstatic%2Fmedia%2Flines-3.1220dcc6.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div><div class="jsx-8e575ced356c30c8"><span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%271362%27%20height=%27800%27/%3e"/></span><img alt="Hulu lifestyle" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="Hulu lifestyle" sizes="(min-width: 1440px) 282px, 18.5vw" srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-4.93057ae2.jpg&amp;w=1920&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flines-4.93057ae2.jpg&amp;w=3840&amp;q=75 2x" src="../_next/lines-439f5.jpg?url=%2F_next%2Fstatic%2Fmedia%2Flines-4.93057ae2.jpg&amp;w=3840&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span></div></div><div class="jsx-8e575ced356c30c8 lines-container"><svg width="1440" height="277" viewBox="0 0 1440 277" fill="none" xmlns="http://www.w3.org/2000/svg" class="jsx-a506cd3c10710d9d"><path d="M1733 252.5L1367.26 37.8371C1329.58 15.7178 1282.08 19.5161 1248.39 47.3437L1067.63 196.638C1028.57 228.906 971.928 228.321 933.534 195.253L775.871 59.4574C736.861 25.8582 679.139 25.8581 640.129 59.4574L482.63 195.112C444.164 228.243 387.399 228.76 348.335 196.336L169.051 47.5243C135.4 19.5931 87.8711 15.6975 50.1215 37.7767L-317 252.5" stroke="white" stroke-dasharray="3 3" class="jsx-a506cd3c10710d9d"></path><path opacity="0.3" d="M1733 276.5L1362.43 59.0035C1327.65 38.5857 1283.81 42.0918 1252.71 67.7788L1067.63 220.638C1028.57 252.906 971.928 252.321 933.534 219.253L770.65 78.9607C734.641 47.946 681.359 47.946 645.35 78.9607L482.63 219.112C444.164 252.243 387.399 252.76 348.335 220.336L164.739 67.9455C133.677 42.1628 89.8041 38.567 54.9583 58.9477L-317 276.5" stroke="white" stroke-dasharray="3 3" class="jsx-a506cd3c10710d9d"></path><path opacity="0.3" d="M1733 228.5L1372.09 16.6707C1331.5 -7.15002 1280.36 -3.05962 1244.07 26.9086L1062.43 176.935C1026.37 206.721 974.087 206.181 938.647 175.657L781.092 39.9542C739.081 3.77034 676.919 3.77031 634.908 39.9541L477.504 175.526C441.997 206.109 389.599 206.586 353.54 176.656L173.363 27.103C137.123 -2.9767 85.9381 -7.17189 45.2847 16.6056L-317 228.5" stroke="white" stroke-dasharray="3 3" class="jsx-a506cd3c10710d9d"></path></svg><svg width="480" height="84" viewBox="0 0 480 84" fill="none" xmlns="http://www.w3.org/2000/svg" class="jsx-a506cd3c10710d9d"><path d="M598.379 75.2456L503.945 19.8193C471.99 1.06429 431.72 4.28482 403.153 27.88L396.462 33.406C367.2 57.5744 324.749 57.1099 295.993 32.3422V32.3422C266.811 7.20752 223.599 7.1806 194.417 32.3152V32.3152C165.642 57.0994 123.178 57.4865 93.9555 33.231L87.4699 27.8478C59.0714 4.27607 18.9604 0.988495 -12.8972 19.6215L-108 75.2456" stroke="white" stroke-dasharray="3 3" class="jsx-a506cd3c10710d9d"></path><path opacity="0.3" d="M598.379 83.5154L501.627 26.7284C471.064 8.79043 432.548 11.8707 405.225 34.4379L398.51 39.9839C368.066 65.1297 323.898 64.6464 293.979 38.8771V38.8771C265.954 14.739 224.455 14.7131 196.43 38.8513V38.8513C166.493 64.6363 122.314 65.0391 91.9114 39.8041L85.4079 34.406C58.2473 11.8618 19.8849 8.71759 -10.5841 26.5384L-108 83.5154" stroke="white" stroke-dasharray="3 3" class="jsx-a506cd3c10710d9d"></path><path opacity="0.3" d="M598.379 66.9756L508.452 14.1946C473.791 -6.14881 430.11 -2.65552 399.123 22.938L392.528 28.3854C365.539 50.6769 326.385 50.2486 299.862 27.4044V27.4044C268.457 0.355559 221.955 0.326811 190.55 27.3757V27.3757C164.007 50.2371 124.838 50.5942 97.8824 28.2204L91.4791 22.9055C60.6736 -2.66404 17.163 -6.23025 -17.3948 13.982L-108 66.9756" stroke="white" stroke-dasharray="3 3" class="jsx-a506cd3c10710d9d"></path></svg></div></div><section id="conclusion" class="jsx-bb301783bd8eb0b2"><div class="jsx-bb301783bd8eb0b2 content"><h4 class="jsx-bb301783bd8eb0b2">The benefits of Next.js</h4><h2 class="jsx-bb301783bd8eb0b2">A Happier, More Productive Org</h2><p class="jsx-bb301783bd8eb0b2">One year into their journey, Zack credits Next.js for fewer bugs, greater productivity, and a happier engineering organization. As Next.js continues to improve, the Hulu team is excited to continually reap the rewards, passing them on to their users in the form of a more robust, and featureful platform.</p><p class="jsx-bb301783bd8eb0b2">Interested in working with modern technology on a world-class team? Check out the <a href="https://hulu.com/jobs" class="jsx-bb301783bd8eb0b2">Hulu jobs page</a> or their <a href="https://medium.com/hulu-tech-blog" class="jsx-bb301783bd8eb0b2">tech blog</a> for more info on joining the Hulu team!</p></div></section><div class="jsx-bf5440c53571510a container"><div class="jsx-bf5440c53571510a"><h2 class="jsx-bf5440c53571510a">Find Out How Next.js Can <br class="jsx-bf5440c53571510a"/> Empower Your Team Today</h2><a class="jsx-bf5440c53571510a" href="../learn/basics/create-nextjs-app"><button type="button" class="jsx-bf5440c53571510a">Learn More</button></a></div></div></div><div class="jsx-1302020333 "><div class="jsx-1871562156 "><footer class="jsx-63203892f3ce9b9e"><div class="jsx-63203892f3ce9b9e grid f5"><div class="jsx-63203892f3ce9b9e"><h4 class="jsx-63203892f3ce9b9e fw5">General resources</h4><p class="jsx-63203892f3ce9b9e"><a href="../docs.html" class="jsx-63203892f3ce9b9e">Docs</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../learn/foundations/about-nextjs">Learn</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../showcase.html">Showcase</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../blog">Blog</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../insights">Analytics</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../conf.html">Next.js Conf</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="https://vercel.com/live">Live</a></p></div><div class="jsx-63203892f3ce9b9e"><h4 class="jsx-63203892f3ce9b9e fw5">More</h4><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../commerce">Commerce</a></p><p class="jsx-63203892f3ce9b9e"><a href="https://vercel.com/contact/sales?utm_source=next-site&amp;utm_medium=footer&amp;utm_campaign=next-website" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">Contact Sales</a></p><p class="jsx-63203892f3ce9b9e"><a href="https://github.com/vercel/next.js" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">GitHub</a></p><p class="jsx-63203892f3ce9b9e"><a href="https://github.com/vercel/next.js/releases" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">Releases</a></p><p class="jsx-63203892f3ce9b9e"><a class="jsx-63203892f3ce9b9e" href="../telemetry">Telemetry</a></p></div><div class="jsx-63203892f3ce9b9e"><h4 class="jsx-63203892f3ce9b9e fw5">About <!-- -->Vercel</h4><p class="jsx-63203892f3ce9b9e"><a href="https://vercel.com/oss?utm_source=next-site&amp;utm_medium=footer&amp;utm_campaign=next-website" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">Open Source Software</a></p><p class="jsx-63203892f3ce9b9e"><a href="https://github.com/vercel" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">GitHub</a></p><p class="jsx-63203892f3ce9b9e"><a href="https://twitter.com/vercel" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">Twitter</a></p></div><div class="jsx-63203892f3ce9b9e"><h4 class="jsx-63203892f3ce9b9e fw5">Legal</h4><p class="jsx-63203892f3ce9b9e"><a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer" target="_blank" class="jsx-63203892f3ce9b9e">Privacy Policy</a></p></div></div><div class="jsx-63203892f3ce9b9e copyright f6"><a href="https://vercel.com/home?utm_source=next-site&amp;utm_medium=footer&amp;utm_campaign=next-website" title="Go to the Vercel website" rel="noopener noreferrer" target="_blank" aria-label="Vercel" class="jsx-63203892f3ce9b9e"><svg height="20" viewBox="0 0 283 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M141.04 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.46 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM248.72 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.45 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM200.24 34c0 6 3.92 10 10 10 4.12 0 7.21-1.87 8.8-4.92l7.68 4.43c-3.18 5.3-9.14 8.49-16.48 8.49-11.05 0-19-7.2-19-18s7.96-18 19-18c7.34 0 13.29 3.19 16.48 8.49l-7.68 4.43c-1.59-3.05-4.68-4.92-8.8-4.92-6.07 0-10 4-10 10zm82.48-29v46h-9V5h9zM36.95 0L73.9 64H0L36.95 0zm92.38 5l-27.71 48L73.91 5H84.3l17.32 30 17.32-30h10.39zm58.91 12v9.69c-1-.29-2.06-.49-3.2-.49-5.81 0-10 4-10 10V51h-9V17h9v9.2c0-5.08 5.91-9.2 13.2-9.2z" fill="#000"></path></svg></a><div class="jsx-63203892f3ce9b9e">Copyright © <!-- -->2022<!-- --> <!-- -->Vercel<!-- -->, Inc. All rights reserved.</div></div></footer></div></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/case-studies/hulu","query":{},"buildId":"evpvxZ3IcNs45ngQ3kpij","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-117491914-2"></script><script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'UA-117491914-2');
+                  </script><script src="https://www.youtube.com/iframe_api"></script></body>
+<!-- Mirrored from nextjs.org/case-studies/hulu by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Mar 2022 13:07:02 GMT -->
+</html>

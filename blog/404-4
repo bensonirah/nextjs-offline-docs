@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><script>
+var doc = document.documentElement;
+function calcVh() { doc.style.setProperty('--100vh', window.innerHeight + 'px'); }
+window.addEventListener('resize', calcVh);
+calcVh();
+    </script><title>404: This page could not be found</title><meta name="next-head-count" content="4"/><link rel="preload" href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"/><link rel="manifest" href="/static/favicon/site.webmanifest"/><link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#000000"/><link rel="shortcut icon" href="/static/favicon/favicon.ico"/><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-config" content="/static/favicon/browserconfig.xml"/><meta name="theme-color" content="#fff"/><link rel="alternate" type="application/rss+xml" href="/feed.xml"/><link rel="preload" href="/_next/static/css/af31987a593817a5.css" as="style"/><link rel="stylesheet" href="/_next/static/css/af31987a593817a5.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-8bce99992a21d9e0.js" defer=""></script><script src="/_next/static/chunks/framework-66ccde3ce5a43e6d.js" defer=""></script><script src="/_next/static/chunks/main-6c1d5db8bb134c43.js" defer=""></script><script src="/_next/static/chunks/pages/_app-7b3174c092beca51.js" defer=""></script><script src="/_next/static/chunks/pages/_error-8ece7b3dc2bb2543.js" defer=""></script><script src="/_next/static/evpvxZ3IcNs45ngQ3kpij/_buildManifest.js" defer=""></script><script src="/_next/static/evpvxZ3IcNs45ngQ3kpij/_ssgManifest.js" defer=""></script><script src="/_next/static/evpvxZ3IcNs45ngQ3kpij/_middlewareManifest.js" defer=""></script><style id="__jsx-2784187670">#nprogress{pointer-events:none}
+#nprogress .bar{background:#0070f3;
+position:fixed;
+z-index:1031;
+top:0;
+left:0;
+width:100%;
+height:2px;
+
+        }
+@keyframes gradient-rotation {0% {background-position:0 0}100% {background-position:100vw 0}}</style><style id="__jsx-75f42868059f4c31">:root{--geist-space: 4px;
+--geist-space-2x: 8px;
+--geist-space-4x: 16px;
+--geist-space-8x: 32px;
+--geist-space-16x: 64px;
+--geist-space-32x: 128px;
+--geist-space-small: 32px;
+--geist-space-medium: 40px;
+--geist-space-large: 48px;
+--geist-space-gap: 24px;
+--geist-space-gap-half: 12px;
+--geist-space-gap-quarter: var(--geist-space-2x);
+--geist-gap: var(--geist-space-gap);
+--geist-gap-half: var(--geist-space-gap-half);
+--geist-gap-quarter: var(--geist-space-gap-quarter);
+--geist-gap-double: var(--geist-space-large);
+--geist-space-negative: -4px;
+--geist-space-2x-negative: -8px;
+--geist-space-4x-negative: -16px;
+--geist-space-8x-negative: -32px;
+--geist-space-16x-negative: -64px;
+--geist-space-32x-negative: -128px;
+--geist-space-small-negative: -32px;
+--geist-space-medium-negative: -40px;
+--geist-space-large-negative: -48px;
+--geist-space-gap-negative: -24px;
+--geist-space-gap-half-negative: -12px;
+--geist-space-gap-quarter-negative: var(--geist-space-2x-negative);
+--geist-gap-negative: var(--geist-space-gap-negative);
+--geist-gap-half-negative: var(--geist-space-gap-half-negative);
+--geist-gap-quarter-negative: var(--geist-space-gap-quarter-negative);
+--geist-gap-double-negative: var(--geist-space-large-negative);
+--geist-page-margin: var(--geist-space-gap);
+--geist-page-width: 1000px;
+--geist-page-width-with-margin: 1048px;
+--geist-radius: 5px;
+--geist-marketing-radius: 8px;
+--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+--font-mono: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+--header-height: 64px;
+--header-border-bottom: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+--header-background: rgba(255, 255, 255, 0.8);
+--geist-form-large-font: 1rem;
+--geist-form-large-line-height: 1.5rem;
+--geist-form-large-height: var(--geist-space-large);
+--geist-form-small-font: 0.875rem;
+--geist-form-small-line-height: 0.875rem;
+--geist-form-small-height: var(--geist-space-small);
+--geist-form-font: 0.875rem;
+--geist-form-line-height: 1.25rem;
+--geist-form-height: var(--geist-space-medium)}
+:root{--geist-success-lighter: #d3e5ff;
+--geist-success-light: #3291ff;
+--geist-success: #0070f3;
+--geist-success-dark: #0761d1;
+--geist-error-lighter: #f7d4d6;
+--geist-error-light: #ff1a1a;
+--geist-error: #ee0000;
+--geist-error-dark: #c50000;
+--geist-warning-lighter: #ffefcf;
+--geist-warning-light: #f7b955;
+--geist-warning: #f5a623;
+--geist-warning-dark: #ab570a;
+--geist-violet-lighter: #e3d7fc;
+--geist-violet-light: #8a63d2;
+--geist-violet: #7928ca;
+--geist-violet-dark: #4c2889;
+--geist-cyan-lighter: #aaffec;
+--geist-cyan-light: #79ffe1;
+--geist-cyan: #50e3c2;
+--geist-cyan-dark: #29bc9b;
+--geist-highlight-purple: #f81ce5;
+--geist-highlight-magenta: #eb367f;
+--geist-highlight-pink: #ff0080;
+--geist-foreground: #000;
+--geist-background: #fff;
+--geist-selection: var(--geist-cyan-light);
+--accents-1: #fafafa;
+--accents-2: #eaeaea;
+--accents-3: #999999;
+--accents-4: #888888;
+--accents-5: #666666;
+--accents-6: #444444;
+--accents-7: #333333;
+--accents-8: #111111;
+--geist-link-color: var(--geist-success);
+--geist-marketing-gray: #fafbfc;
+--geist-code: var(--geist-highlight-purple);
+--geist-secondary-lighter: var(--accents-2);
+--geist-secondary-light: var(--accents-3);
+--geist-secondary: var(--accents-5);
+--geist-secondary-dark: var(--accents-7);
+--dropdown-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.02);
+--dropdown-triangle-stroke: #fff;
+--scroller-start: rgba(255, 255, 255, 1);
+--scroller-end: rgba(255, 255, 255, 0);
+--shadow-smallest: 0px 2px 4px rgba(0, 0, 0, 0.1);
+--shadow-extra-small: 0px 4px 8px rgba(0, 0, 0, 0.12);
+--shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+--shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+--shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+--shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+--shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, 0.12);
+--portal-opacity: 0.25}</style></head><body><script async="">(function applyRedirects() {
+    const match = location.pathname + location.hash;
+    const docsPrefix = '/docs/';
+    const redirects = [
+        // image redirects
+        [
+            'api-reference/next/image#usage',
+            'basic-features/image-optimization#using-the-image-component', 
+        ],
+        [
+            'api-reference/next/image#styling',
+            'basic-features/image-optimization#styling', 
+        ],
+        [
+            'basic-features/image-optimization#image-component',
+            'basic-features/image-optimization#using-the-image-component', 
+        ],
+        [
+            'basic-features/image-optimization#image-imports',
+            'basic-features/image-optimization#local-images', 
+        ],
+        [
+            'basic-features/image-optimization#loader',
+            'basic-features/image-optimization#loaders', 
+        ],
+        [
+            'basic-features/image-optimization#caching',
+            'api-reference/next/image#caching-behavior', 
+        ],
+        [
+            'basic-features/image-optimization#advanced',
+            'api-reference/next/image#advanced', 
+        ],
+        [
+            'basic-features/image-optimization#device-sizes',
+            'api-reference/next/image#device-sizes', 
+        ],
+        [
+            'basic-features/image-optimization#image-sizes',
+            'api-reference/next/image#image-sizes', 
+        ],
+        [
+            'basic-features/image-optimization#minimum-cache-ttl',
+            'api-reference/next/image#caching-behavior', 
+        ],
+        [
+            'basic-features/image-optimization#disable-static-imports',
+            'api-reference/next/image#disable-static-imports', 
+        ],
+        // data fetching redirects
+        [
+            '/docs/basic-features/data-fetching.md',
+            '/docs/basic-features/data-fetching/index.md', 
+        ],
+        [
+            '/docs/basic-features/data-fetching#swr',
+            '/docs/basic-features/data-fetching/client-side#client-side-data-fetching-with-swr', 
+        ],
+        [
+            '/docs/basic-features/data-fetching#incremental-static-regeneration',
+            '/docs/basic-features/data-fetching/incremental-static-regeneration#incremental-static-regeneration', 
+        ],
+        // getStaticProps
+        [
+            'basic-features/data-fetching#getstaticprops-static-generation',
+            'basic-features/data-fetching/get-static-props#getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#example',
+            'basic-features/data-fetching/get-static-props#using-getstaticprops-to-fetch-data-from-a-cms', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getstaticprops',
+            'basic-features/data-fetching/get-static-props#when-should-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getstaticprops',
+            'api-reference/data-fetching/get-static-props#getstaticprops-with-typescript', 
+        ],
+        [
+            'basic-features/data-fetching#reading-files-use-processcwd',
+            'api-reference/data-fetching/get-static-props#reading-files-use-processcwd', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details',
+            'basic-features/data-fetching/get-static-props#getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-at-build-time',
+            'basic-features/data-fetching/get-static-props#when-should-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#write-server-side-code-directly',
+            'basic-features/data-fetching/get-static-props#write-server-side-code-directly', 
+        ],
+        [
+            'basic-features/data-fetching#statically-generates-both-html-and-json',
+            'basic-features/data-fetching/get-static-props#statically-generates-both-html-and-json', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page',
+            'basic-features/data-fetching/get-static-props#where-can-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#runs-on-every-request-in-development',
+            'basic-features/data-fetching/get-static-props#runs-on-every-request-in-development', 
+        ],
+        [
+            'basic-features/data-fetching#preview-mode',
+            'basic-features/data-fetching/get-static-props#preview-mode', 
+        ],
+        // getStaticPaths
+        [
+            'basic-features/data-fetching#getstaticpaths-static-generation',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#the-paths-key-required',
+            'api-reference/data-fetching/get-static-paths#paths', 
+        ],
+        [
+            'basic-features/data-fetching#the-fallback-key-required',
+            'api-reference/data-fetching/get-static-paths#fallback-false', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-false',
+            'api-reference/data-fetching/get-static-paths#fallback-false', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-true',
+            'api-reference/data-fetching/get-static-paths#fallback-true', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-pages',
+            'api-reference/data-fetching/get-static-paths#fallback-pages', 
+        ],
+        [
+            'basic-features/data-fetching#when-is-fallback-true-useful',
+            'api-reference/data-fetching/get-static-paths#when-is-fallback-true-useful', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-blocking',
+            'api-reference/data-fetching/get-static-paths#fallback-blocking', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getstaticpaths',
+            'basic-features/data-fetching/get-static-paths#when-should-i-use-getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#use-together-with-getstaticprops',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details-1',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-at-build-time-on-server-side',
+            'basic-features/data-fetching/get-static-paths#when-does-getStaticPaths-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page-1',
+            'basic-features/data-fetching/get-static-paths#where-can-i-use-getStaticPaths', 
+        ],
+        [
+            'basic-features/data-fetching#runs-on-every-request-in-development-1',
+            'basic-features/data-fetching/get-static-paths#runs-on-every-request-in-development', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getstaticpaths',
+            'api-reference/data-fetching/get-static-paths#getstaticpaths-with-typescript', 
+        ],
+        // getServerSideProps
+        [
+            'basic-features/data-fetching#getserversideprops-server-side-rendering',
+            'basic-features/data-fetching/get-server-side-props#getserversideprops', 
+        ],
+        [
+            'basic-features/data-fetching#provided-req-middleware-in-getserversideprops',
+            'basic-features/data-fetching/get-server-side-props#using-getserversideprops-to-fetch-data-at-request-time', 
+        ],
+        [
+            'basic-features/data-fetching#example-1',
+            'basic-features/data-fetching/get-server-side-props#using-getserversideprops-to-fetch-data-at-request-time', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getserversideprops',
+            'basic-features/data-fetching/get-server-side-props#when-should-i-use-getserversideprops', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getserversideprops',
+            'api-reference/data-fetching/get-server-side-props#getserversideprops-with-typescript', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details-2',
+            'basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-on-server-side',
+            'basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page-2',
+            'basic-features/data-fetching/get-server-side-props#only-allowed-in-a-page', 
+        ],
+        [
+            'basic-features/data-fetching#fetching-data-on-the-client-side',
+            'basic-features/data-fetching/get-server-side-props#fetching-data-on-the-client-side', 
+        ],
+        [
+            'deployment#vercel-recommended',
+            'deployment#managed-nextjs-with-vercel'
+        ],
+        [
+            'deployment#getting-started',
+            'deployment#managed-nextjs-with-vercel'
+        ],
+        [
+            'deployment#dps-develop-preview-ship',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#optimized-for-nextjs',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#custom-domains-environment-variables-automatic-https-and-more',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#other-hosting-options',
+            'deployment#self-hosting'
+        ], 
+    ];
+    for(let index = 0; index < redirects.length; ++index){
+        const item = redirects[index];
+        if (`${docsPrefix}${item[0]}` === match) {
+            document.location = `${docsPrefix}${item[1]}`;
+            return;
+        }
+    }
+})()</script><div id="__next"><div data-overlay-container="true"><div style="color:#000;background:#fff;font-family:-apple-system, BlinkMacSystemFont, Roboto, &quot;Segoe UI&quot;, &quot;Fira Sans&quot;, Avenir, &quot;Helvetica Neue&quot;, &quot;Lucida Grande&quot;, sans-serif;height:100vh;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center"><div><style>body { margin: 0 }</style><h1 style="display:inline-block;border-right:1px solid rgba(0, 0, 0,.3);margin:0;margin-right:20px;padding:10px 23px 10px 0;font-size:24px;font-weight:500;vertical-align:top">404</h1><div style="display:inline-block;text-align:left;line-height:49px;height:49px;vertical-align:middle"><h2 style="font-size:14px;font-weight:normal;line-height:inherit;margin:0;padding:0">This page could not be found<!-- -->.</h2></div></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"statusCode":404}},"page":"/_error","query":{},"buildId":"evpvxZ3IcNs45ngQ3kpij","nextExport":true,"isFallback":false,"gip":true,"scriptLoader":[]}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-117491914-2"></script><script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'UA-117491914-2');
+                  </script><script src="https://www.youtube.com/iframe_api"></script></body></html>

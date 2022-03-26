@@ -1,0 +1,1753 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from nextjs.org/docs/api-reference/cli by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Mar 2022 13:11:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><script>
+var doc = document.documentElement;
+function calcVh() { doc.style.setProperty('--100vh', window.innerHeight + 'px'); }
+window.addEventListener('resize', calcVh);
+calcVh();
+    </script><title>CLI | Next.js</title><meta name="twitter:site" content="@vercel"/><meta name="twitter:card" content="summary_large_image"/><meta property="og:title" content="CLI | Next.js"/><meta property="og:url" content="https://nextjs.org/docs/api-reference/cli"/><meta name="description" content="The Next.js CLI allows you to start, build, and export your application. Learn more about it here."/><meta property="og:description" content="The Next.js CLI allows you to start, build, and export your application. Learn more about it here."/><meta property="og:image" content="https://nextjs.org/static/twitter-cards/documentation.png"/><meta name="next-head-count" content="11"/><link rel="preload" href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="180x180" href="../../static/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="../../static/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="../../static/favicon/favicon-16x16.png"/><link rel="manifest" href="../../static/favicon/site.webmanifest"/><link rel="mask-icon" href="../../static/favicon/safari-pinned-tab.svg" color="#000000"/><link rel="shortcut icon" href="../../static/favicon/favicon.ico"/><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-config" content="/static/favicon/browserconfig.xml"/><meta name="theme-color" content="#fff"/><link rel="alternate" type="application/rss+xml" href="../../feed.xml"/><link rel="preload" href="../../_next/static/css/af31987a593817a5.css" as="style"/><link rel="stylesheet" href="../../_next/static/css/af31987a593817a5.css" data-n-g=""/><link rel="preload" href="../../_next/static/css/02c6bc1a244c5b3d.css" as="style"/><link rel="stylesheet" href="../../_next/static/css/02c6bc1a244c5b3d.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="../../_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="../../_next/static/chunks/webpack-8bce99992a21d9e0.js" defer=""></script><script src="../../_next/static/chunks/framework-66ccde3ce5a43e6d.js" defer=""></script><script src="../../_next/static/chunks/main-6c1d5db8bb134c43.js" defer=""></script><script src="../../_next/static/chunks/pages/_app-7b3174c092beca51.js" defer=""></script><script src="../../_next/static/chunks/7582-e9862f068443dc4a.js" defer=""></script><script src="../../_next/static/chunks/9617-f255b12d6699bad5.js" defer=""></script><script src="../../_next/static/chunks/642-bdbb65ca609414d7.js" defer=""></script><script src="../../_next/static/chunks/5315-a068a4b6c3afdc1a.js" defer=""></script><script src="../../_next/static/chunks/pages/docs/%5b%5b...slug%5d%5d-df26d9e99e85bd0e.js" defer=""></script><script src="../../_next/static/evpvxZ3IcNs45ngQ3kpij/_buildManifest.js" defer=""></script><script src="../../_next/static/evpvxZ3IcNs45ngQ3kpij/_ssgManifest.js" defer=""></script><script src="../../_next/static/evpvxZ3IcNs45ngQ3kpij/_middlewareManifest.js" defer=""></script><style id="__jsx-3a64d1ae4f0f7fab">.banner.jsx-3a64d1ae4f0f7fab{width:100%;
+background:#000;
+color:#fff;
+height:50px;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.inner.jsx-3a64d1ae4f0f7fab{width:100%;
+max-width:1024px;
+margin:0 auto;
+padding:0 1rem;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between}
+a.jsx-3a64d1ae4f0f7fab{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex}
+p.jsx-3a64d1ae4f0f7fab{color:#fff;
+margin:0;
+-webkit-transition:color 0.15s ease;
+transition:color 0.15s ease}
+@media (max-width:640px) {p.jsx-3a64d1ae4f0f7fab{font-size:14px}}</style><style id="__jsx-1325105755">div.jsx-1325105755{width:100%;
+margin:0 auto;
+padding:0 1rem;
+max-width: 1024px;
+            
+        text-align: center;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          }
+div.jsx-1325105755:after{content:'';
+display:table;
+clear:both}
+@media screen and (max-width:960px) {div.jsx-1325105755{padding:0 2rem;
+
+            }}
+@media screen and (max-width:640px) {div.jsx-1325105755{padding:0 1rem;
+
+            }}</style><style id="__jsx-b662909c11ef51ed">.btn.jsx-b662909c11ef51ed{position:relative;
+display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+cursor:pointer;
+-webkit-text-decoration:none;
+text-decoration:none;
+padding:0.25rem 0.5rem;
+margin:-0.25rem -0.5rem;
+border-radius:7px;
+color:#0070f3;
+background-color:transparent;
+border:none;
+font-size:inherit;
+line-height:inherit;
+-webkit-transition:background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+transition:background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+outline:none}
+.btn.jsx-b662909c11ef51ed:hover{color:#0070f3;
+background:rgba(0, 118, 255, 0.1)}
+.btn.invert.jsx-b662909c11ef51ed{margin:0;
+padding:0 3.5rem;
+height:2.81rem;
+line-height:2.8rem;
+border-radius:7px;
+background-color:#0070f3;
+box-shadow:0 4px 14px 0 rgba(0, 118, 255, 0.39);
+color:white}
+.btn.invert.jsx-b662909c11ef51ed:hover{background:rgba(0, 118, 255, 0.9);
+box-shadow:0 6px 20px rgba(0, 118, 255, 0.23)}
+.btn.invert.jsx-b662909c11ef51ed:active{background:#006ae6}
+.btn.invert.outline.jsx-b662909c11ef51ed{background:#fff;
+color:#696969;
+box-shadow:0 4px 14px 0 rgba(0, 0, 0, 0.1)}
+.btn.invert.outline.jsx-b662909c11ef51ed:hover{background:rgba(255, 255, 255, 0.9);
+box-shadow:0 6px 20px rgba(93, 93, 93, 0.23)}
+.btn.small.jsx-b662909c11ef51ed{font-size:0.875rem;
+height:1.5rem;
+padding:0 0.75rem;
+line-height:inherit;
+border-radius:5px}
+.btn.loading.jsx-b662909c11ef51ed{background:#fafafa;
+color:#888888;
+border:1px solid #000;
+border-color:#eaeaea;
+box-shadow:none;
+cursor:default;
+pointer-events:none}
+.btn.loading.jsx-b662909c11ef51ed>.text.jsx-b662909c11ef51ed{visibility:hidden}
+.btn.jsx-b662909c11ef51ed>.loading-dots.jsx-b662909c11ef51ed{position:absolute}</style><style id="__jsx-269800061">.wrapper.jsx-269800061{-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+border-radius: 5px;
+            border: 1px solid var(--accents-2);
+                display: inline-flex;
+position:relative;
+-webkit-transition:border 0.2s ease, color 0.2s ease;
+transition:border 0.2s ease, color 0.2s ease;
+width:100%;
+;
+background:var(--geist-background);
+height:calc(9 * var(--geist-space));}
+.wrapper.focused.jsx-269800061{border: 1px solid var(--accents-5);
+          }
+.wrapper.disabled.jsx-269800061{background:var(--accents-1);
+border-color:var(--accents-2);
+cursor:not-allowed}
+.wrapper.errored.jsx-269800061{border:1px solid var(--geist-error)}
+.wrapper.errored.focused.jsx-269800061{border:1px solid var(--geist-error);
+color:var(--geist-error)}
+.wrapper.errored.jsx-269800061 input.jsx-269800061{color:var(--geist-error)}
+.wrapper.right.jsx-269800061{-webkit-flex-direction:row-reverse;
+-ms-flex-direction:row-reverse;
+flex-direction:row-reverse}
+.icon.jsx-269800061{-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+height:100%;
+padding:0 var(--geist-gap-half);
+vertical-align:middle}
+.icon.right.jsx-269800061{-webkit-order:2;
+-ms-flex-order:2;
+order:2;
+border-bottom-right-radius:5px;
+border-top-right-radius:5px}
+.icon.right.jsx-269800061~.input-wrapper.jsx-269800061{margin-right:0}
+.icon.jsx-269800061:not(.right)~.input-wrapper.jsx-269800061{margin-left:0}
+.input-wrapper.jsx-269800061{margin-right:0}
+.icon.jsx-269800061 svg path{-webkit-transition:fill 0.2s ease, stroke 0.2s ease;
+transition:fill 0.2s ease, stroke 0.2s ease}
+.input-wrapper.jsx-269800061{display:block;
+margin:4px 10px;
+position:relative;
+width:100%}
+input.jsx-269800061{border-radius:0;
+border:none;
+box-shadow:none;
+box-sizing:border-box;
+display:block;
+padding:0;
+font-family:var(--font-sans);
+font-size:14px;
+line-height:26px;
+outline:0;
+width:100%;
+color:var(--geist-foreground);
+background-color:transparent;
+caret-color:var(--geist-foreground);
+text-overflow:ellipsis;
+-webkit-appearance:none;
+-webkit-appearance:none;
+-moz-appearance:none;
+-ms-appearance:none;
+appearance:none}
+.wrapper.jsx-269800061 input.jsx-269800061:disabled{color:var(--accents-3);
+cursor:not-allowed}
+.wrapper.jsx-269800061 input.jsx-269800061::placeholder, .wrapper.jsx-269800061 input.jsx-269800061::-webkit-input-placeholder{color:var(--accents-3)}
+.wrapper.jsx-269800061 input.jsx-269800061:disabled::placeholder{color:var(--accents-3)}
+@media only screen and (max-device-width:780px) and (-webkit-min-device-pixel-ratio:0) {input.jsx-269800061{font-size:16px;
+line-height:1}
+.wrapper.jsx-269800061{height:calc(2 * var(--geist-gap))}}</style><style id="__jsx-4085395972">.wrapper.jsx-4085395972{-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+border-radius:5px;
+border:1px solid var(--accents-2);
+display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+position:relative;
+-webkit-transition:border 0.2s ease, color 0.2s ease;
+transition:border 0.2s ease, color 0.2s ease;
+vertical-align:middle;
+background:var(--geist-background);
+width: 100%;
+            
+          }
+.wrapper.focused.jsx-4085395972{border:1px solid var(--accents-5)}
+.wrapper.errored.jsx-4085395972{border:1px solid var(--geist-error)}
+.wrapper.errored.focused.jsx-4085395972{border:1px solid var(--geist-error);
+color:var(--geist-error)}
+.wrapper.errored.jsx-4085395972 textarea.jsx-4085395972{color:var(--geist-error)}
+.wrapper.disabled.jsx-4085395972{border-color:var(--accents-2)!important}
+textarea.jsx-4085395972{background-color:transparent;
+border-radius:0;
+border:0;
+border:none;
+box-shadow:none;
+box-sizing:border-box;
+display:block;
+font-family:var(--font-sans);
+font-size:14px;
+line-height:1.7;
+height:100%;
+min-height: 100px;
+outline:0;
+padding:7px 10px;
+resize:none;
+width:100%;
+color:var(--geist-foreground)}
+.wrapper.jsx-4085395972 textarea.jsx-4085395972:disabled{background:var(--accents-1);
+color:var(--accents-4);
+border-radius:5px;
+cursor:not-allowed}
+.wrapper.jsx-4085395972 textarea.jsx-4085395972::placeholder{color:var(--accents-3)}
+.wrapper.jsx-4085395972 textarea.jsx-4085395972:disabled::placeholder{color:var(--accents-3)}
+@media only screen and (max-device-width:780px) and (-webkit-min-device-pixel-ratio:0) {textarea.jsx-4085395972{font-size:16px}}</style><style id="__jsx-2562017125">svg.jsx-2562017125{width:22px;
+height:22px}</style><style id="__jsx-ec2f6914d5ee8fa4">nav.jsx-ec2f6914d5ee8fa4{position:relative;
+-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+height:80px;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.links.jsx-ec2f6914d5ee8fa4{width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+z-index:1}
+.links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4{-webkit-text-decoration:none;
+text-decoration:none;
+-webkit-transition:color 0.2s ease;
+transition:color 0.2s ease;
+margin-left:1rem}
+.links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4:hover{color:#000}
+.links.jsx-ec2f6914d5ee8fa4 a.selected.jsx-ec2f6914d5ee8fa4{color:#0070f3;
+text-shadow:0px 0px 1px #0070f3}
+.links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4:first-child{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+margin:0}
+a.icon.jsx-ec2f6914d5ee8fa4, a.icon.jsx-ec2f6914d5ee8fa4>div.container{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+-webkit-justify-content:center;
+justify-content:center}
+a.icon.jsx-ec2f6914d5ee8fa4>div.container{overflow:visible}
+.mobile-logo.jsx-ec2f6914d5ee8fa4, .mobile-top.jsx-ec2f6914d5ee8fa4{display:none}
+.header-feedback.jsx-ec2f6914d5ee8fa4{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex}
+.no-feedback.jsx-ec2f6914d5ee8fa4{visibility:hidden;
+min-width:1em}
+a.icon.icon.jsx-ec2f6914d5ee8fa4{margin-left:0}
+.learn.jsx-ec2f6914d5ee8fa4 a{background-color:rgba(0, 118, 255, 0.9);
+border:1px solid rgba(0, 118, 255, 0.9);
+color:#fff;
+padding:0.25rem 1rem;
+margin:0;
+font-weight:500}
+.learn.jsx-ec2f6914d5ee8fa4 a:focus, .learn.jsx-ec2f6914d5ee8fa4 a:hover{background-color:transparent;
+color:rgba(0, 118, 255, 0.9)}
+.menu-button.jsx-ec2f6914d5ee8fa4{margin-left:10px;
+display:none;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+cursor:pointer;
+-webkit-text-decoration:none;
+text-decoration:none;
+height:36px;
+width:36px;
+margin:0 -5px 0 5px;
+border-radius:7px;
+background-color:transparent;
+border:none;
+font-size:inherit;
+line-height:inherit;
+-webkit-tap-highlight-color:transparent;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+-webkit-touch-callout:none}
+@media (max-width:640px) {.mobile-top.jsx-ec2f6914d5ee8fa4{margin-bottom:0}
+.links.jsx-ec2f6914d5ee8fa4{display:none}
+.menu-button.jsx-ec2f6914d5ee8fa4{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}}
+@media (max-width:890px) {.mobile-logo.jsx-ec2f6914d5ee8fa4{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+nav.jsx-ec2f6914d5ee8fa4{height:unset;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:flex-start;
+-webkit-box-align:flex-start;
+-ms-flex-align:flex-start;
+align-items:flex-start;
+-webkit-box-pack:start;
+-ms-flex-pack:start;
+-webkit-justify-content:flex-start;
+justify-content:flex-start;
+padding:1rem 0}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 .logo.jsx-ec2f6914d5ee8fa4, nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 .learn.jsx-ec2f6914d5ee8fa4{display:none}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4{overflow-x:auto}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4{font-size:14px}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 a.icon.jsx-ec2f6914d5ee8fa4{margin-left:10px}
+nav.jsx-ec2f6914d5ee8fa4 .links.jsx-ec2f6914d5ee8fa4 a.jsx-ec2f6914d5ee8fa4:nth-child(2){margin:0}
+.mobile-top.jsx-ec2f6914d5ee8fa4{width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+margin-bottom:0.5rem}
+.mobile-top-right.jsx-ec2f6914d5ee8fa4{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.learn.jsx-ec2f6914d5ee8fa4{margin-right:0.5rem}}
+@media (max-width:1020px) {.header-feedback.jsx-ec2f6914d5ee8fa4{display:none}}</style><style id="__jsx-1931733896">header.jsx-1931733896{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-justify-content:space-around;
+justify-content:space-around;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+width:100%;
+background:white;
+z-index:1000;
+border-bottom: 1px solid #eaeaea;
+        }
+header.sticky.jsx-1931733896{position:-webkit-sticky;
+position:sticky;
+top:0}
+.mobile-menu-wrapper.jsx-1931733896{position:-webkit-sticky;
+position:sticky;
+top:80px;
+z-index:2000}</style><style id="__jsx-1871562156">div.jsx-1871562156{width:100%;
+margin:0 auto;
+padding:0 1rem;
+max-width: 1024px;
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          }
+div.jsx-1871562156:after{content:'';
+display:table;
+clear:both}
+@media screen and (max-width:960px) {div.jsx-1871562156{padding:0 2rem;
+
+            }}
+@media screen and (max-width:640px) {div.jsx-1871562156{padding:0 1rem;
+
+            }}</style><style id="__jsx-a0390f08afd0f3c6">.input-container.jsx-12d78b39f6b8bc1b{width:100%;
+height:2.5rem;
+display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-transition:border 0.2s ease;
+transition:border 0.2s ease;
+border-radius:5px;
+border:1px solid #d8d8d8}
+.input-container.focused.jsx-12d78b39f6b8bc1b{border:1px solid #888888}
+.input-container.focused.jsx-12d78b39f6b8bc1b>.icon.jsx-12d78b39f6b8bc1b svg{fill:#888888}
+.icon.jsx-12d78b39f6b8bc1b{height:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+padding:0 0.5rem}
+.icon.jsx-12d78b39f6b8bc1b svg{fill:#d8d8d8;
+-webkit-transition:fill 0.2s ease;
+transition:fill 0.2s ease}
+.input-container.jsx-12d78b39f6b8bc1b .react-autosuggest__input{width:100%;
+height:100%;
+font-size:0.875rem;
+border:none;
+outline:0;
+padding:0;
+background:white;
+padding-right:1rem;
+-moz-appearance:none;
+-webkit-appearance:none}
+@media screen and (max-width:960px) {.input-container.jsx-12d78b39f6b8bc1b .react-autosuggest__input, .input-container.jsx-12d78b39f6b8bc1b .no-results{font-size:1rem}}</style><style id="__jsx-a70d3706ffd091e9">.react-autosuggest__container{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+width:100%;
+height:100%;
+padding:1px 1px 1px 0}
+.react-autosuggest__suggestion mark{color:#000;
+font-weight:500;
+background:yellow}
+.react-autosuggest__suggestions-container{display:none;
+max-height:calc(100vh - 2rem - 81px - 50px - 5.5rem);
+overflow-y:auto;
+padding-bottom:1.5rem}
+.react-autosuggest__suggestions-container--open{display:block;
+position:absolute;
+width:100%;
+top:4rem;
+left:0;
+background:#fff}
+.react-autosuggest__suggestions-list{margin:0;
+padding:0;
+list-style-type:none;
+overflow-y:auto}
+.react-autosuggest__suggestion{cursor:pointer;
+padding-right:0.75rem}
+.react-autosuggest__suggestion a{-webkit-text-decoration:none;
+text-decoration:none;
+color:black;
+border-radius:4px;
+display:block;
+padding:0.75rem;
+border:1px solid transparent}
+.react-autosuggest__suggestion--highlighted a{background:#fafafa;
+border-color:#d8d8d8}
+.react-autosuggest__suggestion--highlighted a span{color:#000}</style><style id="__jsx-607d149861eed327">div.selected.jsx-607d149861eed327{box-sizing:border-box}
+.nav-link.jsx-607d149861eed327{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+.nav-link.jsx-607d149861eed327 a{-webkit-text-decoration:none;
+text-decoration:none;
+font-size:1rem;
+line-height:1.5rem;
+color:#444444;
+box-sizing:border-box}
+.selected.jsx-607d149861eed327 a{font-weight:600;
+color:#000}
+.nav-link.jsx-607d149861eed327:hover a{color:#000}
+span.jsx-607d149861eed327{color:#979797}
+@media screen and (max-width:950px) {div.jsx-607d149861eed327{padding-top:0;
+padding-left:0;
+padding-bottom:0}
+div.selected.jsx-607d149861eed327{border-left:none;
+padding-left:0}
+.nav-link.jsx-607d149861eed327 a{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}}</style><style id="__jsx-63037e977fd66cb4">.link.jsx-63037e977fd66cb4{margin:18px 0;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+.link.jsx-63037e977fd66cb4::before{content:'';
+-webkit-flex-basis:4px;
+-ms-flex-preferred-size:4px;
+flex-basis:4px;
+-webkit-flex-shrink:0;
+-ms-flex-negative:0;
+flex-shrink:0;
+display:block;
+width:4px;
+height:4px;
+border-radius:50%;
+background:#666666;
+margin-right:16px}
+.link.jsx-63037e977fd66cb4:first-child{margin-top:0}
+.link.jsx-63037e977fd66cb4:last-child{margin-bottom:0}
+@media screen and (max-width:950px) {.link.jsx-63037e977fd66cb4{margin:24px 0}}</style><style id="__jsx-23bde1c07c26fd41">.category.jsx-23bde1c07c26fd41{margin:18px 0}
+.category.jsx-23bde1c07c26fd41:first-child{margin-top:0}
+.category.jsx-23bde1c07c26fd41:last-child{margin-bottom:0}
+.label.jsx-23bde1c07c26fd41{font-size:1rem;
+line-height:1.5rem;
+font-weight:400;
+cursor:pointer;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+color:#444444}
+.label.jsx-23bde1c07c26fd41>svg{margin-right:14px;
+-webkit-transition:-webkit-transform 0.15s ease;
+transition:transform 0.15s ease}
+.selected.jsx-23bde1c07c26fd41>.label.jsx-23bde1c07c26fd41{font-weight:600;
+color:#000}
+.open.jsx-23bde1c07c26fd41>.label.jsx-23bde1c07c26fd41{color:#000}
+.open.jsx-23bde1c07c26fd41>.label.jsx-23bde1c07c26fd41>svg{margin-left:1px;
+margin-right:13px;
+-webkit-transform:rotate(90deg);
+-moz-transform:rotate(90deg);
+-ms-transform:rotate(90deg);
+transform:rotate(90deg)}
+.level-2.jsx-23bde1c07c26fd41 .label.jsx-23bde1c07c26fd41{text-transform:none;
+letter-spacing:0}
+.label.jsx-23bde1c07c26fd41:hover{color:#000}
+.separated.jsx-23bde1c07c26fd41{margin-bottom:32px}
+.posts.jsx-23bde1c07c26fd41{border-left:1px solid #eaeaea;
+margin-top:0;
+height:0;
+overflow:hidden;
+padding-left:19px;
+margin-left:3px}
+.open.jsx-23bde1c07c26fd41>.posts.jsx-23bde1c07c26fd41{margin-top:18px;
+height:auto}
+@media screen and (max-width:950px) {.category.jsx-23bde1c07c26fd41{margin:24px 0}}</style><style id="__jsx-4ac3a4fb51b82686">h4.jsx-4ac3a4fb51b82686{margin:1.25rem 0;
+font-size:1.2rem;
+font-weight:600}</style><style id="__jsx-328b403472946a3b">.sidebar-search.jsx-328b403472946a3b{display:none;
+padding:0.5rem 0;
+z-index:1}
+.sidebar-search.jsx-328b403472946a3b .react-autosuggest__suggestions-container, .sidebar-search.jsx-328b403472946a3b .no-results{top:calc(100% - 40px);
+bottom:100%;
+left:0;
+right:0;
+max-height:none}
+.sidebar-search.jsx-328b403472946a3b .react-autosuggest__suggestions-container--open, .sidebar-search.jsx-328b403472946a3b .no-results{min-height:80px;
+bottom:calc(153px - 90vh);
+box-shadow:0 10px 20px rgba(0, 0, 0, 0.1)}
+.sidebar-search.jsx-328b403472946a3b .react-autosuggest__suggestion{padding:0}
+#dropdown-input.jsx-328b403472946a3b{display:none}
+.dropdown-toggle.jsx-328b403472946a3b{width:100%;
+display:none}
+.docs-select.jsx-328b403472946a3b{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+height:2.5rem;
+width:100%;
+line-height:3rem;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+text-align:left;
+cursor:pointer}
+.docs-dropdown.jsx-328b403472946a3b{display:none;
+position:absolute;
+left:0;
+right:0;
+top:100%;
+bottom:100%;
+background:white;
+box-shadow:0 10px 20px rgba(0, 0, 0, 0.1);
+overflow-y:auto;
+-webkit-overflow-scrolling:touch}
+.opened.jsx-328b403472946a3b~.docs-dropdown.jsx-328b403472946a3b{min-height:80px;
+bottom:calc(153px - 90vh);
+border-top:1px solid #eaeaea}
+.docs-select.jsx-328b403472946a3b svg{margin-left:1px;
+margin-right:14px;
+-webkit-transition:-webkit-transform 0.15s ease;
+transition:transform 0.15s ease}
+.opened.jsx-328b403472946a3b>.docs-select.jsx-328b403472946a3b svg{-webkit-transform:rotate(90deg);
+-moz-transform:rotate(90deg);
+-ms-transform:rotate(90deg);
+transform:rotate(90deg)}
+@media screen and (max-width:950px) {.sidebar-search.jsx-328b403472946a3b, .dropdown-toggle.jsx-328b403472946a3b, .docs-dropdown.jsx-328b403472946a3b{display:block}}
+@media screen and (max-width:640px) {.sidebar-search.jsx-328b403472946a3b .react-autosuggest__suggestions-container--open, .sidebar-search.jsx-328b403472946a3b .no-results, .opened.jsx-328b403472946a3b~.docs-dropdown.jsx-328b403472946a3b{bottom:calc(203px - 90vh)}}</style><style id="__jsx-1726728124">.docs-dropdown.jsx-1726728124 nav.jsx-1726728124{padding:10px 0 10px 0}</style><style id="__jsx-114dbeca26e41779">div.jsx-114dbeca26e41779{background:#fff;
+position:-webkit-sticky;
+position:sticky;
+z-index:1000}
+div.shadow.jsx-114dbeca26e41779{box-shadow:rgba(0, 0, 0, 0.06) 0px 6px 20px}
+.mobile-menu-visible div.shadow.jsx-114dbeca26e41779{box-shadow:none}</style><style id="__jsx-3f1b4107649c747d">.sidebar.jsx-3f1b4107649c747d{background:#fff;
+padding-bottom:40px;
+padding-right:1.5rem;
+width:300px;
+-webkit-overflow-scrolling:touch;
+-webkit-flex-shrink:0;
+-ms-flex-negative:0;
+flex-shrink:0}
+.sidebar.fixed.jsx-3f1b4107649c747d{position:-webkit-sticky;
+position:sticky;
+top:calc(2rem + 81px);
+margin-right:1rem;
+height:calc(100vh - 2rem - 81px - 50px);
+padding-bottom:0;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+z-index:1}
+.sidebar.fixed.searching.jsx-3f1b4107649c747d>.sidebar-content.jsx-3f1b4107649c747d{display:none}
+.sidebar-search.jsx-3f1b4107649c747d{position:relative;
+margin:1.5rem 0;
+z-index:1}
+.sidebar-content.jsx-3f1b4107649c747d{overflow-y:auto;
+padding-bottom:1.5rem}
+@media screen and (max-width:950px) {.sidebar.jsx-3f1b4107649c747d, .sidebar.fixed.jsx-3f1b4107649c747d{display:none}
+.sidebar.active.jsx-3f1b4107649c747d{display:block}}</style><style id="__jsx-2363892788">span.jsx-2363892788{margin-right: .5rem; margin-left: -.25rem;
+          
+        display: inline-flex;
+vertical-align:middle;
+line-height:1}</style><style id="__jsx-861868532">span.jsx-861868532{
+          margin-left: .5rem; margin-right: -.25rem;
+        display: inline-flex;
+vertical-align:middle;
+line-height:1}</style><style id="__jsx-b14f721a13ab4fac">.geist-emoji-selector.jsx-b14f721a13ab4fac{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+pointer-events:none}
+.geist-emoji-selector.loading.jsx-b14f721a13ab4fac{-webkit-filter:grayscale(100%);
+filter:grayscale(100%);
+-webkit-filter:grayscale(100%);
+cursor:default;
+pointer-events:none}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac{background:transparent;
+border:0;
+padding:0;
+margin:0}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac, .geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac .inner.jsx-b14f721a13ab4fac{display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac{padding:2px 3px;
+cursor:pointer;
+text-align:center;
+-webkit-filter:grayscale(100%);
+filter:grayscale(100%);
+-webkit-filter:grayscale(100%)}
+.geist-emoji-selector.loading.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac{cursor:default;
+-webkit-transition:-webkit-transform 0.2s ease;
+transition:transform 0.2s ease}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac:first-child{outline:none;
+pointer-events:all}
+.geist-emoji-selector.loading.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac:first-child{outline:none;
+pointer-events:none}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac:not(:last-child){margin-right:12px}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac .inner.jsx-b14f721a13ab4fac{height:40px;
+width:40px;
+-webkit-justify-content:center;
+justify-content:center;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+padding:3px}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac .inner.icon.jsx-b14f721a13ab4fac{padding:3px 2px 2px 2px}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.active.jsx-b14f721a13ab4fac .inner.jsx-b14f721a13ab4fac, .geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac:hover .inner.jsx-b14f721a13ab4fac{border-color:#f8e71c}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.option.jsx-b14f721a13ab4fac{opacity:0;
+-webkit-transition:all ease 100ms;
+transition:all ease 100ms;
+transform-origin:center center;
+pointer-events:none;
+will-change:transform, filter}
+.geist-emoji-selector.jsx-b14f721a13ab4fac>button.jsx-b14f721a13ab4fac:hover, .geist-emoji-selector.jsx-b14f721a13ab4fac>button.active.jsx-b14f721a13ab4fac{-webkit-transform:scale(1.35);
+-moz-transform:scale(1.35);
+-ms-transform:scale(1.35);
+transform:scale(1.35);
+-webkit-filter:grayscale(0);
+filter:grayscale(0);
+-webkit-filter:grayscale(0)}
+.geist-emoji-selector.shown.jsx-b14f721a13ab4fac>button.option.jsx-b14f721a13ab4fac{pointer-events:all;
+opacity:1}</style><style id="__jsx-46e725b05407d396">.learn.jsx-46e725b05407d396{color:#666}
+.feedback.jsx-46e725b05407d396{text-align:center;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+width:100%;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+h5.jsx-46e725b05407d396{font-size:1rem;
+font-weight:600}
+.geist-feedback-input.jsx-46e725b05407d396{padding:0;
+position:relative;
+display:inline-block;
+-webkit-transition:all 150ms ease-out;
+transition:all 150ms ease-out;
+font-family:var(--font-sans);
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+max-width:86vw;
+width:100%}
+.textarea-wrapper.jsx-46e725b05407d396{-webkit-appearance:none;
+-moz-appearance:none;
+-ms-appearance:none;
+appearance:none;
+border-width:0;
+background:#f9f9f9;
+padding:var(--geist-gap-half);
+height:0px;
+width:100%;
+max-width:408px;
+margin:0 auto;
+opacity:0;
+line-height:24px;
+font-size:16px;
+border-radius:4px;
+font-family:var(--font-sans);
+resize:none;
+vertical-align:top;
+z-index:100;
+outline:0;
+color:#000;
+overflow-y:hidden;
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+margin-top:16px;
+-webkit-transition:all 150ms ease-out, border-radius 150ms step-start;
+transition:all 150ms ease-out, border-radius 150ms step-start}
+.geist-feedback-input.jsx-46e725b05407d396 .input.jsx-46e725b05407d396{margin-bottom:var(--geist-gap-half)}
+.geist-feedback-input.jsx-46e725b05407d396 .input.jsx-46e725b05407d396 label.jsx-46e725b05407d396{margin:0;
+display:block;
+text-align:left;
+font-weight:500;
+font-size:12px;
+text-transform:uppercase;
+margin-top:0px;
+margin-bottom:var(--geist-gap-half);
+line-height:normal;
+color:var(--accents-5)}
+.geist-feedback-input.error.focused.jsx-46e725b05407d396 .textarea-wrapper.jsx-46e725b05407d396 .input.jsx-46e725b05407d396, .geist-feedback-input.success.focused.jsx-46e725b05407d396 .textarea-wrapper.jsx-46e725b05407d396 .input.jsx-46e725b05407d396{pointer-events:none;
+opacity:0}
+.geist-feedback-input.error.jsx-46e725b05407d396 .input.jsx-46e725b05407d396, .geist-feedback-input.success.jsx-46e725b05407d396 .input.jsx-46e725b05407d396{color:transparent;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none}
+.geist-feedback-input.loading.jsx-46e725b05407d396 .input.jsx-46e725b05407d396{color:#ccc}
+.geist-feedback-input.jsx-46e725b05407d396 .input.jsx-46e725b05407d396>*.jsx-46e725b05407d396::placeholder{color:var(--accents-5);
+-webkit-transition:color 0.2s ease-in-out;
+transition:color 0.2s ease-in-out}
+.geist-feedback-input.focused.jsx-46e725b05407d396 .textarea-wrapper.jsx-46e725b05407d396{display:block;
+width:100%;
+max-width:408px;
+margin:0 auto;
+padding-bottom:40px;
+border-radius:4px;
+overflow:hidden;
+position:relative;
+-webkit-transition:all 150ms ease-out, border-radius 150ms step-end;
+transition:all 150ms ease-out, border-radius 150ms step-end;
+z-index:999;
+background:#fff;
+height:272px;
+opacity:1}
+.error-message.jsx-46e725b05407d396, .success-message.jsx-46e725b05407d396{position:absolute;
+left:0;
+top:0;
+z-index:1001;
+width:100%;
+font-size:14px;
+height:100%;
+line-height:20px;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-justify-content:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column}
+.success-message.jsx-46e725b05407d396 p.jsx-46e725b05407d396{margin:0;
+opacity:0;
+-webkit-animation:appear 500ms ease forwards;
+animation:appear 500ms ease forwards}
+.success-message.jsx-46e725b05407d396 p.jsx-46e725b05407d396:first-of-type{margin-bottom:var(--geist-gap-half);
+animation-delay:100ms}
+.success-message.jsx-46e725b05407d396 p.jsx-46e725b05407d396:nth-of-type(2){animation-delay:500ms}
+.error-message.jsx-46e725b05407d396 span.jsx-46e725b05407d396{color:#eb5757;
+margin-bottom:20px}
+.error-message.jsx-46e725b05407d396 a.jsx-46e725b05407d396{color:#000;
+-webkit-text-decoration:none;
+text-decoration:none}
+.geist-feedback-input.focused.jsx-46e725b05407d396 .controls.jsx-46e725b05407d396{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+.controls.jsx-46e725b05407d396{pointer-events:none;
+visibility:hidden;
+opacity:0;
+width:100%;
+background-color:white;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px}
+.emojis.jsx-46e725b05407d396{width:100%;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-justify-content:center;
+justify-content:center}
+.controls.jsx-46e725b05407d396 .buttons.jsx-46e725b05407d396{-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+text-align:right;
+-webkit-transition:opacity 200ms ease;
+transition:opacity 200ms ease}
+.controls.jsx-46e725b05407d396 .buttons.hidden.jsx-46e725b05407d396{opacity:0}
+.geist-feedback-input.focused.jsx-46e725b05407d396 .controls.jsx-46e725b05407d396{-webkit-animation-name:appear;
+animation-name:appear;
+animation-delay:250ms;
+-webkit-animation-duration:150ms;
+animation-duration:150ms;
+-webkit-animation-timing-function:ease-out;
+animation-timing-function:ease-out;
+animation-fill-mode:forwards;
+pointer-events:inherit;
+z-index:1001;
+visibility:visible}
+@keyframes appear {from {opacity:0}to {opacity:1}}</style><style id="__jsx-faac62be4b10b53a">.docs.jsx-b11219c29fa3ea50{min-width:calc(100% - 300px - 1rem)}
+.page-nav.jsx-b11219c29fa3ea50{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+margin-top:3rem}
+footer.jsx-b11219c29fa3ea50{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+font-size:0.875rem;
+-webkit-box-pack:end;
+-ms-flex-pack:end;
+-webkit-justify-content:flex-end;
+justify-content:flex-end;
+border-top:1px solid #eaeaea;
+padding:1.25rem 0;
+margin-top:2rem;
+margin-bottom:5rem}</style><style id="__jsx-b41f7f5099a8e3c9">.docs h1{font-size:3rem;
+font-weight:700;
+line-height:1.35;
+margin-top:0.75rem;
+word-break:break-word}
+.docs h2{font-size:2rem;
+line-height:1.5}
+.docs h3{font-size:1.5rem;
+line-height:1.6}
+.docs h4{font-size:1.2rem}
+.docs h5{font-size:1rem}
+.docs .heading{margin:3.5rem 0 2rem 0;
+font-weight:600}
+.docs .heading>span[id]{display:block;
+position:absolute;
+visibility:hidden;
+margin-top:-128px;
+padding-top:128px}
+.docs .heading>a{color:inherit}
+.docs .heading>a:hover{color:inherit;
+border-bottom:1px dotted}
+.docs .heading>a:hover~.permalink{visibility:visible}
+.docs .heading>.permalink{visibility:hidden;
+display:none}
+@media (min-width:992px) {.docs .heading>a{margin-right:0.5rem}
+.docs .heading>.permalink{display:inline-block}}
+.docs p{margin:1.25rem 0}
+.docs code.inline{color:rgb(212, 0, 255);
+font-size:0.9em;
+white-space:pre-wrap;
+-webkit-transition:color 0.2s ease;
+transition:color 0.2s ease}
+.docs pre{background:#1d1f21;
+color:#f8f8f2;
+white-space:pre;
+overflow:auto;
+padding:1.5rem;
+margin:1.5rem 0;
+border-radius:3px;
+-webkit-overflow-scrolling:touch}
+.docs pre>code{font-size:14px;
+line-height:20px}
+.docs a.absolute>code.inline{color:#0074de}
+.docs a.absolute:hover>code.inline{color:#68b5fb}
+.docs a.relative{color:inherit;
+font-size:inherit;
+border-bottom:1px dotted}
+.docs a.relative:hover{color:gray;
+-webkit-text-decoration:none;
+text-decoration:none}
+.docs a.relative:hover>code.inline{color:gray}
+.docs details{margin:1.5rem 0;
+padding:0.5rem 1rem;
+background:#fafafa;
+border:1px solid #eaeaea;
+border-radius:3px}
+.docs details[open]{overflow:hidden}
+.docs details>summary{font-weight:500;
+outline:none;
+cursor:pointer}
+.docs blockquote{color:#666666;
+background:#fafafa;
+border:1px solid #eaeaea;
+border-radius:3px;
+padding:0 1.25rem;
+margin:1.5rem 0}
+.docs .card{margin:1.5rem 0;
+border-radius:5px;
+border:1px solid #eaeaea;
+box-shadow:0 2px 6px rgba(0, 0, 0, 0.15);
+-webkit-transition:box-shadow 0.2s ease;
+transition:box-shadow 0.2s ease}
+.docs .card:hover{box-shadow:0 6px 12px rgba(0, 0, 0, 0.1)}
+.docs .card>a{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+width:100%;
+color:#666666;
+padding:1.5rem;
+border:none;
+-webkit-transition:color 0.2s ease;
+transition:color 0.2s ease}
+.docs .card>a:hover{color:#111}
+.docs .card>a>h4{font-size:1rem;
+font-weight:600;
+color:#111;
+margin-top:0;
+margin-bottom:0.25rem}
+.docs .card>a>small{font-size:0.875rem;
+color:inherit}
+.docs hr{border:0;
+border-top:1px solid #eaeaea;
+margin:1.25rem 0}
+.docs ul, .docs ol{padding-left:1.5rem;
+margin:1.25rem 0}
+.docs ul{list-style-type:none}
+.docs li{margin-bottom:0.625rem}
+.docs ul li:before{content:'-';
+color:#999999;
+position:absolute;
+margin-left:-1rem}
+.docs table{border-collapse:separate;
+border-spacing:0;
+min-width:600px}
+.docs table>thead{border-collapse:separate;
+border-spacing:0;
+width:100%}
+.docs table>thead>tr{height:40px}
+.docs table>thead>tr>th{background:#fafafa;
+position:relative;
+padding:0 12px;
+text-align:left;
+vertical-align:middle;
+border-top:1px solid #eaeaea;
+border-bottom:1px solid #eaeaea}
+.docs table>thead>tr>th:first-child{border-radius:5px 0 0 5px;
+border-left:1px solid #eaeaea}
+.docs table>thead>tr>th:last-child{border-radius:0 5px 5px 0;
+border-right:1px solid #eaeaea}
+.docs table>tbody>tr{height:48px}
+.docs table>tbody>tr>td{padding:8px 12px;
+vertical-align:middle;
+color:#444}
+.docs table>tbody>tr:not(:last-of-type) td{border-bottom:1px solid #eaeaea}
+.docs img{width:100%;
+background:#fafafa;
+border:1px solid #eaeaea;
+border-radius:3px}</style><style id="__jsx-8125c25488da4f01">.content.jsx-8125c25488da4f01{position:relative;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+margin-top:2rem}
+@media (max-width:950px) {.content.jsx-8125c25488da4f01{margin-top:1rem}}
+.heading:first-child>h4{margin-top:0}</style><style id="__jsx-48e614b2e59bddfa">div.jsx-48e614b2e59bddfa{min-height:100vh}</style><style id="__jsx-1189687301">html{line-height:1.15;
+-webkit-text-size-adjust:100%;
+height:100%;
+box-sizing:border-box;
+touch-action:manipulation;
+font-feature-settings:'rlig' 1, 'calt' 0;
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale}
+*, *:before, *:after{box-sizing:inherit}
+body{position:relative;
+min-height:100%;
+height:100%;
+margin:0;
+line-height:1.65;
+font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+font-size:16px;
+font-weight:400;
+min-width:320px;
+direction:ltr;
+font-feature-settings:'kern';
+text-rendering:optimizeLegibility;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+scroll-behavior:smooth}
+html, body{background-color:#fff;
+color:#111}
+::selection{background-color:#0070f3;
+color:#fff}
+[role='grid']:focus{outline:none}
+svg{text-rendering:optimizeLegibility}
+h1, h2, h3{margin:0}
+a{color:#0074de;
+-webkit-text-decoration:none;
+text-decoration:none;
+-webkit-transition:color 0.2s ease;
+transition:color 0.2s ease}
+a:hover{color:#68b5fb}
+code{font-size:0.9em;
+font-family:Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif}
+code:before, code:after{content:'`'}
+pre code:before, pre code:after{content:none}
+.demo-footer .note code{background:rgba(0, 0, 0, 0.2);
+padding:0.2rem;
+margin:0 0.1rem;
+border-radius:2px}
+iframe{width:100%;
+height:100%;
+border:none}
+label{cursor:unset}
+.f-reset{font-size:1rem}
+.f0{font-size:1.802032470703125em}
+.f1{font-size:1.601806640625em}
+.f2{font-size:1.423828125em}
+.f3{font-size:1.265625em}
+.f4{font-size:1.125em}
+.f5{font-size:0.8888888888888888em}
+.f6{font-size:0.7901234567901234em}
+.fw1{font-weight:100}
+.fw2{font-weight:200}
+.fw3{font-weight:300}
+.fw4{font-weight:400}
+.fw5{font-weight:500}
+.fw6{font-weight:600}
+.fw7{font-weight:700}
+.fw8{font-weight:800}
+.fw9{font-weight:900}
+.subtitle{color:#696969}
+.mute{color:#696969}
+.tc{text-align:center}
+.row{display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+margin:0 -1.5rem}
+.column{-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+padding:0 1.5rem}
+.display-none{display:none}
+.display-mobile{display:none}
+.display-tablet{display:none}
+@media screen and (max-width:640px) {.display-mobile{display:unset}
+.hide-mobile{display:none}}
+@media screen and (max-width:960px) {.display-tablet{display:unset}
+.hide-tablet{display:none}}
+a[role='button']{-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-khtml-user-select:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none}
+.no-tap-highlight, a{-webkit-touch-callout:none;
+-ms-touch-action:pan-y;
+touch-action:pan-y;
+-webkit-tap-highlight-color:transparent}
+.no-tap-callout{-webkit-touch-callout:none}
+.no-drag{user-drag:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+-moz-user-select:none;
+-webkit-user-drag:none;
+-webkit-user-select:none;
+-ms-user-select:none}
+.visually-hidden{clip:rect(0 0 0 0);
+height:1px;
+width:1px;
+margin:-1px;
+padding:0;
+border:0;
+overflow:hidden;
+position:absolute}
+code[class*='language-'], pre[class*='language-']{color:#f8f8f2;
+text-shadow:0 1px rgba(0, 0, 0, 0.3);
+direction:ltr;
+text-align:left;
+white-space:pre;
+word-spacing:normal;
+word-break:normal;
+line-height:1.5;
+tab-size:4;
+hyphens:none}
+.token.comment, .token.prolog, .token.doctype, .token.cdata{color:#999}
+.token.punctuation{color:#c5c8c6}
+.namespace{opacity:0.7}
+.token.property, .token.keyword, .token.tag{color:#96cbfe}
+.token.class-name{color:#ffffb6}
+.token.boolean, .token.constant{color:#99cc99}
+.token.symbol, .token.deleted{color:#f92672}
+.token.number{color:#ff73fd}
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted{color:#a8ff60}
+.token.variable{color:#c6c5fe}
+.token.operator{color:#ededed}
+.token.entity{color:#ffffb6;
+cursor:help}
+.token.url{color:#96cbfe}
+.language-css .token.string, .style .token.string{color:#87c38a}
+.token.atrule, .token.attr-value{color:#f9ee98}
+.token.function{color:#dad085}
+.token.regex{color:#e9c062}
+.token.important{color:#fd971f}
+.token.important, .token.bold{font-weight:bold}
+.token.italic{font-style:italic}
+svg{shape-rendering:crispEdges}
+svg path, svg circle{shape-rendering:geometricprecision}
+[data-reach-skip-link]{border:0;
+clip:rect(0 0 0 0);
+height:1px;
+width:1px;
+margin:-1px;
+padding:0;
+overflow:hidden;
+position:absolute}
+[data-reach-skip-link]:focus{padding:1rem;
+position:fixed;
+top:10px;
+left:10px;
+background:white;
+z-index:1;
+width:auto;
+height:auto;
+clip:auto}
+kbd{box-sizing:border-box;
+color:#666;
+background:#fafafa;
+border:1px solid #eaeaea;
+display:inline-block;
+font-family:-apple-system, system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+line-height:2em;
+text-align:center;
+padding:0 4px;
+font-size:0.9em;
+border-radius:5px}</style><style id="__jsx-2784187670">#nprogress{pointer-events:none}
+#nprogress .bar{background:#0070f3;
+position:fixed;
+z-index:1031;
+top:0;
+left:0;
+width:100%;
+height:2px;
+
+        }
+@keyframes gradient-rotation {0% {background-position:0 0}100% {background-position:100vw 0}}</style><style id="__jsx-75f42868059f4c31">:root{--geist-space: 4px;
+--geist-space-2x: 8px;
+--geist-space-4x: 16px;
+--geist-space-8x: 32px;
+--geist-space-16x: 64px;
+--geist-space-32x: 128px;
+--geist-space-small: 32px;
+--geist-space-medium: 40px;
+--geist-space-large: 48px;
+--geist-space-gap: 24px;
+--geist-space-gap-half: 12px;
+--geist-space-gap-quarter: var(--geist-space-2x);
+--geist-gap: var(--geist-space-gap);
+--geist-gap-half: var(--geist-space-gap-half);
+--geist-gap-quarter: var(--geist-space-gap-quarter);
+--geist-gap-double: var(--geist-space-large);
+--geist-space-negative: -4px;
+--geist-space-2x-negative: -8px;
+--geist-space-4x-negative: -16px;
+--geist-space-8x-negative: -32px;
+--geist-space-16x-negative: -64px;
+--geist-space-32x-negative: -128px;
+--geist-space-small-negative: -32px;
+--geist-space-medium-negative: -40px;
+--geist-space-large-negative: -48px;
+--geist-space-gap-negative: -24px;
+--geist-space-gap-half-negative: -12px;
+--geist-space-gap-quarter-negative: var(--geist-space-2x-negative);
+--geist-gap-negative: var(--geist-space-gap-negative);
+--geist-gap-half-negative: var(--geist-space-gap-half-negative);
+--geist-gap-quarter-negative: var(--geist-space-gap-quarter-negative);
+--geist-gap-double-negative: var(--geist-space-large-negative);
+--geist-page-margin: var(--geist-space-gap);
+--geist-page-width: 1000px;
+--geist-page-width-with-margin: 1048px;
+--geist-radius: 5px;
+--geist-marketing-radius: 8px;
+--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+--font-mono: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+--header-height: 64px;
+--header-border-bottom: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+--header-background: rgba(255, 255, 255, 0.8);
+--geist-form-large-font: 1rem;
+--geist-form-large-line-height: 1.5rem;
+--geist-form-large-height: var(--geist-space-large);
+--geist-form-small-font: 0.875rem;
+--geist-form-small-line-height: 0.875rem;
+--geist-form-small-height: var(--geist-space-small);
+--geist-form-font: 0.875rem;
+--geist-form-line-height: 1.25rem;
+--geist-form-height: var(--geist-space-medium)}
+:root{--geist-success-lighter: #d3e5ff;
+--geist-success-light: #3291ff;
+--geist-success: #0070f3;
+--geist-success-dark: #0761d1;
+--geist-error-lighter: #f7d4d6;
+--geist-error-light: #ff1a1a;
+--geist-error: #ee0000;
+--geist-error-dark: #c50000;
+--geist-warning-lighter: #ffefcf;
+--geist-warning-light: #f7b955;
+--geist-warning: #f5a623;
+--geist-warning-dark: #ab570a;
+--geist-violet-lighter: #e3d7fc;
+--geist-violet-light: #8a63d2;
+--geist-violet: #7928ca;
+--geist-violet-dark: #4c2889;
+--geist-cyan-lighter: #aaffec;
+--geist-cyan-light: #79ffe1;
+--geist-cyan: #50e3c2;
+--geist-cyan-dark: #29bc9b;
+--geist-highlight-purple: #f81ce5;
+--geist-highlight-magenta: #eb367f;
+--geist-highlight-pink: #ff0080;
+--geist-foreground: #000;
+--geist-background: #fff;
+--geist-selection: var(--geist-cyan-light);
+--accents-1: #fafafa;
+--accents-2: #eaeaea;
+--accents-3: #999999;
+--accents-4: #888888;
+--accents-5: #666666;
+--accents-6: #444444;
+--accents-7: #333333;
+--accents-8: #111111;
+--geist-link-color: var(--geist-success);
+--geist-marketing-gray: #fafbfc;
+--geist-code: var(--geist-highlight-purple);
+--geist-secondary-lighter: var(--accents-2);
+--geist-secondary-light: var(--accents-3);
+--geist-secondary: var(--accents-5);
+--geist-secondary-dark: var(--accents-7);
+--dropdown-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.02);
+--dropdown-triangle-stroke: #fff;
+--scroller-start: rgba(255, 255, 255, 1);
+--scroller-end: rgba(255, 255, 255, 0);
+--shadow-smallest: 0px 2px 4px rgba(0, 0, 0, 0.1);
+--shadow-extra-small: 0px 4px 8px rgba(0, 0, 0, 0.12);
+--shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+--shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+--shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+--shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+--shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, 0.12);
+--portal-opacity: 0.25}</style></head><body><script async="">(function applyRedirects() {
+    const match = location.pathname + location.hash;
+    const docsPrefix = '../index.html';
+    const redirects = [
+        // image redirects
+        [
+            'api-reference/next/image#usage',
+            'basic-features/image-optimization#using-the-image-component', 
+        ],
+        [
+            'api-reference/next/image#styling',
+            'basic-features/image-optimization#styling', 
+        ],
+        [
+            'basic-features/image-optimization#image-component',
+            'basic-features/image-optimization#using-the-image-component', 
+        ],
+        [
+            'basic-features/image-optimization#image-imports',
+            'basic-features/image-optimization#local-images', 
+        ],
+        [
+            'basic-features/image-optimization#loader',
+            'basic-features/image-optimization#loaders', 
+        ],
+        [
+            'basic-features/image-optimization#caching',
+            'api-reference/next/image#caching-behavior', 
+        ],
+        [
+            'basic-features/image-optimization#advanced',
+            'api-reference/next/image#advanced', 
+        ],
+        [
+            'basic-features/image-optimization#device-sizes',
+            'api-reference/next/image#device-sizes', 
+        ],
+        [
+            'basic-features/image-optimization#image-sizes',
+            'api-reference/next/image#image-sizes', 
+        ],
+        [
+            'basic-features/image-optimization#minimum-cache-ttl',
+            'api-reference/next/image#caching-behavior', 
+        ],
+        [
+            'basic-features/image-optimization#disable-static-imports',
+            'api-reference/next/image#disable-static-imports', 
+        ],
+        // data fetching redirects
+        [
+            '/docs/basic-features/data-fetching.md',
+            '/docs/basic-features/data-fetching/index.md', 
+        ],
+        [
+            '/docs/basic-features/data-fetching#swr',
+            '/docs/basic-features/data-fetching/client-side#client-side-data-fetching-with-swr', 
+        ],
+        [
+            '/docs/basic-features/data-fetching#incremental-static-regeneration',
+            '/docs/basic-features/data-fetching/incremental-static-regeneration#incremental-static-regeneration', 
+        ],
+        // getStaticProps
+        [
+            'basic-features/data-fetching#getstaticprops-static-generation',
+            'basic-features/data-fetching/get-static-props#getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#example',
+            'basic-features/data-fetching/get-static-props#using-getstaticprops-to-fetch-data-from-a-cms', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getstaticprops',
+            'basic-features/data-fetching/get-static-props#when-should-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getstaticprops',
+            'api-reference/data-fetching/get-static-props#getstaticprops-with-typescript', 
+        ],
+        [
+            'basic-features/data-fetching#reading-files-use-processcwd',
+            'api-reference/data-fetching/get-static-props#reading-files-use-processcwd', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details',
+            'basic-features/data-fetching/get-static-props#getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-at-build-time',
+            'basic-features/data-fetching/get-static-props#when-should-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#write-server-side-code-directly',
+            'basic-features/data-fetching/get-static-props#write-server-side-code-directly', 
+        ],
+        [
+            'basic-features/data-fetching#statically-generates-both-html-and-json',
+            'basic-features/data-fetching/get-static-props#statically-generates-both-html-and-json', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page',
+            'basic-features/data-fetching/get-static-props#where-can-i-use-getstaticprops', 
+        ],
+        [
+            'basic-features/data-fetching#runs-on-every-request-in-development',
+            'basic-features/data-fetching/get-static-props#runs-on-every-request-in-development', 
+        ],
+        [
+            'basic-features/data-fetching#preview-mode',
+            'basic-features/data-fetching/get-static-props#preview-mode', 
+        ],
+        // getStaticPaths
+        [
+            'basic-features/data-fetching#getstaticpaths-static-generation',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#the-paths-key-required',
+            'api-reference/data-fetching/get-static-paths#paths', 
+        ],
+        [
+            'basic-features/data-fetching#the-fallback-key-required',
+            'api-reference/data-fetching/get-static-paths#fallback-false', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-false',
+            'api-reference/data-fetching/get-static-paths#fallback-false', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-true',
+            'api-reference/data-fetching/get-static-paths#fallback-true', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-pages',
+            'api-reference/data-fetching/get-static-paths#fallback-pages', 
+        ],
+        [
+            'basic-features/data-fetching#when-is-fallback-true-useful',
+            'api-reference/data-fetching/get-static-paths#when-is-fallback-true-useful', 
+        ],
+        [
+            'basic-features/data-fetching#fallback-blocking',
+            'api-reference/data-fetching/get-static-paths#fallback-blocking', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getstaticpaths',
+            'basic-features/data-fetching/get-static-paths#when-should-i-use-getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#use-together-with-getstaticprops',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details-1',
+            'basic-features/data-fetching/get-static-paths#getstaticpaths', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-at-build-time-on-server-side',
+            'basic-features/data-fetching/get-static-paths#when-does-getStaticPaths-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page-1',
+            'basic-features/data-fetching/get-static-paths#where-can-i-use-getStaticPaths', 
+        ],
+        [
+            'basic-features/data-fetching#runs-on-every-request-in-development-1',
+            'basic-features/data-fetching/get-static-paths#runs-on-every-request-in-development', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getstaticpaths',
+            'api-reference/data-fetching/get-static-paths#getstaticpaths-with-typescript', 
+        ],
+        // getServerSideProps
+        [
+            'basic-features/data-fetching#getserversideprops-server-side-rendering',
+            'basic-features/data-fetching/get-server-side-props#getserversideprops', 
+        ],
+        [
+            'basic-features/data-fetching#provided-req-middleware-in-getserversideprops',
+            'basic-features/data-fetching/get-server-side-props#using-getserversideprops-to-fetch-data-at-request-time', 
+        ],
+        [
+            'basic-features/data-fetching#example-1',
+            'basic-features/data-fetching/get-server-side-props#using-getserversideprops-to-fetch-data-at-request-time', 
+        ],
+        [
+            'basic-features/data-fetching#when-should-i-use-getserversideprops',
+            'basic-features/data-fetching/get-server-side-props#when-should-i-use-getserversideprops', 
+        ],
+        [
+            'basic-features/data-fetching#typescript-use-getserversideprops',
+            'api-reference/data-fetching/get-server-side-props#getserversideprops-with-typescript', 
+        ],
+        [
+            'basic-features/data-fetching#technical-details-2',
+            'basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-runs-on-server-side',
+            'basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run', 
+        ],
+        [
+            'basic-features/data-fetching#only-allowed-in-a-page-2',
+            'basic-features/data-fetching/get-server-side-props#only-allowed-in-a-page', 
+        ],
+        [
+            'basic-features/data-fetching#fetching-data-on-the-client-side',
+            'basic-features/data-fetching/get-server-side-props#fetching-data-on-the-client-side', 
+        ],
+        [
+            'deployment#vercel-recommended',
+            'deployment#managed-nextjs-with-vercel'
+        ],
+        [
+            'deployment#getting-started',
+            'deployment#managed-nextjs-with-vercel'
+        ],
+        [
+            'deployment#dps-develop-preview-ship',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#optimized-for-nextjs',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#custom-domains-environment-variables-automatic-https-and-more',
+            'deployment#managed-nextjs-with-vercel', 
+        ],
+        [
+            'deployment#other-hosting-options',
+            'deployment#self-hosting'
+        ], 
+    ];
+    for(let index = 0; index < redirects.length; ++index){
+        const item = redirects[index];
+        if (`${docsPrefix}${item[0]}` === match) {
+            document.location = `${docsPrefix}${item[1]}`;
+            return;
+        }
+    }
+})()</script><div id="__next"><div data-overlay-container="true"><div class="page-container"><div class="jsx-3a64d1ae4f0f7fab banner"><div class="jsx-3a64d1ae4f0f7fab inner"><a href="https://vercel.com/home?utm_source=next-site&amp;utm_medium=banner&amp;utm_campaign=next-website" target="_blank" rel="noopener noreferrer" title="Go to the Vercel website" class="jsx-3a64d1ae4f0f7fab"><svg height="20" viewBox="0 0 283 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M141.04 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.46 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM248.72 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.45 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM200.24 34c0 6 3.92 10 10 10 4.12 0 7.21-1.87 8.8-4.92l7.68 4.43c-3.18 5.3-9.14 8.49-16.48 8.49-11.05 0-19-7.2-19-18s7.96-18 19-18c7.34 0 13.29 3.19 16.48 8.49l-7.68 4.43c-1.59-3.05-4.68-4.92-8.8-4.92-6.07 0-10 4-10 10zm82.48-29v46h-9V5h9zM36.95 0L73.9 64H0L36.95 0zm92.38 5l-27.71 48L73.91 5H84.3l17.32 30 17.32-30h10.39zm58.91 12v9.69c-1-.29-2.06-.49-3.2-.49-5.81 0-10 4-10 10V51h-9V17h9v9.2c0-5.08 5.91-9.2 13.2-9.2z" fill="#fff"></path></svg></a><a href="https://vercel.com/solutions/nextjs?utm_source=next-site&amp;utm_medium=banner&amp;utm_campaign=next-website" target="_blank" rel="noopener noreferrer" class="jsx-3a64d1ae4f0f7fab"><p class="jsx-3a64d1ae4f0f7fab">Deploy <b class="jsx-3a64d1ae4f0f7fab">Next.js</b> in seconds →</p></a></div></div><header class="jsx-1931733896 sticky"><div class="jsx-1325105755 "><a tabindex="0" href="#reach-skip-nav" data-reach-skip-link="true">Skip to content</a><h1 aria-hidden="true" class="jsx-ec2f6914d5ee8fa4 visually-hidden">Next.js</h1><nav class="jsx-ec2f6914d5ee8fa4 f-reset"><div class="jsx-ec2f6914d5ee8fa4 mobile-top"><a title="Go to the homepage" class="jsx-ec2f6914d5ee8fa4 mobile-logo" href="../../index.html"><svg width="82" height="40" viewBox="0 0 148 90" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform:translateX(4%);shape-rendering:auto"><path d="M34.992 23.495h27.855v2.219H37.546v16.699h23.792v2.219H37.546v18.334h25.591v2.219H34.992v-41.69zm30.35 0h2.96l13.115 18.334 13.405-18.334L113.055.207 83.1 43.756l15.436 21.429H95.46L81.417 45.683 67.316 65.185h-3.018L79.85 43.756 65.343 23.495zm34.297 2.219v-2.219h31.742v2.219h-14.623v39.47h-2.554v-39.47H99.64zM.145 23.495h3.192l44.011 66.003L29.16 65.185 2.814 26.648l-.116 38.537H.145v-41.69zm130.98 38.801c-.523 0-.914-.405-.914-.928 0-.524.391-.929.913-.929.528 0 .913.405.913.929 0 .523-.385.928-.913.928zm2.508-2.443H135c.019.742.56 1.24 1.354 1.24.888 0 1.391-.535 1.391-1.539v-6.356h1.391v6.362c0 1.808-1.043 2.849-2.77 2.849-1.62 0-2.732-1.01-2.732-2.556zm7.322-.08h1.379c.118.853.95 1.395 2.149 1.395 1.117 0 1.937-.58 1.937-1.377 0-.685-.521-1.097-1.708-1.377l-1.155-.28c-1.62-.38-2.36-1.166-2.36-2.487 0-1.602 1.304-2.668 3.26-2.668 1.82 0 3.15 1.066 3.23 2.58h-1.354c-.13-.828-.85-1.346-1.894-1.346-1.1 0-1.832.53-1.832 1.34 0 .642.472 1.01 1.64 1.284l.987.243c1.838.43 2.596 1.178 2.596 2.53 0 1.72-1.33 2.799-3.453 2.799-1.987 0-3.323-1.029-3.422-2.637z" fill="black" fill-rule="nonzero"></path></svg></a><div class="jsx-ec2f6914d5ee8fa4 mobile-top-right"><div class="jsx-ec2f6914d5ee8fa4 learn"><a href="../../learn/foundations/about-nextjs607b?utm_source=next-site&amp;utm_medium=homepage-cta&amp;utm_campaign=next-website" class="jsx-b662909c11ef51ed btn fw4 no-drag">Learn</a></div><button type="button" class="jsx-ec2f6914d5ee8fa4 menu-button"><div class="menu-toggle_wrap__oT7No " aria-label="open menu"></div></button></div></div><div class="jsx-ec2f6914d5ee8fa4 links"><a title="Go to the homepage" class="jsx-ec2f6914d5ee8fa4 logo" href="../../index.html"><svg width="82" height="40" viewBox="0 0 148 90" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="transform:translateX(4%);shape-rendering:auto"><path d="M34.992 23.495h27.855v2.219H37.546v16.699h23.792v2.219H37.546v18.334h25.591v2.219H34.992v-41.69zm30.35 0h2.96l13.115 18.334 13.405-18.334L113.055.207 83.1 43.756l15.436 21.429H95.46L81.417 45.683 67.316 65.185h-3.018L79.85 43.756 65.343 23.495zm34.297 2.219v-2.219h31.742v2.219h-14.623v39.47h-2.554v-39.47H99.64zM.145 23.495h3.192l44.011 66.003L29.16 65.185 2.814 26.648l-.116 38.537H.145v-41.69zm130.98 38.801c-.523 0-.914-.405-.914-.928 0-.524.391-.929.913-.929.528 0 .913.405.913.929 0 .523-.385.928-.913.928zm2.508-2.443H135c.019.742.56 1.24 1.354 1.24.888 0 1.391-.535 1.391-1.539v-6.356h1.391v6.362c0 1.808-1.043 2.849-2.77 2.849-1.62 0-2.732-1.01-2.732-2.556zm7.322-.08h1.379c.118.853.95 1.395 2.149 1.395 1.117 0 1.937-.58 1.937-1.377 0-.685-.521-1.097-1.708-1.377l-1.155-.28c-1.62-.38-2.36-1.166-2.36-2.487 0-1.602 1.304-2.668 3.26-2.668 1.82 0 3.15 1.066 3.23 2.58h-1.354c-.13-.828-.85-1.346-1.894-1.346-1.1 0-1.832.53-1.832 1.34 0 .642.472 1.01 1.64 1.284l.987.243c1.838.43 2.596 1.178 2.596 2.53 0 1.72-1.33 2.799-3.453 2.799-1.987 0-3.323-1.029-3.422-2.637z" fill="black" fill-rule="nonzero"></path></svg></a><a title="Showcase" class="jsx-ec2f6914d5ee8fa4 mute" href="../../showcase.html">Showcase</a><a title="Documentation" class="jsx-ec2f6914d5ee8fa4 mute selected" href="../getting-started.html">Docs</a><a class="jsx-ec2f6914d5ee8fa4 mute" href="../../blog">Blog</a><a class="jsx-ec2f6914d5ee8fa4 mute" href="../../insights">Analytics</a><a class="jsx-ec2f6914d5ee8fa4 mute" href="../../examples.html">Examples</a><a href="https://vercel.com/contact/sales?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=next-website" target="_blank" rel="noopener noreferrer" class="jsx-ec2f6914d5ee8fa4 mute">Enterprise</a><div class="jsx-ec2f6914d5ee8fa4 header-feedback"><div title="Share any feedback about our products and services" tabindex="0" class="header-feedback_geist-feedback-input__0fpBg header-feedback_email__xCkLC"><form class="header-feedback_feedback-wrapper__d5ib1 header-feedback_blur__V_BD4"><div class="header-feedback_placeholder__MsIa4">Feedback</div><div class="header-feedback_input-wrapper___B__c"><div class="header-feedback_input___alH9"><h5>Email</h5><div aria-label="Your email address" class="jsx-269800061 wrapper"><div class="jsx-269800061 input-wrapper"><input autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" placeholder="Your email address..." type="email" title="Your email address..." class="jsx-269800061"/></div></div></div><div class="header-feedback_input___alH9"><h5>Feedback</h5><div class="jsx-4085395972 wrapper"><textarea aria-label="Feedback input" data-gramm-editor="false" autoCapitalize="off" autoComplete="off" autoCorrect="off" placeholder="Your feedback..." type="text" class="jsx-4085395972 "></textarea></div></div></div><div class="header-feedback_controls__MwGPr"><span class="header-feedback_emojis__gebSx"><div class="header-feedback_geist-emoji-selector__peXPW"><button type="button" class="header-feedback_option__thYd7"><span class="header-feedback_inner__TnUj0"><img decoding="async" width="20" height="20" src="https://assets.vercel.com/twemoji/1f929.svg" alt="emoji"/></span></button><button type="button" class="header-feedback_option__thYd7"><span class="header-feedback_inner__TnUj0"><img decoding="async" width="20" height="20" src="https://assets.vercel.com/twemoji/1f600.svg" alt="emoji"/></span></button><button type="button" class="header-feedback_option__thYd7"><span class="header-feedback_inner__TnUj0"><img decoding="async" width="20" height="20" src="https://assets.vercel.com/twemoji/1f615.svg" alt="emoji"/></span></button><button type="button" class="header-feedback_option__thYd7"><span class="header-feedback_inner__TnUj0"><img decoding="async" width="20" height="20" src="https://assets.vercel.com/twemoji/1f62d.svg" alt="emoji"/></span></button></div></span><span class="header-feedback_buttons__2eYTB"><button type="submit" width="60" class="jsx-b662909c11ef51ed btn fw4 no-drag invert small"><span class="jsx-b662909c11ef51ed text">Send</span></button></span></div></form></div></div><div class="jsx-ec2f6914d5ee8fa4 learn"><a href="../../learn/foundations/about-nextjse499?utm_source=next-site&amp;utm_medium=nav-cta&amp;utm_campaign=next-website" class="jsx-b662909c11ef51ed btn fw4 no-drag">Learn</a></div><a href="https://github.com/vercel/next.js" aria-label="Next.js on GitHub" rel="noopener noreferrer" target="_blank" class="jsx-ec2f6914d5ee8fa4 icon mute"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none" class="jsx-2562017125"><g clip-path="url(githublogo)" class="jsx-2562017125"><path fill="currentColor" fill-rule="evenodd" d="M8.18391.249268C3.82241.249268.253906 3.81777.253906 8.17927c0 3.46933 2.279874 6.44313 5.451874 7.53353.3965.0991.49563-.1983.49563-.3965v-1.3878c-2.18075.4956-2.67638-.9912-2.67638-.9912-.3965-.8922-.89212-1.1895-.89212-1.1895-.69388-.4957.09912-.4957.09912-.4957.793.0992 1.1895.793 1.1895.793.69388 1.2887 1.88338.8922 2.27988.6939.09912-.4956.29737-.8921.49562-1.0904-1.78425-.1982-3.5685-.8921-3.5685-3.96496 0-.89212.29738-1.586.793-2.08162-.09912-.19825-.3965-.99125.09913-2.08163 0 0 .69387-.19825 2.18075.793.59475-.19825 1.28862-.29737 1.9825-.29737.69387 0 1.38775.09912 1.98249.29737 1.4869-.99125 2.1808-.793 2.1808-.793.3965 1.09038.1982 1.88338.0991 2.08163.4956.59475.793 1.28862.793 2.08162 0 3.07286-1.8834 3.66766-3.66764 3.86586.29737.3965.59474.8921.59474 1.586v2.1808c0 .1982.0991.4956.5948.3965 3.172-1.0904 5.4518-4.0642 5.4518-7.53353-.0991-4.3615-3.6676-7.930002-8.02909-7.930002z" clip-rule="evenodd" class="jsx-2562017125"></path></g><defs class="jsx-2562017125"><clipPath id="githublogo" class="jsx-2562017125"><path fill="transparent" d="M0 0h15.86v15.86H0z" transform="translate(.253906 .0493164)" class="jsx-2562017125"></path></clipPath></defs></svg></a></div></nav></div></header><div class="jsx-48e614b2e59bddfa"><div style="top:0" class="jsx-114dbeca26e41779 shadow"><div class="jsx-1871562156 "><div class="jsx-328b403472946a3b jsx-1726728124 sidebar-search"><label class="jsx-12d78b39f6b8bc1b input-container"><span class="jsx-12d78b39f6b8bc1b icon"><svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg" fill="#000"><path d="M8.87 8.16l3.25 3.25-.7.71-3.26-3.25a5 5 0 1 1 .7-.7zM5 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg></span><div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-mobile-search" aria-expanded="false" class="react-autosuggest__container"><input type="search" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-mobile-search" class="react-autosuggest__input" placeholder="Search..." value=""/><div id="react-autowhatever-mobile-search" role="listbox" class="react-autosuggest__suggestions-container"><div class="jsx-1871562156 "></div></div></div></label></div><label for="dropdown-input" class="jsx-328b403472946a3b jsx-1726728124 dropdown-toggle"><input id="dropdown-input" type="checkbox" class="jsx-328b403472946a3b jsx-1726728124"/><div class="jsx-328b403472946a3b jsx-1726728124 docs-select"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Menu</div></label><div class="jsx-328b403472946a3b jsx-1726728124 docs-dropdown"><div class="jsx-1871562156 "><nav class="jsx-328b403472946a3b jsx-1726728124"><div class="jsx-4ac3a4fb51b82686 heading"><h4 class="jsx-4ac3a4fb51b82686">Documentation</h4><div class="jsx-4ac3a4fb51b82686"><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../getting-started.html">Getting Started</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Basic Features</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/pages.html">Pages</a></div></div><div class="jsx-23bde1c07c26fd41 category level-3"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Data Fetching</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/overview.html">Overview</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/get-server-side-props.html">getServerSideProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/get-static-paths.html">getStaticPaths</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/get-static-props.html">getStaticProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/incremental-static-regeneration.html">Incremental Static Regeneration</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/client-side.html">Client side</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/built-in-css-support.html">Built-in CSS Support</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/layouts.html">Layouts</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/image-optimization.html">Image Optimization</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/font-optimization.html">Font Optimization</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/static-file-serving.html">Static File Serving</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/fast-refresh.html">Fast Refresh</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/eslint.html">ESLint</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/typescript.html">TypeScript</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/environment-variables.html">Environment Variables</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/supported-browsers-features.html">Supported Browsers and Features</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/script.html">Handling Scripts</a></div></div></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Routing</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/dynamic-routes.html">Dynamic Routes</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/imperatively.html">Imperatively</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/shallow-routing.html">Shallow Routing</a></div></div></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>API Routes</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/dynamic-api-routes.html">Dynamic API Routes</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/api-middlewares.html">API Middlewares</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/response-helpers.html">Response Helpers</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../middleware.html">Middleware</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../going-to-production.html">Going to Production</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../deployment.html">Deployment</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../authentication.html">Authentication</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../testing.html">Testing</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Guides</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../guides/building-forms.html">Building Forms</a></div></div></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Advanced Features</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/compiler.html">Next.js Compiler</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/preview-mode.html">Preview Mode</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/dynamic-import.html">Dynamic Import</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/automatic-static-optimization.html">Automatic Static Optimization</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/static-html-export.html">Static HTML Export</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/module-path-aliases.html">Absolute Imports and Module Path Aliases</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/using-mdx.html">Using MDX</a></div></div><div class="jsx-23bde1c07c26fd41 category level-3"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>AMP Support</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/adding-amp-components.html">Adding AMP Components</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/amp-validation.html">AMP Validation</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/amp-in-static-html-export.html">AMP in Static HTML export</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/typescript.html">TypeScript</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/customizing-babel-config.html">Customizing Babel Config</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/customizing-postcss-config.html">Customizing PostCSS Config</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-server.html">Custom Server</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-app.html">Custom `App`</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-document.html">Custom `Document`</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-error-page.html">Custom Error Page</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/src-directory.html">`src` Directory</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/multi-zones.html">Multi Zones</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/measuring-performance.html">Measuring performance</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/debugging.html">Debugging</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/error-handling.html">Error Handling</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/source-maps.html">Source Maps</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/codemods.html">Codemods</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/i18n-routing.html">Internationalized Routing</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/output-file-tracing.html">Output File Tracing</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/security-headers.html">Security Headers</a></div></div><div class="jsx-23bde1c07c26fd41 category level-3"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>React 18</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/react-18/overview.html">Overview</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/react-18/streaming.html">Streaming SSR</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/react-18/server-components.html">React Server Components</a></div></div></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../upgrading.html">Upgrade Guide</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Migrating to Next.js</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/incremental-adoption.html">Incrementally Adopting Next.js</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/from-gatsby.html">Migrating from Gatsby</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/from-create-react-app.html">Migrating from Create React App</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/from-react-router.html">Migrating from React Router</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../faq.html">FAQ</a></div></div></div></div><div class="jsx-4ac3a4fb51b82686 heading"><h4 class="jsx-4ac3a4fb51b82686">API Reference</h4><div class="jsx-4ac3a4fb51b82686"><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link selected"><a class="jsx-607d149861eed327" href="cli.html">CLI</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="create-next-app.html">Create Next App</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/router.html">next/router</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/link.html">next/link</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/image.html">next/image</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/script.html">next/script</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/head.html">next/head</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/amp.html">next/amp</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/server.html">next/server</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/streaming.html">next/streaming</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="edge-runtime.html">Edge Runtime</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Data Fetching</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-initial-props.html">getInitialProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-server-side-props.html">getServerSideProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-static-paths.html">getStaticPaths</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-static-props.html">getStaticProps</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/static-optimization-indicator.html">Static Optimization Indicator</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>next.config.js</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/environment-variables.html">Environment Variables</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/basepath.html">Base Path</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/rewrites.html">Rewrites</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/redirects.html">Redirects</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/headers.html">Custom Headers</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/custom-page-extensions.html">Custom Page Extensions</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/cdn-support-with-asset-prefix.html">CDN Support with Asset Prefix</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/custom-webpack-config.html">Custom Webpack Config</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/compression.html">Compression</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/runtime-configuration.html">Runtime Configuration</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/disabling-x-powered-by.html">Disabling x-powered-by</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/disabling-etag-generation.html">Disabling ETag Generation</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/disabling-http-keep-alive.html">Disabling HTTP Keep-Alive</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/setting-a-custom-build-directory.html">Setting a custom build directory</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/configuring-the-build-id.html">Configuring the Build ID</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/configuring-onDemandEntries.html">Configuring onDemandEntries</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/ignoring-eslint.html">Ignoring ESLint</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/ignoring-typescript-errors.html">Ignoring TypeScript Errors</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/exportPathMap.html">exportPathMap</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/trailing-slash.html">Trailing Slash</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/react-strict-mode.html">React Strict Mode</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/url-imports.html">URL Imports</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/build-indicator.html">Build indicator</a></div></div></div></div></div></div></nav></div></div></div></div><div class="jsx-1871562156 "><div class="jsx-8125c25488da4f01 content"><aside class="jsx-3f1b4107649c747d sidebar fixed"><div class="jsx-3f1b4107649c747d sidebar-search"><label class="jsx-12d78b39f6b8bc1b input-container"><span class="jsx-12d78b39f6b8bc1b icon"><svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg" fill="#000"><path d="M8.87 8.16l3.25 3.25-.7.71-3.26-3.25a5 5 0 1 1 .7-.7zM5 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg></span><div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-desktop-search" aria-expanded="false" class="react-autosuggest__container"><input type="search" autoComplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-desktop-search" class="react-autosuggest__input" placeholder="Search..." value=""/><div id="react-autowhatever-desktop-search" role="listbox" class="react-autosuggest__suggestions-container"></div></div></label></div><div class="jsx-3f1b4107649c747d sidebar-content"><div class="jsx-4ac3a4fb51b82686 heading"><h4 class="jsx-4ac3a4fb51b82686">Documentation</h4><div class="jsx-4ac3a4fb51b82686"><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../getting-started.html">Getting Started</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2 open"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Basic Features</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/pages.html">Pages</a></div></div><div class="jsx-23bde1c07c26fd41 category level-3"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Data Fetching</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/overview.html">Overview</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/get-server-side-props.html">getServerSideProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/get-static-paths.html">getStaticPaths</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/get-static-props.html">getStaticProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/incremental-static-regeneration.html">Incremental Static Regeneration</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/data-fetching/client-side.html">Client side</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/built-in-css-support.html">Built-in CSS Support</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/layouts.html">Layouts</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/image-optimization.html">Image Optimization</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/font-optimization.html">Font Optimization</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/static-file-serving.html">Static File Serving</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/fast-refresh.html">Fast Refresh</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/eslint.html">ESLint</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/typescript.html">TypeScript</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/environment-variables.html">Environment Variables</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/supported-browsers-features.html">Supported Browsers and Features</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../basic-features/script.html">Handling Scripts</a></div></div></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Routing</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/dynamic-routes.html">Dynamic Routes</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/imperatively.html">Imperatively</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../routing/shallow-routing.html">Shallow Routing</a></div></div></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>API Routes</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/dynamic-api-routes.html">Dynamic API Routes</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/api-middlewares.html">API Middlewares</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../api-routes/response-helpers.html">Response Helpers</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../middleware.html">Middleware</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../going-to-production.html">Going to Production</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../deployment.html">Deployment</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../authentication.html">Authentication</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../testing.html">Testing</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Guides</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../guides/building-forms.html">Building Forms</a></div></div></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Advanced Features</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/compiler.html">Next.js Compiler</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/preview-mode.html">Preview Mode</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/dynamic-import.html">Dynamic Import</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/automatic-static-optimization.html">Automatic Static Optimization</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/static-html-export.html">Static HTML Export</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/module-path-aliases.html">Absolute Imports and Module Path Aliases</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/using-mdx.html">Using MDX</a></div></div><div class="jsx-23bde1c07c26fd41 category level-3"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>AMP Support</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/adding-amp-components.html">Adding AMP Components</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/amp-validation.html">AMP Validation</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/amp-in-static-html-export.html">AMP in Static HTML export</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/amp-support/typescript.html">TypeScript</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/customizing-babel-config.html">Customizing Babel Config</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/customizing-postcss-config.html">Customizing PostCSS Config</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-server.html">Custom Server</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-app.html">Custom `App`</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-document.html">Custom `Document`</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/custom-error-page.html">Custom Error Page</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/src-directory.html">`src` Directory</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/multi-zones.html">Multi Zones</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/measuring-performance.html">Measuring performance</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/debugging.html">Debugging</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/error-handling.html">Error Handling</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/source-maps.html">Source Maps</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/codemods.html">Codemods</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/i18n-routing.html">Internationalized Routing</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/output-file-tracing.html">Output File Tracing</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/security-headers.html">Security Headers</a></div></div><div class="jsx-23bde1c07c26fd41 category level-3"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>React 18</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/react-18/overview.html">Overview</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/react-18/streaming.html">Streaming SSR</a></div></div><div class="jsx-63037e977fd66cb4 link level-4"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../advanced-features/react-18/server-components.html">React Server Components</a></div></div></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../upgrading.html">Upgrade Guide</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Migrating to Next.js</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/incremental-adoption.html">Incrementally Adopting Next.js</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/from-gatsby.html">Migrating from Gatsby</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/from-create-react-app.html">Migrating from Create React App</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../migrating/from-react-router.html">Migrating from React Router</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="../faq.html">FAQ</a></div></div></div></div><div class="jsx-4ac3a4fb51b82686 heading"><h4 class="jsx-4ac3a4fb51b82686">API Reference</h4><div class="jsx-4ac3a4fb51b82686"><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link selected"><a class="jsx-607d149861eed327" href="cli.html">CLI</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="create-next-app.html">Create Next App</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/router.html">next/router</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/link.html">next/link</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/image.html">next/image</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/script.html">next/script</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/head.html">next/head</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/amp.html">next/amp</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/server.html">next/server</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next/streaming.html">next/streaming</a></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="edge-runtime.html">Edge Runtime</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>Data Fetching</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-initial-props.html">getInitialProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-server-side-props.html">getServerSideProps</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-static-paths.html">getStaticPaths</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="data-fetching/get-static-props.html">getStaticProps</a></div></div></div></div><div class="jsx-63037e977fd66cb4 link level-2"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/static-optimization-indicator.html">Static Optimization Indicator</a></div></div><div class="jsx-23bde1c07c26fd41 category level-2"><a class="jsx-23bde1c07c26fd41 label"><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7" stroke="#999" stroke-linecap="square"></path></svg>next.config.js</a><div class="jsx-23bde1c07c26fd41 posts"><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/introduction.html">Introduction</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/environment-variables.html">Environment Variables</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/basepath.html">Base Path</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/rewrites.html">Rewrites</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/redirects.html">Redirects</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/headers.html">Custom Headers</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/custom-page-extensions.html">Custom Page Extensions</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/cdn-support-with-asset-prefix.html">CDN Support with Asset Prefix</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/custom-webpack-config.html">Custom Webpack Config</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/compression.html">Compression</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/runtime-configuration.html">Runtime Configuration</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/disabling-x-powered-by.html">Disabling x-powered-by</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/disabling-etag-generation.html">Disabling ETag Generation</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/disabling-http-keep-alive.html">Disabling HTTP Keep-Alive</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/setting-a-custom-build-directory.html">Setting a custom build directory</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/configuring-the-build-id.html">Configuring the Build ID</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/configuring-onDemandEntries.html">Configuring onDemandEntries</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/ignoring-eslint.html">Ignoring ESLint</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/ignoring-typescript-errors.html">Ignoring TypeScript Errors</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/exportPathMap.html">exportPathMap</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/trailing-slash.html">Trailing Slash</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/react-strict-mode.html">React Strict Mode</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/url-imports.html">URL Imports</a></div></div><div class="jsx-63037e977fd66cb4 link level-3"><div class="jsx-607d149861eed327 nav-link"><a class="jsx-607d149861eed327" href="next.config.js/build-indicator.html">Build indicator</a></div></div></div></div></div></div></div></aside><div class="jsx-b11219c29fa3ea50 docs"><div class="jsx-b11219c29fa3ea50 docs-content"><h1>Next.js CLI</h1>
+<p>The Next.js CLI allows you to start, build, and export your application.</p>
+<p>To get a list of the available CLI commands, run the following command inside your project directory:</p>
+<pre class="language-bash"><code class="language-bash">npx next -h
+</code></pre>
+<p><em>(<a href="https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b" class="absolute" target="_blank" rel="noopener noreferrer">npx</a> comes with npm 5.2+ and higher)</em></p>
+<p>The output should look like this:</p>
+<pre class="language-bash"><code class="language-bash">Usage
+  $ next <span class="token operator">&#x3C;</span>command<span class="token operator">></span>
+
+Available commands
+  build, start, export, dev, lint, telemetry, info
+
+Options
+  --version, -v   Version number
+  --help, -h      Displays this message
+
+For <span class="token function">more</span> information run a <span class="token builtin class-name">command</span> with the --help flag
+  $ next build --help
+</code></pre>
+<p>You can pass any <a href="https://nodejs.org/api/cli.html#cli_node_options_options" class="absolute" target="_blank" rel="noopener noreferrer">node arguments</a> to <code class="inline">next</code> commands:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token assign-left variable">NODE_OPTIONS</span><span class="token operator">=</span><span class="token string">'--throw-deprecation'</span> next
+<span class="token assign-left variable">NODE_OPTIONS</span><span class="token operator">=</span><span class="token string">'-r esm'</span> next
+<span class="token assign-left variable">NODE_OPTIONS</span><span class="token operator">=</span><span class="token string">'--inspect'</span> next
+</code></pre>
+<h2 class="heading"><span id="build"></span><a href="#build">Build</a><span class="permalink"><svg viewBox="0 0 16 16" width="16" height="16">
+  <g stroke-width="1" fill="#000000" stroke="#000000">
+    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"></path>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"></path>
+  </g>
+</svg></span></h2>
+<p><code class="inline">next build</code> creates an optimized production build of your application. The output displays information about each route.</p>
+<ul>
+<li><strong>Size</strong> – The number of assets downloaded when navigating to the page client-side. The size for each route only includes its dependencies.</li>
+<li><strong>First Load JS</strong> – The number of assets downloaded when visiting the page from the server. The amount of JS shared by all is shown as a separate metric.</li>
+</ul>
+<p>The first load is indicated by green, yellow, or red. Aim for green for performant applications.</p>
+<p>You can enable production profiling for React with the <code class="inline">--profile</code> flag in <code class="inline">next build</code>. This requires <a href="../../blog/next-9-5" class="relative">Next.js 9.5</a>:</p>
+<pre class="language-bash"><code class="language-bash">next build --profile
+</code></pre>
+<p>After that, you can use the profiler in the same way as you would in development.</p>
+<p>You can enable more verbose build output with the <code class="inline">--debug</code> flag in <code class="inline">next build</code>. This requires Next.js 9.5.3:</p>
+<pre class="language-bash"><code class="language-bash">next build --debug
+</code></pre>
+<p>With this flag enabled additional build output like rewrites, redirects, and headers will be shown.</p>
+<h2 class="heading"><span id="development"></span><a href="#development">Development</a><span class="permalink"><svg viewBox="0 0 16 16" width="16" height="16">
+  <g stroke-width="1" fill="#000000" stroke="#000000">
+    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"></path>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"></path>
+  </g>
+</svg></span></h2>
+<p><code class="inline">next dev</code> starts the application in development mode with hot-code reloading, error reporting, and more:</p>
+<p>The application will start at <code class="inline">http://localhost:3000</code> by default. The default port can be changed with <code class="inline">-p</code>, like so:</p>
+<pre class="language-bash"><code class="language-bash">npx next dev -p <span class="token number">4000</span>
+</code></pre>
+<p>Or using the <code class="inline">PORT</code> environment variable:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token assign-left variable">PORT</span><span class="token operator">=</span><span class="token number">4000</span> npx next dev
+</code></pre>
+<blockquote>
+<p>Note: <code class="inline">PORT</code> can not be set in <code class="inline">.env</code> as booting up the HTTP server happens before any other code is initialized.</p>
+</blockquote>
+<p>You can also set the hostname to be different from the default of <code class="inline">0.0.0.0</code>, this can be useful for making the application available for other devices on the network. The default hostname can be changed with <code class="inline">-H</code>, like so:</p>
+<pre class="language-bash"><code class="language-bash">npx next dev -H <span class="token number">192.168</span>.1.2
+</code></pre>
+<h2 class="heading"><span id="production"></span><a href="#production">Production</a><span class="permalink"><svg viewBox="0 0 16 16" width="16" height="16">
+  <g stroke-width="1" fill="#000000" stroke="#000000">
+    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"></path>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"></path>
+  </g>
+</svg></span></h2>
+<p><code class="inline">next start</code> starts the application in production mode. The application should be compiled with <a href="#build" class="relative"><code class="inline">next build</code></a> first.</p>
+<p>The application will start at <code class="inline">http://localhost:3000</code> by default. The default port can be changed with <code class="inline">-p</code>, like so:</p>
+<pre class="language-bash"><code class="language-bash">npx next start -p <span class="token number">4000</span>
+</code></pre>
+<p>Or using the <code class="inline">PORT</code> environment variable:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token assign-left variable">PORT</span><span class="token operator">=</span><span class="token number">4000</span> npx next start
+</code></pre>
+<blockquote>
+<p>Note: <code class="inline">PORT</code> can not be set in <code class="inline">.env</code> as booting up the HTTP server happens before any other code is initialized.</p>
+</blockquote>
+<h2 class="heading"><span id="lint"></span><a href="#lint">Lint</a><span class="permalink"><svg viewBox="0 0 16 16" width="16" height="16">
+  <g stroke-width="1" fill="#000000" stroke="#000000">
+    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"></path>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"></path>
+  </g>
+</svg></span></h2>
+<p><code class="inline">next lint</code> runs ESLint for all files in the <code class="inline">pages</code>, <code class="inline">components</code>, and <code class="inline">lib</code> directories. It also
+provides a guided setup to install any required dependencies if ESLint is not already configured in
+your application.</p>
+<p>If you have other directories that you would like to lint, you can specify them using the <code class="inline">--dir</code>
+flag:</p>
+<pre class="language-bash"><code class="language-bash">next lint --dir utils
+</code></pre>
+<h2 class="heading"><span id="telemetry"></span><a href="#telemetry">Telemetry</a><span class="permalink"><svg viewBox="0 0 16 16" width="16" height="16">
+  <g stroke-width="1" fill="#000000" stroke="#000000">
+    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"></path>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"></path>
+  </g>
+</svg></span></h2>
+<p>Next.js collects <strong>completely anonymous</strong> telemetry data about general usage.
+Participation in this anonymous program is optional, and you may opt-out if you'd not like to share any information.</p>
+<p>To learn more about Telemetry, <a href="../../telemetry/index.html" class="relative">please read this document</a>.</p>
+<h2 class="heading"><span id="info"></span><a href="#info">Info</a><span class="permalink"><svg viewBox="0 0 16 16" width="16" height="16">
+  <g stroke-width="1" fill="#000000" stroke="#000000">
+    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"></path>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"></path>
+  </g>
+</svg></span></h2>
+<p><code class="inline">next info</code> prints relevant details about the current system which can be used to report Next.js bugs.
+This information includes Operating System platform/arch/version, Binaries (Node.js, npm, Yarn, pnpm) and npm package versions (<code class="inline">next</code>, <code class="inline">react</code>, <code class="inline">react-dom</code>).</p>
+<p>Running the following in your project's root directory:</p>
+<pre class="language-bash"><code class="language-bash">next info
+</code></pre>
+<p>will give you information like this example:</p>
+<pre class="language-bash"><code class="language-bash">
+    Operating System:
+      Platform: linux
+      Arch: x64
+      Version: <span class="token comment">#22-Ubuntu SMP Fri Nov 5 13:21:36 UTC 2021</span>
+    Binaries:
+      Node: <span class="token number">16.13</span>.0
+      npm: <span class="token number">8.1</span>.0
+      Yarn: <span class="token number">1.22</span>.17
+      pnpm: <span class="token number">6.24</span>.2
+    Relevant packages:
+      next: <span class="token number">12.0</span>.8
+      react: <span class="token number">17.0</span>.2
+      react-dom: <span class="token number">17.0</span>.2
+
+</code></pre>
+<p>This information should then be pasted into GitHub Issues.</p></div><div class="jsx-b11219c29fa3ea50 page-nav"><a href="../faq.html" class="jsx-b662909c11ef51ed btn fw4 no-drag"><span class="jsx-2363892788"><svg viewBox="0 0 24 24" width="24" height="24"><g fill="#0070f3"><path fill="#0070f3" d="M14,17.414l-4.707-4.707c-0.391-0.391-0.391-1.023,0-1.414L14,6.586L15.414,8l-4,4l4,4L14,17.414z"></path></g></svg></span>FAQ</a><a href="create-next-app.html" class="jsx-b662909c11ef51ed btn fw4 no-drag">Create Next App<span class="jsx-861868532"><svg width="24" height="24" viewBox="0 0 24 24"><g fill="#0070f3"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg></span></a></div><hr class="jsx-b11219c29fa3ea50"/><div class="jsx-46e725b05407d396 feedback"><form title="Share any feedback about our products and services" class="jsx-46e725b05407d396 geist-feedback-input"><h5 class="jsx-46e725b05407d396">Was this helpful?</h5><span class="jsx-46e725b05407d396 emojis"><main class="jsx-b14f721a13ab4fac geist-emoji-selector shown"><button type="button" class="jsx-b14f721a13ab4fac option"><span class="jsx-b14f721a13ab4fac inner"><img decoding="async" width="24" height="24" src="https://assets.vercel.com/twemoji/1f62d.svg" alt="useless" loading="lazy" style="transform:none"/></span></button><button type="button" class="jsx-b14f721a13ab4fac option"><span class="jsx-b14f721a13ab4fac inner"><img decoding="async" width="24" height="24" src="https://assets.vercel.com/twemoji/1f615.svg" alt="no" loading="lazy" style="transform:translateY(0.5px)"/></span></button><button type="button" class="jsx-b14f721a13ab4fac option"><span class="jsx-b14f721a13ab4fac inner"><img decoding="async" width="24" height="24" src="https://assets.vercel.com/twemoji/1f600.svg" alt="yes" loading="lazy" style="transform:translateY(0.5px)"/></span></button><button type="button" class="jsx-b14f721a13ab4fac option"><span class="jsx-b14f721a13ab4fac inner"><img decoding="async" width="22" height="22" src="https://assets.vercel.com/twemoji/1f929.svg" alt="amazing" loading="lazy" style="transform:none"/></span></button></main></span><div class="jsx-46e725b05407d396 textarea-wrapper"><div class="jsx-46e725b05407d396 input"><label class="jsx-46e725b05407d396">Email</label><div aria-label="Your email address" class="jsx-269800061 wrapper"><div class="jsx-269800061 input-wrapper"><input autoCapitalize="off" autoComplete="off" autoCorrect="off" spellcheck="false" placeholder="Your email address..." type="email" title="Your email address..." class="jsx-269800061"/></div></div></div><div class="jsx-46e725b05407d396 input"><label class="jsx-46e725b05407d396">Feedback</label><div class="jsx-4085395972 wrapper"><textarea aria-label="Feedback input" autoCapitalize="off" autoComplete="off" autoCorrect="off" placeholder="Your feedback..." type="text" class="jsx-4085395972 "></textarea></div></div><div class="jsx-46e725b05407d396 controls"><span class="jsx-46e725b05407d396 buttons "><button type="submit" class="jsx-b662909c11ef51ed btn fw4 no-drag invert small"><span class="jsx-b662909c11ef51ed text">Send</span></button></span></div></div></form></div><footer class="jsx-b11219c29fa3ea50"><a href="https://github.com/vercel/next.js/edit/canary/docs/api-reference/cli.md" target="_blank" rel="noopener noreferrer" class="jsx-b11219c29fa3ea50">Edit this page on GitHub</a></footer></div></div></div></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"routes":[{"title":"Documentation","heading":true,"routes":[{"title":"Getting Started","path":"/docs/getting-started.md"},{"title":"Basic Features","open":true,"routes":[{"title":"Pages","path":"/docs/basic-features/pages.md"},{"title":"Data Fetching","routes":[{"title":"Overview","path":"/docs/basic-features/data-fetching/overview.md"},{"title":"getServerSideProps","path":"/docs/basic-features/data-fetching/get-server-side-props.md"},{"title":"getStaticPaths","path":"/docs/basic-features/data-fetching/get-static-paths.md"},{"title":"getStaticProps","path":"/docs/basic-features/data-fetching/get-static-props.md"},{"title":"Incremental Static Regeneration","path":"/docs/basic-features/data-fetching/incremental-static-regeneration.md"},{"title":"Client side","path":"/docs/basic-features/data-fetching/client-side.md"}]},{"title":"Built-in CSS Support","path":"/docs/basic-features/built-in-css-support.md"},{"title":"Layouts","path":"/docs/basic-features/layouts.md"},{"title":"Image Optimization","path":"/docs/basic-features/image-optimization.md"},{"title":"Font Optimization","path":"/docs/basic-features/font-optimization.md"},{"title":"Static File Serving","path":"/docs/basic-features/static-file-serving.md"},{"title":"Fast Refresh","path":"/docs/basic-features/fast-refresh.md"},{"title":"ESLint","path":"/docs/basic-features/eslint.md"},{"title":"TypeScript","path":"/docs/basic-features/typescript.md"},{"title":"Environment Variables","path":"/docs/basic-features/environment-variables.md"},{"title":"Supported Browsers and Features","path":"/docs/basic-features/supported-browsers-features.md"},{"title":"Handling Scripts","path":"/docs/basic-features/script.md"}]},{"title":"Routing","routes":[{"title":"Introduction","path":"/docs/routing/introduction.md"},{"title":"Dynamic Routes","path":"/docs/routing/dynamic-routes.md"},{"title":"Imperatively","path":"/docs/routing/imperatively.md"},{"title":"Shallow Routing","path":"/docs/routing/shallow-routing.md"}]},{"title":"API Routes","routes":[{"title":"Introduction","path":"/docs/api-routes/introduction.md"},{"title":"Dynamic API Routes","path":"/docs/api-routes/dynamic-api-routes.md"},{"title":"API Middlewares","path":"/docs/api-routes/api-middlewares.md"},{"title":"Response Helpers","path":"/docs/api-routes/response-helpers.md"}]},{"title":"Middleware","path":"/docs/middleware.md"},{"title":"Going to Production","path":"/docs/going-to-production.md"},{"title":"Deployment","path":"/docs/deployment.md"},{"title":"Authentication","path":"/docs/authentication.md"},{"title":"Testing","path":"/docs/testing.md"},{"title":"Guides","routes":[{"title":"Building Forms","path":"/docs/guides/building-forms.md"}]},{"title":"Advanced Features","routes":[{"title":"Next.js Compiler","path":"/docs/advanced-features/compiler.md"},{"title":"Preview Mode","path":"/docs/advanced-features/preview-mode.md"},{"title":"Dynamic Import","path":"/docs/advanced-features/dynamic-import.md"},{"title":"Automatic Static Optimization","path":"/docs/advanced-features/automatic-static-optimization.md"},{"title":"Static HTML Export","path":"/docs/advanced-features/static-html-export.md"},{"title":"Absolute Imports and Module Path Aliases","path":"/docs/advanced-features/module-path-aliases.md"},{"title":"Using MDX","path":"/docs/advanced-features/using-mdx.md"},{"title":"AMP Support","routes":[{"title":"Introduction","path":"/docs/advanced-features/amp-support/introduction.md"},{"title":"Adding AMP Components","path":"/docs/advanced-features/amp-support/adding-amp-components.md"},{"title":"AMP Validation","path":"/docs/advanced-features/amp-support/amp-validation.md"},{"title":"AMP in Static HTML export","path":"/docs/advanced-features/amp-support/amp-in-static-html-export.md"},{"title":"TypeScript","path":"/docs/advanced-features/amp-support/typescript.md"}]},{"title":"Customizing Babel Config","path":"/docs/advanced-features/customizing-babel-config.md"},{"title":"Customizing PostCSS Config","path":"/docs/advanced-features/customizing-postcss-config.md"},{"title":"Custom Server","path":"/docs/advanced-features/custom-server.md"},{"title":"Custom `App`","path":"/docs/advanced-features/custom-app.md"},{"title":"Custom `Document`","path":"/docs/advanced-features/custom-document.md"},{"title":"Custom Error Page","path":"/docs/advanced-features/custom-error-page.md"},{"title":"`src` Directory","path":"/docs/advanced-features/src-directory.md"},{"title":"Multi Zones","path":"/docs/advanced-features/multi-zones.md"},{"title":"Measuring performance","path":"/docs/advanced-features/measuring-performance.md"},{"title":"Debugging","path":"/docs/advanced-features/debugging.md"},{"title":"Error Handling","path":"/docs/advanced-features/error-handling.md"},{"title":"Source Maps","path":"/docs/advanced-features/source-maps.md"},{"title":"Codemods","path":"/docs/advanced-features/codemods.md"},{"title":"Internationalized Routing","path":"/docs/advanced-features/i18n-routing.md"},{"title":"Output File Tracing","path":"/docs/advanced-features/output-file-tracing.md"},{"title":"Security Headers","path":"/docs/advanced-features/security-headers.md"},{"title":"React 18","routes":[{"title":"Overview","path":"/docs/advanced-features/react-18/overview.md"},{"title":"Streaming SSR","path":"/docs/advanced-features/react-18/streaming.md"},{"title":"React Server Components","path":"/docs/advanced-features/react-18/server-components.md"}]}]},{"title":"Upgrade Guide","path":"/docs/upgrading.md"},{"title":"Migrating to Next.js","routes":[{"title":"Incrementally Adopting Next.js","path":"/docs/migrating/incremental-adoption.md"},{"title":"Migrating from Gatsby","path":"/docs/migrating/from-gatsby.md"},{"title":"Migrating from Create React App","path":"/docs/migrating/from-create-react-app.md"},{"title":"Migrating from React Router","path":"/docs/migrating/from-react-router.md"}]},{"title":"FAQ","path":"/docs/faq.md"}]},{"title":"API Reference","heading":true,"routes":[{"title":"CLI","path":"/docs/api-reference/cli.md"},{"title":"Create Next App","path":"/docs/api-reference/create-next-app.md"},{"title":"next/router","path":"/docs/api-reference/next/router.md"},{"title":"next/link","path":"/docs/api-reference/next/link.md"},{"title":"next/image","path":"/docs/api-reference/next/image.md"},{"title":"next/script","path":"/docs/api-reference/next/script.md"},{"title":"next/head","path":"/docs/api-reference/next/head.md"},{"title":"next/amp","path":"/docs/api-reference/next/amp.md"},{"title":"next/server","path":"/docs/api-reference/next/server.md"},{"title":"next/streaming","path":"/docs/api-reference/next/streaming.md"},{"title":"Edge Runtime","path":"/docs/api-reference/edge-runtime.md"},{"title":"Data Fetching","routes":[{"title":"getInitialProps","path":"/docs/api-reference/data-fetching/get-initial-props.md"},{"title":"getServerSideProps","path":"/docs/api-reference/data-fetching/get-server-side-props.md"},{"title":"getStaticPaths","path":"/docs/api-reference/data-fetching/get-static-paths.md"},{"title":"getStaticProps","path":"/docs/api-reference/data-fetching/get-static-props.md"}]},{"title":"Static Optimization Indicator","path":"/docs/api-reference/next.config.js/static-optimization-indicator.md"},{"title":"next.config.js","routes":[{"title":"Introduction","path":"/docs/api-reference/next.config.js/introduction.md"},{"title":"Environment Variables","path":"/docs/api-reference/next.config.js/environment-variables.md"},{"title":"Base Path","path":"/docs/api-reference/next.config.js/basepath.md"},{"title":"Rewrites","path":"/docs/api-reference/next.config.js/rewrites.md"},{"title":"Redirects","path":"/docs/api-reference/next.config.js/redirects.md"},{"title":"Custom Headers","path":"/docs/api-reference/next.config.js/headers.md"},{"title":"Custom Page Extensions","path":"/docs/api-reference/next.config.js/custom-page-extensions.md"},{"title":"CDN Support with Asset Prefix","path":"/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"},{"title":"Custom Webpack Config","path":"/docs/api-reference/next.config.js/custom-webpack-config.md"},{"title":"Compression","path":"/docs/api-reference/next.config.js/compression.md"},{"title":"Runtime Configuration","path":"/docs/api-reference/next.config.js/runtime-configuration.md"},{"title":"Disabling x-powered-by","path":"/docs/api-reference/next.config.js/disabling-x-powered-by.md"},{"title":"Disabling ETag Generation","path":"/docs/api-reference/next.config.js/disabling-etag-generation.md"},{"title":"Disabling HTTP Keep-Alive","path":"/docs/api-reference/next.config.js/disabling-http-keep-alive.md"},{"title":"Setting a custom build directory","path":"/docs/api-reference/next.config.js/setting-a-custom-build-directory.md"},{"title":"Configuring the Build ID","path":"/docs/api-reference/next.config.js/configuring-the-build-id.md"},{"title":"Configuring onDemandEntries","path":"/docs/api-reference/next.config.js/configuring-onDemandEntries.md"},{"title":"Ignoring ESLint","path":"/docs/api-reference/next.config.js/ignoring-eslint.md"},{"title":"Ignoring TypeScript Errors","path":"/docs/api-reference/next.config.js/ignoring-typescript-errors.md"},{"title":"exportPathMap","path":"/docs/api-reference/next.config.js/exportPathMap.md"},{"title":"Trailing Slash","path":"/docs/api-reference/next.config.js/trailing-slash.md"},{"title":"React Strict Mode","path":"/docs/api-reference/next.config.js/react-strict-mode.md"},{"title":"URL Imports","path":"/docs/api-reference/next.config.js/url-imports.md"},{"title":"Build indicator","path":"/docs/api-reference/next.config.js/build-indicator.md"}]}]}],"data":{"description":"The Next.js CLI allows you to start, build, and export your application. Learn more about it here."},"route":{"title":"CLI","path":"/docs/api-reference/cli.md"},"html":"\u003ch1\u003eNext.js CLI\u003c/h1\u003e\n\u003cp\u003eThe Next.js CLI allows you to start, build, and export your application.\u003c/p\u003e\n\u003cp\u003eTo get a list of the available CLI commands, run the following command inside your project directory:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enpx next -h\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cem\u003e(\u003ca href=\"https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b\" class=\"absolute\" target=\"_blank\" rel=\"noopener noreferrer\"\u003enpx\u003c/a\u003e comes with npm 5.2+ and higher)\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eThe output should look like this:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003eUsage\n  $ next \u003cspan class=\"token operator\"\u003e\u0026#x3C;\u003c/span\u003ecommand\u003cspan class=\"token operator\"\u003e\u003e\u003c/span\u003e\n\nAvailable commands\n  build, start, export, dev, lint, telemetry, info\n\nOptions\n  --version, -v   Version number\n  --help, -h      Displays this message\n\nFor \u003cspan class=\"token function\"\u003emore\u003c/span\u003e information run a \u003cspan class=\"token builtin class-name\"\u003ecommand\u003c/span\u003e with the --help flag\n  $ next build --help\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can pass any \u003ca href=\"https://nodejs.org/api/cli.html#cli_node_options_options\" class=\"absolute\" target=\"_blank\" rel=\"noopener noreferrer\"\u003enode arguments\u003c/a\u003e to \u003ccode class=\"inline\"\u003enext\u003c/code\u003e commands:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003e\u003cspan class=\"token assign-left variable\"\u003eNODE_OPTIONS\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e'--throw-deprecation'\u003c/span\u003e next\n\u003cspan class=\"token assign-left variable\"\u003eNODE_OPTIONS\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e'-r esm'\u003c/span\u003e next\n\u003cspan class=\"token assign-left variable\"\u003eNODE_OPTIONS\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token string\"\u003e'--inspect'\u003c/span\u003e next\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 class=\"heading\"\u003e\u003cspan id=\"build\"\u003e\u003c/span\u003e\u003ca href=\"#build\"\u003eBuild\u003c/a\u003e\u003cspan class=\"permalink\"\u003e\u003csvg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\"\u003e\n  \u003cg stroke-width=\"1\" fill=\"#000000\" stroke=\"#000000\"\u003e\n    \u003cpath fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698\"\u003e\u003c/path\u003e\n    \u003cpath fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698\"\u003e\u003c/path\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ccode class=\"inline\"\u003enext build\u003c/code\u003e creates an optimized production build of your application. The output displays information about each route.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eSize\u003c/strong\u003e – The number of assets downloaded when navigating to the page client-side. The size for each route only includes its dependencies.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eFirst Load JS\u003c/strong\u003e – The number of assets downloaded when visiting the page from the server. The amount of JS shared by all is shown as a separate metric.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe first load is indicated by green, yellow, or red. Aim for green for performant applications.\u003c/p\u003e\n\u003cp\u003eYou can enable production profiling for React with the \u003ccode class=\"inline\"\u003e--profile\u003c/code\u003e flag in \u003ccode class=\"inline\"\u003enext build\u003c/code\u003e. This requires \u003ca href=\"/blog/next-9-5\" class=\"relative\"\u003eNext.js 9.5\u003c/a\u003e:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enext build --profile\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAfter that, you can use the profiler in the same way as you would in development.\u003c/p\u003e\n\u003cp\u003eYou can enable more verbose build output with the \u003ccode class=\"inline\"\u003e--debug\u003c/code\u003e flag in \u003ccode class=\"inline\"\u003enext build\u003c/code\u003e. This requires Next.js 9.5.3:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enext build --debug\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWith this flag enabled additional build output like rewrites, redirects, and headers will be shown.\u003c/p\u003e\n\u003ch2 class=\"heading\"\u003e\u003cspan id=\"development\"\u003e\u003c/span\u003e\u003ca href=\"#development\"\u003eDevelopment\u003c/a\u003e\u003cspan class=\"permalink\"\u003e\u003csvg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\"\u003e\n  \u003cg stroke-width=\"1\" fill=\"#000000\" stroke=\"#000000\"\u003e\n    \u003cpath fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698\"\u003e\u003c/path\u003e\n    \u003cpath fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698\"\u003e\u003c/path\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ccode class=\"inline\"\u003enext dev\u003c/code\u003e starts the application in development mode with hot-code reloading, error reporting, and more:\u003c/p\u003e\n\u003cp\u003eThe application will start at \u003ccode class=\"inline\"\u003ehttp://localhost:3000\u003c/code\u003e by default. The default port can be changed with \u003ccode class=\"inline\"\u003e-p\u003c/code\u003e, like so:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enpx next dev -p \u003cspan class=\"token number\"\u003e4000\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr using the \u003ccode class=\"inline\"\u003ePORT\u003c/code\u003e environment variable:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003e\u003cspan class=\"token assign-left variable\"\u003ePORT\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token number\"\u003e4000\u003c/span\u003e npx next dev\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNote: \u003ccode class=\"inline\"\u003ePORT\u003c/code\u003e can not be set in \u003ccode class=\"inline\"\u003e.env\u003c/code\u003e as booting up the HTTP server happens before any other code is initialized.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eYou can also set the hostname to be different from the default of \u003ccode class=\"inline\"\u003e0.0.0.0\u003c/code\u003e, this can be useful for making the application available for other devices on the network. The default hostname can be changed with \u003ccode class=\"inline\"\u003e-H\u003c/code\u003e, like so:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enpx next dev -H \u003cspan class=\"token number\"\u003e192.168\u003c/span\u003e.1.2\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 class=\"heading\"\u003e\u003cspan id=\"production\"\u003e\u003c/span\u003e\u003ca href=\"#production\"\u003eProduction\u003c/a\u003e\u003cspan class=\"permalink\"\u003e\u003csvg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\"\u003e\n  \u003cg stroke-width=\"1\" fill=\"#000000\" stroke=\"#000000\"\u003e\n    \u003cpath fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698\"\u003e\u003c/path\u003e\n    \u003cpath fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698\"\u003e\u003c/path\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ccode class=\"inline\"\u003enext start\u003c/code\u003e starts the application in production mode. The application should be compiled with \u003ca href=\"#build\" class=\"relative\"\u003e\u003ccode class=\"inline\"\u003enext build\u003c/code\u003e\u003c/a\u003e first.\u003c/p\u003e\n\u003cp\u003eThe application will start at \u003ccode class=\"inline\"\u003ehttp://localhost:3000\u003c/code\u003e by default. The default port can be changed with \u003ccode class=\"inline\"\u003e-p\u003c/code\u003e, like so:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enpx next start -p \u003cspan class=\"token number\"\u003e4000\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOr using the \u003ccode class=\"inline\"\u003ePORT\u003c/code\u003e environment variable:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003e\u003cspan class=\"token assign-left variable\"\u003ePORT\u003c/span\u003e\u003cspan class=\"token operator\"\u003e=\u003c/span\u003e\u003cspan class=\"token number\"\u003e4000\u003c/span\u003e npx next start\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNote: \u003ccode class=\"inline\"\u003ePORT\u003c/code\u003e can not be set in \u003ccode class=\"inline\"\u003e.env\u003c/code\u003e as booting up the HTTP server happens before any other code is initialized.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2 class=\"heading\"\u003e\u003cspan id=\"lint\"\u003e\u003c/span\u003e\u003ca href=\"#lint\"\u003eLint\u003c/a\u003e\u003cspan class=\"permalink\"\u003e\u003csvg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\"\u003e\n  \u003cg stroke-width=\"1\" fill=\"#000000\" stroke=\"#000000\"\u003e\n    \u003cpath fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698\"\u003e\u003c/path\u003e\n    \u003cpath fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698\"\u003e\u003c/path\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ccode class=\"inline\"\u003enext lint\u003c/code\u003e runs ESLint for all files in the \u003ccode class=\"inline\"\u003epages\u003c/code\u003e, \u003ccode class=\"inline\"\u003ecomponents\u003c/code\u003e, and \u003ccode class=\"inline\"\u003elib\u003c/code\u003e directories. It also\nprovides a guided setup to install any required dependencies if ESLint is not already configured in\nyour application.\u003c/p\u003e\n\u003cp\u003eIf you have other directories that you would like to lint, you can specify them using the \u003ccode class=\"inline\"\u003e--dir\u003c/code\u003e\nflag:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enext lint --dir utils\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 class=\"heading\"\u003e\u003cspan id=\"telemetry\"\u003e\u003c/span\u003e\u003ca href=\"#telemetry\"\u003eTelemetry\u003c/a\u003e\u003cspan class=\"permalink\"\u003e\u003csvg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\"\u003e\n  \u003cg stroke-width=\"1\" fill=\"#000000\" stroke=\"#000000\"\u003e\n    \u003cpath fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698\"\u003e\u003c/path\u003e\n    \u003cpath fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698\"\u003e\u003c/path\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003eNext.js collects \u003cstrong\u003ecompletely anonymous\u003c/strong\u003e telemetry data about general usage.\nParticipation in this anonymous program is optional, and you may opt-out if you'd not like to share any information.\u003c/p\u003e\n\u003cp\u003eTo learn more about Telemetry, \u003ca href=\"/telemetry/\" class=\"relative\"\u003eplease read this document\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 class=\"heading\"\u003e\u003cspan id=\"info\"\u003e\u003c/span\u003e\u003ca href=\"#info\"\u003eInfo\u003c/a\u003e\u003cspan class=\"permalink\"\u003e\u003csvg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\"\u003e\n  \u003cg stroke-width=\"1\" fill=\"#000000\" stroke=\"#000000\"\u003e\n    \u003cpath fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698\"\u003e\u003c/path\u003e\n    \u003cpath fill=\"none\" stroke=\"#000000\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698\"\u003e\u003c/path\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e\u003c/span\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ccode class=\"inline\"\u003enext info\u003c/code\u003e prints relevant details about the current system which can be used to report Next.js bugs.\nThis information includes Operating System platform/arch/version, Binaries (Node.js, npm, Yarn, pnpm) and npm package versions (\u003ccode class=\"inline\"\u003enext\u003c/code\u003e, \u003ccode class=\"inline\"\u003ereact\u003c/code\u003e, \u003ccode class=\"inline\"\u003ereact-dom\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eRunning the following in your project's root directory:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003enext info\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ewill give you information like this example:\u003c/p\u003e\n\u003cpre class=\"language-bash\"\u003e\u003ccode class=\"language-bash\"\u003e\n    Operating System:\n      Platform: linux\n      Arch: x64\n      Version: \u003cspan class=\"token comment\"\u003e#22-Ubuntu SMP Fri Nov 5 13:21:36 UTC 2021\u003c/span\u003e\n    Binaries:\n      Node: \u003cspan class=\"token number\"\u003e16.13\u003c/span\u003e.0\n      npm: \u003cspan class=\"token number\"\u003e8.1\u003c/span\u003e.0\n      Yarn: \u003cspan class=\"token number\"\u003e1.22\u003c/span\u003e.17\n      pnpm: \u003cspan class=\"token number\"\u003e6.24\u003c/span\u003e.2\n    Relevant packages:\n      next: \u003cspan class=\"token number\"\u003e12.0\u003c/span\u003e.8\n      react: \u003cspan class=\"token number\"\u003e17.0\u003c/span\u003e.2\n      react-dom: \u003cspan class=\"token number\"\u003e17.0\u003c/span\u003e.2\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis information should then be pasted into GitHub Issues.\u003c/p\u003e"},"__N_SSG":true},"page":"/docs/[[...slug]]","query":{"slug":["api-reference","cli"]},"buildId":"evpvxZ3IcNs45ngQ3kpij","isFallback":false,"gsp":true,"scriptLoader":[]}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-117491914-2"></script><script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'UA-117491914-2');
+                  </script><script src="https://www.youtube.com/iframe_api"></script></body>
+<!-- Mirrored from nextjs.org/docs/api-reference/cli by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Mar 2022 13:11:23 GMT -->
+</html>
