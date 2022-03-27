@@ -8,8 +8,11 @@ const { PORT } = process.env;
 const app = express();
 
 const addExtension = (req, res, next) => {
-  if(req.url.endsWith('.json')){
-    next()
+  if (req.url.endsWith(".json")) {
+    next();
+  }
+  if (req.url.startsWith("/_next/image")) {
+    next();
   }
   const hasHtmlExtension = req.url.endsWith(".html");
   if (!hasHtmlExtension) {
@@ -22,14 +25,18 @@ const addExtension = (req, res, next) => {
 app.use("/docs", express.static(path.resolve(process.cwd(), "./docs")));
 app.use("/_next", express.static(path.resolve(process.cwd(), "./_next")));
 app.use("/static", express.static(path.resolve(process.cwd(), "./static")));
+app.use(
+  "/_data_image",
+  express.static(path.resolve(process.cwd(), "./_data_image"))
+);
 app.use(addExtension);
 
 app.get("/", (req, res) => {
   res.sendFile("docs/getting-started.html", { root: process.cwd() });
 });
 
-app.listen(PORT,async () => {
+app.listen(PORT, () => {
   const URL = `http://localhost:${PORT}/docs/getting-started.html`;
-  await open(URL);
+  //  await open(URL);
   console.log(`server running on: ${URL}`);
 });
