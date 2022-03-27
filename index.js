@@ -35,8 +35,8 @@ app.get("/", (req, res) => {
   res.sendFile("docs/getting-started.html", { root: process.cwd() });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   const URL = `http://localhost:${PORT}/docs/getting-started.html`;
-  //  await open(URL);
+  await open(URL);
   console.log(`server running on: ${URL}`);
 });
